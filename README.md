@@ -31,8 +31,8 @@ It is generated from the project's build at each release. Its files under `spec/
 
 - **Questions and proposals** go in [issues](https://github.com/furthermachines/enna/issues). [`CONTRIBUTING.md`](CONTRIBUTING.md) says what makes a good one.
 - **Pull requests are not merged here.** The repository is regenerated from the project's build at each release, and whether contributors to the specification text make a patent commitment is undecided ([`GOVERNANCE.md`](GOVERNANCE.md), "How governance could evolve").
-- **Security problems** are reported privately, as [`SECURITY.md`](SECURITY.md) says, never in a public issue.
-- **Conduct** in the project's spaces, this repository's issues included, follows [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md), which says that there is no channel for conduct reports yet.
+- **Security problems** are reported privately, through GitHub's private vulnerability reporting or by email to <security@businessagentprotocol.org>, as [`SECURITY.md`](SECURITY.md) says, never in a public issue.
+- **Conduct** in the project's spaces, this repository's issues included, follows [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md). Report a conduct problem by email, to <conduct@businessagentprotocol.org>.
 
 ## License
 

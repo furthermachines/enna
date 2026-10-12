@@ -22,7 +22,7 @@ Enna is meant to become a standard that people from many organizations can work 
 
 The project's owner is responsible for enforcing this code until there are other maintainers.
 
-**No channel for conduct reports exists yet.** They will go to an email address, which the owner has not chosen yet (`GOVERNANCE.md`, decision 3). When it exists, this file will name it. Security problems have their own private channel (`SECURITY.md`).
+**Report a conduct problem by email, to <conduct@businessagentprotocol.org>.** The project's owner reads it. Security problems have their own private channels (`SECURITY.md`).
 
 Reports will be handled in confidence. Responses are proportionate: a private conversation, a public correction, a temporary restriction, or exclusion from the project's spaces for serious or repeated harm. Anyone who reports a problem in good faith will not be penalized for it.
 

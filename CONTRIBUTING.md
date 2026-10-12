@@ -21,8 +21,8 @@ Pull requests are not merged here, for two reasons:
 
 ## Security
 
-Security problems go through [`SECURITY.md`](SECURITY.md), never a public issue.
+Security problems go through GitHub's private vulnerability reporting or by email to <security@businessagentprotocol.org>, as [`SECURITY.md`](SECURITY.md) says, never a public issue.
 
 ## Conduct
 
-Everyone who takes part follows [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
+Everyone who takes part follows [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md). Report a conduct problem by email, to <conduct@businessagentprotocol.org>.

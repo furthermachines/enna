@@ -6,7 +6,7 @@ Enna, the Business Agent Protocol, is a **founder-led draft**. This file says wh
 
 Further Machines started Enna. The draft's owner, who leads it for Further Machines and is called the owner in these files, decides what goes into it. There are no other editors, members, sponsors or contributors yet.
 
-The owner's decisions so far include: the name, Enna; building on the Personal Agent Protocol; publishing a discovery document of Enna's own; keeping the protocol vendor-neutral; on 2026-10-11, the license and publishing the site; and, on 2026-10-12, publishing the specification in a public repository. Some decisions are still open (below).
+The owner's decisions so far include: the name, Enna; building on the Personal Agent Protocol; publishing a discovery document of Enna's own; keeping the protocol vendor-neutral; on 2026-10-11, the license and publishing the site; and, on 2026-10-12, publishing the specification in a public repository and the channels for security and conduct reports. Some decisions are still open (below).
 
 ## Further Machines' role
 
@@ -44,7 +44,7 @@ These are the owner's to decide. Each is listed with its state, and an open one 
 
 1. **The license**: decided on 2026-10-11. Apache-2.0 for code, schemas and fixtures, and CC BY 4.0 for the specification and documentation (`LICENSING.md`).
 2. **The GitHub organization and repository** for the public repository: decided on 2026-10-12. The specification is public at [https://github.com/furthermachines/enna](https://github.com/furthermachines/enna): the Markdown of its text, its schemas, catalogs, fixtures and test vectors, and `manifest.json`, as the site publishes them under `/spec/v0.1/`, with the project's documents and `CHANGELOG.md`. Questions and proposals go in its issues; it does not merge pull requests. It is generated from the project's build at each release. The build repository stays private: it holds the TypeScript packages, the site's code and the documentation: the decision records, the runbook and the research notes. Outside contributions to it cannot be accepted.
-3. **A private reporting channel** for security issues, and for conduct reports: partly decided on 2026-10-12. Security reports go through GitHub's private vulnerability reporting on the public repository (`SECURITY.md`). The email channel, for security and conduct reports, is still open, so conduct reports have no channel yet (`CODE_OF_CONDUCT.md`).
+3. **A private reporting channel** for security issues, and for conduct reports: decided on 2026-10-12. Security reports go through GitHub's private vulnerability reporting on the public repository, or by email to <security@businessagentprotocol.org> (`SECURITY.md`). Conduct reports go by email to <conduct@businessagentprotocol.org> (`CODE_OF_CONDUCT.md`). The project's owner reads both addresses.
 4. **Counsel review** of how the Personal Agent Protocol is named and attributed: open. It covers the abbreviation PAP, which is this draft's own: PAP's site does not use it, and the draft builds it into identifiers (the `pap` extension, `pap_confirmation`, `pap_account`, `pap_operation_id` and the discovery member `pap`), so renaming them later would be an incompatible change.
 5. **The Cloudflare account and zone** that serve the site, and the project's control of `businessagentprotocol.org`: confirmed on 2026-10-11.
 6. **The owner's review of all public copy**: open.

@@ -2,7 +2,12 @@
 
 ## Reporting a vulnerability
 
-**Report a vulnerability privately, through GitHub:** [https://github.com/furthermachines/enna/security/advisories/new](https://github.com/furthermachines/enna/security/advisories/new). This is GitHub's private vulnerability reporting on the specification's public repository, and it needs a GitHub account.
+Report a vulnerability privately, in one of two ways:
+
+- **Through GitHub**, which is preferred, because it keeps the report and its fix together: [https://github.com/furthermachines/enna/security/advisories/new](https://github.com/furthermachines/enna/security/advisories/new). This is GitHub's private vulnerability reporting on the specification's public repository, and it needs a GitHub account.
+- **By email**, to <security@businessagentprotocol.org>.
+
+The project's owner reads both.
 
 Say in a report:
 
@@ -13,11 +18,9 @@ Say in a report:
 
 How reports are acknowledged and handled is not written down yet.
 
-**There is no email channel yet.** An address for security and conduct reports is an open decision of the project's owner (`GOVERNANCE.md`, decision 3). If you cannot use GitHub, say in public only that you believe you found a security problem, and wait for an address in this file.
-
 **Do not post exploit details publicly.** Keep proof-of-concept code, step-by-step reproductions and anything that would help someone attack an implementation out of issues, pull requests, discussions and social media. Never report a security problem in a public issue.
 
-The specification site's `/.well-known/enna.json` names the same reporting form as its security contact.
+The specification site's `/.well-known/enna.json` names the GitHub reporting form as its security contact.
 
 ## What is in scope
 

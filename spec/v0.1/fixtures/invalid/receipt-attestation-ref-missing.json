@@ -1,0 +1,21 @@
+{
+  "description": "An attested receipt says where its attestation is.",
+  "section": "6.6",
+  "validate": "object",
+  "base": "execution-receipt.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/integrity/attestation",
+      "value": {
+        "kind": "jws"
+      }
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/integrity/attestation/ref"
+    }
+  ]
+}

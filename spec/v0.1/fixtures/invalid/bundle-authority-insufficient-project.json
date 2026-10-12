@@ -1,0 +1,23 @@
+{
+  "description": "A commit landed in another project of the contract's workspace, which the grant does not name, though the tenant boundary ignores projects.",
+  "section": "9.7",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/5/action/resource/scope/project",
+      "value": "brand-refresh"
+    }
+  ],
+  "reseal": "receipts",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "authority_insufficient",
+      "path": "/5/action"
+    }
+  ]
+}

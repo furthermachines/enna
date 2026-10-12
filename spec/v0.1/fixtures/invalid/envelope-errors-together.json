@@ -1,0 +1,28 @@
+{
+  "description": "An envelope's own errors and those of the objects it carries are reported together.",
+  "section": "8.2",
+  "validate": "envelope",
+  "base": "envelope.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/priority",
+      "value": "high"
+    },
+    {
+      "op": "replace",
+      "path": "/objects/1/purpose",
+      "value": null
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/objects/1/purpose"
+    },
+    {
+      "code": "unknown_member",
+      "path": "/priority"
+    }
+  ]
+}

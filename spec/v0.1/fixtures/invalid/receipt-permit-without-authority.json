@@ -1,0 +1,18 @@
+{
+  "description": "A permitted action that is not a replay names its authority.",
+  "section": "6.3",
+  "validate": "object",
+  "base": "execution-receipt.json",
+  "patch": [
+    {
+      "op": "remove",
+      "path": "/authority"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/authority"
+    }
+  ]
+}

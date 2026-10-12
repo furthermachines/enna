@@ -1,0 +1,86 @@
+{
+  "description": "At Assured, every receipt names the policy decision it rests on.",
+  "section": "9.16",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/3/integrity/attestation",
+      "value": {
+        "kind": "jws",
+        "ref": "https://attest.harborpine.example/receipts/rcpt_branch.jws"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/4/integrity/attestation",
+      "value": {
+        "kind": "jws",
+        "ref": "https://attest.harborpine.example/receipts/rcpt_lumen_read_denied.jws"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/5/integrity/attestation",
+      "value": {
+        "kind": "jws",
+        "ref": "https://attest.harborpine.example/receipts/rcpt_commit.jws"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/6/integrity/attestation",
+      "value": {
+        "kind": "jws",
+        "ref": "https://attest.harborpine.example/receipts/rcpt_ci.jws"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/7/integrity/attestation",
+      "value": {
+        "kind": "jws",
+        "ref": "https://attest.harborpine.example/receipts/rcpt_pull_request.jws"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/8/integrity/attestation",
+      "value": {
+        "kind": "jws",
+        "ref": "https://attest.harborpine.example/receipts/rcpt_preview.jws"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/2/approvals/0/assurance",
+      "value": "verified"
+    },
+    {
+      "op": "add",
+      "path": "/2/approvals/0/evidence",
+      "value": [
+        {
+          "kind": "step_up_authentication",
+          "ref": "https://id.harborpine.example/evidence/apr_priya_brand_approvals"
+        }
+      ]
+    },
+    {
+      "op": "remove",
+      "path": "/6/decision/policy_ref"
+    }
+  ],
+  "reseal": "receipts",
+  "options": {
+    "now": "2026-10-20T00:00:00Z",
+    "level": "assured"
+  },
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/6/decision/policy_ref"
+    }
+  ]
+}

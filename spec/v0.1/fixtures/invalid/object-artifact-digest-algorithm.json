@@ -1,0 +1,19 @@
+{
+  "description": "An artifact's digest names sha1, sha256, sha384 or sha512.",
+  "section": "2.15",
+  "validate": "object",
+  "base": "execution-receipt.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/artifacts/0/digest",
+      "value": "md5:3f786850e387550fdab836ed7e6dc881"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/artifacts/0/digest"
+    }
+  ]
+}

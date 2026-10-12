@@ -1,0 +1,26 @@
+{
+  "description": "A stakeholder named to accept the work is an agent; an acceptor is a person.",
+  "section": "3.5",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/stakeholders/-",
+      "value": {
+        "principal": {
+          "kind": "agent",
+          "id": "https://agents.harborpine.example/evaluator",
+          "display": "Evaluator agent"
+        },
+        "role": "acceptor"
+      }
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/stakeholders/2/principal/kind"
+    }
+  ]
+}

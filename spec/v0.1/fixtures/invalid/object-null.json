@@ -1,0 +1,19 @@
+{
+  "description": "null is never valid; absent means not stated.",
+  "section": "2.9",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/summary",
+      "value": null
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/summary"
+    }
+  ]
+}

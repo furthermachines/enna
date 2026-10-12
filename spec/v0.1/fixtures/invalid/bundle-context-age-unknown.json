@@ -1,0 +1,37 @@
+{
+  "description": "The approver records state how old they may be but not when they were true, so their age is unknown and never fresh.",
+  "section": "9.8",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "remove",
+      "path": "/1/items/2/freshness/as_of"
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "context_stale",
+      "path": "/3/context"
+    },
+    {
+      "code": "context_stale",
+      "path": "/5/context"
+    },
+    {
+      "code": "context_stale",
+      "path": "/6/context"
+    },
+    {
+      "code": "context_stale",
+      "path": "/7/context"
+    },
+    {
+      "code": "context_stale",
+      "path": "/8/context"
+    }
+  ]
+}

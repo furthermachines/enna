@@ -1,0 +1,27 @@
+{
+  "description": "An action whose outcome is unknown has not finished.",
+  "section": "6.3",
+  "validate": "object",
+  "base": "execution-receipt.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/outcome/status",
+      "value": "unknown"
+    },
+    {
+      "op": "remove",
+      "path": "/effects"
+    },
+    {
+      "op": "remove",
+      "path": "/artifacts"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/finished_at"
+    }
+  ]
+}

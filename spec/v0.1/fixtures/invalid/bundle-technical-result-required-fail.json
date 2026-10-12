@@ -1,0 +1,22 @@
+{
+  "description": "A required criterion failed, so the technical result is fail, not the pass the evaluation states.",
+  "section": "7.4",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/9/criteria/0/result",
+      "value": "fail"
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "technical_result_mismatch",
+      "path": "/9/technical_result"
+    }
+  ]
+}

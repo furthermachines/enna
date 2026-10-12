@@ -1,0 +1,19 @@
+{
+  "description": "A protocol_version that is not a string is a schema violation, not an unsupported version.",
+  "section": "2.14",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/protocol_version",
+      "value": 0.1
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/protocol_version"
+    }
+  ]
+}

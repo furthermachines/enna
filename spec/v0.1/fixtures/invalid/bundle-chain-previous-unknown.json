@@ -1,0 +1,26 @@
+{
+  "description": "A receipt links to a digest no receipt in the record has.",
+  "section": "9.14",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/6/integrity/previous_digest",
+      "value": "sha256:16ca4f332c0bd3c9eb1857c8ae2dce1e80b125433762dca9a345e53a7668bbe7"
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "digest_mismatch",
+      "path": "/6/integrity/digest"
+    },
+    {
+      "code": "chain_broken",
+      "path": "/6/integrity/previous_digest"
+    }
+  ]
+}

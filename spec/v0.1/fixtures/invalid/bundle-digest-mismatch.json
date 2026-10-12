@@ -1,0 +1,22 @@
+{
+  "description": "A receipt was edited after it was sealed.",
+  "section": "9.14",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/5/outcome/summary",
+      "value": "Committed nothing."
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "digest_mismatch",
+      "path": "/5/integrity/digest"
+    }
+  ]
+}

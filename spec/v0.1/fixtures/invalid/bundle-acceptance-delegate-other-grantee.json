@@ -1,0 +1,27 @@
+{
+  "description": "The evaluator accepts, but the owner delegated acceptance to the planning agent.",
+  "section": "9.13",
+  "validate": "bundle",
+  "base": "bundle-delegated-acceptance.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/10/grantee",
+      "value": {
+        "kind": "agent",
+        "id": "https://agents.harborpine.example/planning",
+        "display": "Planning agent"
+      }
+    }
+  ],
+  "reseal": "all",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "acceptance_not_owner",
+      "path": "/9/acceptance/by"
+    }
+  ]
+}

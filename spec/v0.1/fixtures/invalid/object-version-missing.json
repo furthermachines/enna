@@ -1,0 +1,18 @@
+{
+  "description": "A document without a protocol_version is refused.",
+  "section": "2.14",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "remove",
+      "path": "/protocol_version"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/protocol_version"
+    }
+  ]
+}

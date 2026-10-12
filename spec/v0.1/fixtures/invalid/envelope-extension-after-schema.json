@@ -1,0 +1,29 @@
+{
+  "description": "An envelope's own critical extensions are checked only once its schema passes.",
+  "section": "8.2",
+  "validate": "envelope",
+  "base": "envelope.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/extensions",
+      "value": {
+        "example.com/routing": {
+          "version": "1",
+          "critical": true
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/priority",
+      "value": "high"
+    }
+  ],
+  "expected": [
+    {
+      "code": "unknown_member",
+      "path": "/priority"
+    }
+  ]
+}

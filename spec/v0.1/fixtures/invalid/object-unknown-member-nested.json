@@ -1,0 +1,19 @@
+{
+  "description": "Closed objects reject unknown members at any depth.",
+  "section": "2.13",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/criteria/0/weight",
+      "value": 2
+    }
+  ],
+  "expected": [
+    {
+      "code": "unknown_member",
+      "path": "/criteria/0/weight"
+    }
+  ]
+}

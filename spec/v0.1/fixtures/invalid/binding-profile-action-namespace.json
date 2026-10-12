@@ -1,0 +1,19 @@
+{
+  "description": "Under software-delivery/0.1, a grant's action in a namespace the profile owns is one of its seven.",
+  "section": "14.2",
+  "validate": "object",
+  "base": "authority-binding.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/grants/1/action",
+      "value": "repo.branch.delete"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/grants/1/action"
+    }
+  ]
+}

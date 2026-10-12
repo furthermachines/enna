@@ -1,0 +1,34 @@
+{
+  "description": "An integer is at most 9007199254740991, so a revision of 9007199254740992 is refused.",
+  "section": "2.15",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/revision",
+      "value": 9007199254740992
+    },
+    {
+      "op": "add",
+      "path": "/revision_author",
+      "value": {
+        "kind": "person",
+        "id": "dana.whitfield",
+        "issuer": "https://id.harborpine.example",
+        "display": "Dana Whitfield"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/change_summary",
+      "value": "Raised the budget."
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/revision"
+    }
+  ]
+}

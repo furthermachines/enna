@@ -1,0 +1,19 @@
+{
+  "description": "An unsigned receipt points to no attestation.",
+  "section": "6.6",
+  "validate": "object",
+  "base": "execution-receipt.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/integrity/attestation/ref",
+      "value": "https://attest.harborpine.example/receipts/rcpt_branch.jws"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/integrity/attestation/ref"
+    }
+  ]
+}

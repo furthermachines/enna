@@ -1,0 +1,25 @@
+{
+  "description": "A required criterion is left out, so the technical result cannot be pass.",
+  "section": "9.12",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "remove",
+      "path": "/9/criteria/2"
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "evidence_missing",
+      "path": "/9/criteria"
+    },
+    {
+      "code": "technical_result_mismatch",
+      "path": "/9/technical_result"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "description": "A domain does not end with a line break, though some regular expression engines let $ match before one.",
+  "section": "2.14",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/scope/organization",
+      "value": "harborpine.example\n"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/scope/organization"
+    }
+  ]
+}

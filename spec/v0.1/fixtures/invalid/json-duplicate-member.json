@@ -1,0 +1,12 @@
+{
+  "description": "A member name repeats; JSON.parse would silently keep the last.",
+  "section": "2.1",
+  "validate": "json",
+  "input_text": "{\"protocol_version\":\"0.1\",\"type\":\"work_contract\",\"type\":\"envelope\"}",
+  "expected": [
+    {
+      "code": "duplicate_member",
+      "path": "/type"
+    }
+  ]
+}

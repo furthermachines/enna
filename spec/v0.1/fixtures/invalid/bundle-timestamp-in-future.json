@@ -1,0 +1,15 @@
+{
+  "description": "A record cannot describe a moment after now.",
+  "section": "9.15",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "options": {
+    "now": "2026-10-16T15:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "timestamp_in_future",
+      "path": "/9/created_at"
+    }
+  ]
+}

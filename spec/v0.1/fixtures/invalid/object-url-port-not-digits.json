@@ -1,0 +1,19 @@
+{
+  "description": "An HTTPS URL's port is digits only, so the owner's issuer at https://id.harborpine.example:status/ is refused.",
+  "section": "2.14",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/owner/issuer",
+      "value": "https://id.harborpine.example:status/"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/owner/issuer"
+    }
+  ]
+}

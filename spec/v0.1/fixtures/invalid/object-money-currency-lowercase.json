@@ -1,0 +1,19 @@
+{
+  "description": "A currency is three uppercase letters.",
+  "section": "2.8",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/limits/cost/currency",
+      "value": "usd"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/limits/cost/currency"
+    }
+  ]
+}

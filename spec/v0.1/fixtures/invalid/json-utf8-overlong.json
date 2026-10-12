@@ -1,0 +1,12 @@
+{
+  "description": "Bytes that are not UTF-8: an overlong encoding of a slash.",
+  "section": "2.1",
+  "validate": "json",
+  "input_base64": "eyJwcm90b2NvbF92ZXJzaW9uIjoiMC4xIiwic3VtbWFyeSI6InjAr3kifQ==",
+  "expected": [
+    {
+      "code": "invalid_json",
+      "path": ""
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "description": "A denied action has no effects.",
+  "section": "6.3",
+  "validate": "object",
+  "base": "execution-receipt-denied.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/effects",
+      "value": [
+        {
+          "description": "Read the comments anyway."
+        }
+      ]
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/effects"
+    }
+  ]
+}

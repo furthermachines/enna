@@ -1,0 +1,183 @@
+{
+  "work-contract.json": {
+    "validate": "object"
+  },
+  "work-contract-leap-second.json": {
+    "validate": "object"
+  },
+  "context-manifest.json": {
+    "validate": "object"
+  },
+  "authority-binding.json": {
+    "validate": "object"
+  },
+  "execution-receipt.json": {
+    "validate": "object"
+  },
+  "execution-receipt-denied.json": {
+    "validate": "object"
+  },
+  "evaluation-result.json": {
+    "validate": "object"
+  },
+  "evaluation-result-accepted.json": {
+    "validate": "object"
+  },
+  "work-contract-pap.json": {
+    "validate": "object"
+  },
+  "authority-binding-pap.json": {
+    "validate": "object"
+  },
+  "envelope.json": {
+    "validate": "envelope"
+  },
+  "bundle-brand-approvals.json": {
+    "validate": "bundle",
+    "options": {
+      "now": "2026-10-20T00:00:00Z",
+      "level": "controlled"
+    }
+  },
+  "discovery-harborpine.json": {
+    "validate": "discovery",
+    "options": {
+      "requestedHost": "www.harborpine.example",
+      "issuerMetadata": {
+        "issuer": "https://id.harborpine.example",
+        "token_endpoint": "https://id.harborpine.example/token",
+        "revocation_endpoint": "https://id.harborpine.example/revoke",
+        "poppy_domains": ["harborpine.example"],
+        "enna_domains": ["harborpine.example"]
+      },
+      "poppy": {
+        "url": "https://harborpine.example/.well-known/poppy.json",
+        "document": {
+          "protocol_version": "0.1",
+          "organization": {
+            "name": "Harbor & Pine",
+            "domain": "harborpine.example"
+          },
+          "auth": {
+            "issuer": "https://id.harborpine.example"
+          },
+          "agent": {
+            "protocols": [
+              {
+                "type": "poppy",
+                "endpoint": "https://harborpine.example/poppy/conversations"
+              }
+            ]
+          },
+          "extensions": {
+            "operations": {
+              "version": "1",
+              "endpoint": "https://harborpine.example/poppy/operations"
+            },
+            "businessagentprotocol.org/enna": {
+              "version": "0.1",
+              "url": "https://harborpine.example/.well-known/enna.json"
+            }
+          }
+        }
+      }
+    }
+  },
+  "discovery-spec-site.json": {
+    "validate": "discovery",
+    "options": {
+      "requestedHost": "businessagentprotocol.org"
+    }
+  },
+  "bundle-delegated-acceptance.json": {
+    "validate": "bundle",
+    "options": {
+      "now": "2026-10-20T00:00:00Z"
+    }
+  },
+  "bundle-refusals-and-replays.json": {
+    "validate": "bundle",
+    "options": {
+      "now": "2026-10-20T00:00:00Z",
+      "level": "controlled"
+    }
+  },
+  "bundle-unknown-outcome-settled.json": {
+    "validate": "bundle",
+    "options": {
+      "now": "2026-10-20T00:00:00Z",
+      "level": "controlled"
+    }
+  },
+  "bundle-exact-decimal-sums.json": {
+    "validate": "bundle",
+    "options": {
+      "now": "2026-10-20T00:00:00Z",
+      "level": "controlled"
+    }
+  },
+  "bundle-inclusive-instants.json": {
+    "validate": "bundle",
+    "options": {
+      "now": "2026-10-20T00:00:00Z",
+      "level": "controlled"
+    }
+  },
+  "bundle-tolerated-variations.json": {
+    "validate": "bundle",
+    "options": {
+      "now": "2026-10-20T00:00:00Z",
+      "level": "controlled"
+    }
+  },
+  "bundle-owner-approves-own-contract.json": {
+    "validate": "bundle",
+    "options": {
+      "now": "2026-10-20T00:00:00Z"
+    }
+  },
+  "discovery-harborpine-capitals.json": {
+    "validate": "discovery",
+    "options": {
+      "requestedHost": "harborpine.example",
+      "issuerMetadata": {
+        "issuer": "https://id.harborpine.example",
+        "token_endpoint": "https://id.harborpine.example/token",
+        "revocation_endpoint": "https://id.harborpine.example/revoke",
+        "poppy_domains": ["harborpine.example"],
+        "enna_domains": ["harborpine.example"]
+      },
+      "poppy": {
+        "url": "https://harborpine.example/.well-known/poppy.json",
+        "document": {
+          "protocol_version": "0.1",
+          "organization": {
+            "name": "Harbor & Pine",
+            "domain": "harborpine.example"
+          },
+          "auth": {
+            "issuer": "https://id.harborpine.example"
+          },
+          "agent": {
+            "protocols": [
+              {
+                "type": "poppy",
+                "endpoint": "https://harborpine.example/poppy/conversations"
+              }
+            ]
+          },
+          "extensions": {
+            "operations": {
+              "version": "1",
+              "endpoint": "https://harborpine.example/poppy/operations"
+            },
+            "businessagentprotocol.org/enna": {
+              "version": "0.1",
+              "url": "HTTPS://WWW.HarborPine.example/.well-known/enna.json"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "description": "The branch was created before the authority's window opened.",
+  "section": "9.7",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/2/valid_from",
+      "value": "2026-10-13T11:00:00Z"
+    }
+  ],
+  "reseal": "all",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "authority_expired",
+      "path": "/3/started_at"
+    }
+  ]
+}

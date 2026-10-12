@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://businessagentprotocol.org/spec/v0.1/schemas/error.schema.json",
+  "title": "Error",
+  "description": "An OAuth-style error with JSON Pointer details. Detail codes come from one catalog, stable within 0.x.",
+  "type": "object",
+  "required": ["error", "details"],
+  "properties": {
+    "error": { "enum": ["invalid_object", "invalid_bundle", "denied", "unsupported_version"] },
+    "error_description": { "$ref": "common.schema.json#/$defs/text" },
+    "details": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["code", "path", "message"],
+        "properties": {
+          "code": { "$ref": "common.schema.json#/$defs/error_code" },
+          "path": {
+            "description": "An RFC 6901 JSON Pointer in string form.",
+            "type": "string",
+            "pattern": "^(/([^~/]|~[01])*)*$"
+          },
+          "message": { "$ref": "common.schema.json#/$defs/text" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

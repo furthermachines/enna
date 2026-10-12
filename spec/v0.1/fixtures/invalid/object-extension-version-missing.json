@@ -1,0 +1,23 @@
+{
+  "description": "Every extension carries its version.",
+  "section": "2.12",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/extensions",
+      "value": {
+        "example.com/notes": {
+          "text": "Defined by example.com, ignorable."
+        }
+      }
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/extensions/example.com~1notes/version"
+    }
+  ]
+}

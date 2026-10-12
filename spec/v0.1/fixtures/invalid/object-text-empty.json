@@ -1,0 +1,19 @@
+{
+  "description": "Text members are not empty.",
+  "section": "3.1",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/summary",
+      "value": ""
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/summary"
+    }
+  ]
+}

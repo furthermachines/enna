@@ -1,0 +1,25 @@
+{
+  "description": "Effects after the live status shows the approval revoked.",
+  "section": "9.7",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "options": {
+    "now": "2026-10-20T00:00:00Z",
+    "revocations": [
+      {
+        "id": "apr_priya_brand_approvals",
+        "revoked_at": "2026-10-13T11:20:00Z"
+      }
+    ]
+  },
+  "expected": [
+    {
+      "code": "approval_revoked",
+      "path": "/7/authority"
+    },
+    {
+      "code": "approval_revoked",
+      "path": "/8/authority"
+    }
+  ]
+}

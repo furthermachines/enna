@@ -1,0 +1,19 @@
+{
+  "description": "A timestamp states its seconds.",
+  "section": "2.7",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/created_at",
+      "value": "2026-10-12T09:00Z"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/created_at"
+    }
+  ]
+}

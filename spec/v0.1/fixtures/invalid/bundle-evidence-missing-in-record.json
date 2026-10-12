@@ -1,0 +1,22 @@
+{
+  "description": "In a record, a pass without evidence is reported under the evaluation's index.",
+  "section": "9.12",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/9/criteria/1/evidence",
+      "value": []
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "evidence_missing",
+      "path": "/9/criteria/1/evidence"
+    }
+  ]
+}

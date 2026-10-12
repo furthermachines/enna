@@ -1,0 +1,19 @@
+{
+  "description": "A criterion identifier is AC- and a number without leading zeros.",
+  "section": "2.3",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/criteria/0/id",
+      "value": "AC-01"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/criteria/0/id"
+    }
+  ]
+}

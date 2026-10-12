@@ -1,0 +1,27 @@
+{
+  "description": "The branch was created by an agent the binding does not name as its grantee.",
+  "section": "9.7",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/3/actor/principal",
+      "value": {
+        "kind": "agent",
+        "id": "https://agents.harborpine.example/support",
+        "display": "Support agent"
+      }
+    }
+  ],
+  "reseal": "receipts",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "authority_insufficient",
+      "path": "/3/actor/principal"
+    }
+  ]
+}

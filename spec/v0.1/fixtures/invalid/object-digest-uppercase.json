@@ -1,0 +1,19 @@
+{
+  "description": "A digest's hexadecimal digits are lowercase.",
+  "section": "2.15",
+  "validate": "object",
+  "base": "execution-receipt.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/action/payload_digest",
+      "value": "sha256:75ECD2C21EE973A586A27BFFACACA3A370620588C633B70B68D17F93BDE292DF"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/action/payload_digest"
+    }
+  ]
+}

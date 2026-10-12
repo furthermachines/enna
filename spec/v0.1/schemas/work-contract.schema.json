@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://businessagentprotocol.org/spec/v0.1/schemas/work-contract.schema.json",
+  "title": "Work contract",
+  "description": "What is to be done for an organization, who is accountable, how done is judged and within which limits. Revisable.",
+  "type": "object",
+  "allOf": [
+    { "$ref": "common.schema.json#/$defs/object_base" },
+    { "$ref": "common.schema.json#/$defs/revisable" }
+  ],
+  "required": ["summary", "objective", "owner", "requester", "criteria"],
+  "$comment": "Every shared member is listed here, as true where this schema does not narrow it, because additionalProperties sees only this list; the shared schemas still apply through allOf.",
+  "properties": {
+    "protocol_version": true,
+    "type": { "const": "work_contract" },
+    "id": { "$ref": "common.schema.json#/$defs/work_contract_id" },
+    "revision": true,
+    "revision_author": true,
+    "change_summary": true,
+    "created_at": true,
+    "scope": true,
+    "profile": true,
+    "summary": { "$ref": "common.schema.json#/$defs/text" },
+    "objective": {
+      "type": "object",
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "$ref": "common.schema.json#/$defs/text" },
+        "request": { "$ref": "common.schema.json#/$defs/text" }
+      },
+      "additionalProperties": false
+    },
+    "owner": { "$ref": "common.schema.json#/$defs/person" },
+    "requester": { "$ref": "common.schema.json#/$defs/principal" },
+    "stakeholders": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["principal", "role"],
+        "properties": {
+          "principal": { "$ref": "common.schema.json#/$defs/principal" },
+          "role": { "enum": ["approver", "acceptor", "consulted", "informed"] },
+          "approver_roles": {
+            "description": "The roles this approver holds. An approval made under a role counts for a grant that requires the role only when the contract gives the role to its approver.",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "$ref": "common.schema.json#/$defs/token" }
+          }
+        },
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": { "required": ["role"], "properties": { "role": { "const": "acceptor" } } },
+            "then": {
+              "properties": { "principal": { "properties": { "kind": { "const": "person" } } } }
+            }
+          },
+          {
+            "if": { "properties": { "role": { "not": { "const": "approver" } } } },
+            "then": { "properties": { "approver_roles": false } }
+          }
+        ]
+      }
+    },
+    "criteria": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/criterion" }
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "statement"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/local_id" },
+          "kind": { "enum": ["must", "must_not"] },
+          "statement": { "$ref": "common.schema.json#/$defs/text" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "deadline_at": { "$ref": "common.schema.json#/$defs/timestamp" },
+    "limits": {
+      "type": "object",
+      "minProperties": 1,
+      "properties": {
+        "cost": { "$ref": "common.schema.json#/$defs/money" },
+        "risk": {
+          "type": "object",
+          "required": ["max_level"],
+          "properties": {
+            "max_level": { "enum": ["low", "medium", "high"] },
+            "notes": { "$ref": "common.schema.json#/$defs/text" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "description"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/local_id" },
+          "kind": { "$ref": "common.schema.json#/$defs/token" },
+          "description": { "$ref": "common.schema.json#/$defs/text" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "extensions": {
+      "properties": { "pap": { "$ref": "common.schema.json#/$defs/pap_extension" } }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "criterion": {
+      "type": "object",
+      "required": ["id", "statement", "required", "method"],
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/criterion_id" },
+        "statement": { "$ref": "common.schema.json#/$defs/text" },
+        "required": { "type": "boolean" },
+        "method": { "enum": ["automated_check", "human_judgment", "measurement_window"] },
+        "measurement": {
+          "type": "object",
+          "required": ["window_seconds", "starts"],
+          "properties": {
+            "window_seconds": { "type": "integer", "minimum": 1, "maximum": 9007199254740991 },
+            "starts": { "enum": ["on_acceptance", "on_pilot_approval"] }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false,
+      "if": {
+        "required": ["method"],
+        "properties": { "method": { "const": "measurement_window" } }
+      },
+      "then": { "required": ["measurement"] },
+      "else": { "properties": { "measurement": false } }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "description": "Principals compare exactly, so an agent URL with its host in capitals is another agent than the grantee.",
+  "section": "2.11",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/3/actor/principal/id",
+      "value": "https://AGENTS.harborpine.example/coding"
+    }
+  ],
+  "reseal": "receipts",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "authority_insufficient",
+      "path": "/3/actor/principal"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "description": "Each invariant applies on its own, so the cost of an effect whose binding is not in the record still counts toward the contract's limit.",
+  "section": "9.1",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/6/authority/id",
+      "value": "auth_ci_runner"
+    },
+    {
+      "op": "remove",
+      "path": "/6/context"
+    },
+    {
+      "op": "replace",
+      "path": "/0/limits/cost/amount",
+      "value": "20.00"
+    }
+  ],
+  "reseal": "receipts",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "limit_exceeded",
+      "path": "/2/grants/4/limits/cost"
+    },
+    {
+      "code": "limit_exceeded",
+      "path": "/2/grants/5/limits/cost"
+    },
+    {
+      "code": "reference_unresolved",
+      "path": "/6/authority"
+    },
+    {
+      "code": "limit_exceeded",
+      "path": "/8/cost"
+    }
+  ]
+}

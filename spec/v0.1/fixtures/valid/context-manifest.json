@@ -1,0 +1,144 @@
+{
+  "protocol_version": "0.1",
+  "type": "context_manifest",
+  "id": "ctx_brand_approvals",
+  "revision": 1,
+  "created_at": "2026-10-12T09:05:00Z",
+  "scope": {
+    "organization": "harborpine.example",
+    "workspace": "internal",
+    "project": "brand-approvals"
+  },
+  "contract": {
+    "id": "wc_brand_approvals",
+    "revision": 1
+  },
+  "purpose": "Ground the experiment in what clients asked for, reading no more than it needs.",
+  "items": [
+    {
+      "id": "item_aster_comments",
+      "kind": "workspace_comments",
+      "source": {
+        "system": "Harbor & Pine workspace comments",
+        "ref": "https://app.harborpine.example/api/workspaces/aster-foods/comments?topic=approvals",
+        "version": "snapshot-2026-10-12"
+      },
+      "scope": {
+        "organization": "harborpine.example",
+        "workspace": "aster-foods"
+      },
+      "classification": "confidential",
+      "provenance": {
+        "produced_by": {
+          "kind": "agent",
+          "id": "https://agents.harborpine.example/research",
+          "display": "Research agent"
+        },
+        "retrieved_at": "2026-10-12T08:40:00Z",
+        "method": "api_read"
+      },
+      "freshness": {
+        "as_of": "2026-10-12T08:40:00Z",
+        "max_age_seconds": 604800
+      },
+      "disclosure": {
+        "allowed_to": [
+          {
+            "kind": "agent",
+            "id": "https://agents.harborpine.example/planning",
+            "display": "Planning agent"
+          },
+          {
+            "kind": "agent",
+            "id": "https://agents.harborpine.example/coding",
+            "display": "Coding agent"
+          },
+          "product_team"
+        ],
+        "redactions": ["commenter names", "email addresses"]
+      },
+      "minimal": ["comment text about approvals", "comment date"],
+      "digest": "sha256:4bc110296d2320f94ffed6f5520bcb8d3407e7fe72f57c3653f182b1e2bf4ea8"
+    },
+    {
+      "id": "item_feedback_board",
+      "kind": "feedback_items",
+      "source": {
+        "system": "Harbor & Pine feedback board",
+        "ref": "https://app.harborpine.example/api/feedback?tag=approvals",
+        "version": "2026-10-12"
+      },
+      "scope": {
+        "organization": "harborpine.example",
+        "workspace": "internal"
+      },
+      "classification": "internal",
+      "provenance": {
+        "produced_by": {
+          "kind": "agent",
+          "id": "https://agents.harborpine.example/research",
+          "display": "Research agent"
+        },
+        "retrieved_at": "2026-10-12T08:45:00Z",
+        "method": "api_read"
+      },
+      "freshness": {
+        "as_of": "2026-10-12T08:45:00Z",
+        "max_age_seconds": 604800
+      },
+      "disclosure": {
+        "allowed_to": ["product_team"]
+      },
+      "minimal": ["request titles", "vote counts"]
+    },
+    {
+      "id": "item_aster_approvers",
+      "kind": "identity_records",
+      "source": {
+        "system": "Harbor & Pine identity",
+        "ref": "https://id.harborpine.example/api/workspaces/aster-foods/roles/approver",
+        "version": "etag-7f3a"
+      },
+      "scope": {
+        "organization": "harborpine.example",
+        "workspace": "aster-foods"
+      },
+      "classification": "restricted",
+      "provenance": {
+        "produced_by": {
+          "kind": "agent",
+          "id": "https://agents.harborpine.example/research",
+          "display": "Research agent"
+        },
+        "retrieved_at": "2026-10-12T08:50:00Z",
+        "method": "api_read"
+      },
+      "freshness": {
+        "as_of": "2026-10-12T08:50:00Z",
+        "max_age_seconds": 604800
+      },
+      "disclosure": {
+        "allowed_to": [
+          {
+            "kind": "agent",
+            "id": "https://agents.harborpine.example/coding",
+            "display": "Coding agent"
+          }
+        ],
+        "redactions": ["names"]
+      },
+      "minimal": ["which client roles may approve"]
+    }
+  ],
+  "known_unknowns": [
+    "Whether clients other than Aster Foods want the same gate.",
+    "How Quillstone's brand check performs in practice."
+  ],
+  "excluded": [
+    {
+      "description": "The Lumen Beverages workspace.",
+      "reason": "Not part of the pilot, and no grant covers it."
+    }
+  ],
+  "retention_seconds": 7776000
+}

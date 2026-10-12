@@ -1,0 +1,15 @@
+{
+  "description": "A record is an array of objects.",
+  "section": "9.1",
+  "validate": "bundle",
+  "base": "work-contract.json",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": ""
+    }
+  ]
+}

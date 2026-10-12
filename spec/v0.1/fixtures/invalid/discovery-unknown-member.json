@@ -1,0 +1,22 @@
+{
+  "description": "Discovery documents are closed too, and say nothing about private systems.",
+  "section": "12.3",
+  "validate": "discovery",
+  "base": "discovery-harborpine.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/private_pdp",
+      "value": "https://pdp.harborpine.internal"
+    }
+  ],
+  "options": {
+    "requestedHost": "harborpine.example"
+  },
+  "expected": [
+    {
+      "code": "unknown_member",
+      "path": "/private_pdp"
+    }
+  ]
+}

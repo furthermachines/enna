@@ -1,0 +1,19 @@
+{
+  "description": "Each object in an envelope is validated, with pointers into the envelope.",
+  "section": "8.1",
+  "validate": "envelope",
+  "base": "envelope.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/objects/1/purpose",
+      "value": null
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/objects/1/purpose"
+    }
+  ]
+}

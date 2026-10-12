@@ -1,0 +1,17 @@
+{
+  "draft": "0.1",
+  "defined_in": {
+    "section": "2.14",
+    "url": "https://businessagentprotocol.org/spec/v0.1/conventions/"
+  },
+  "profiles": [
+    {
+      "id": "software-delivery/0.1",
+      "schema": "https://businessagentprotocol.org/spec/v0.1/schemas/profiles/software-delivery-0.1.schema.json",
+      "defined_in": {
+        "section": "14",
+        "url": "https://businessagentprotocol.org/spec/v0.1/software-delivery-profile/"
+      }
+    }
+  ]
+}

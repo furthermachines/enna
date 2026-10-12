@@ -1,0 +1,19 @@
+{
+  "description": "A denial gives at least one reason.",
+  "section": "6.3",
+  "validate": "object",
+  "base": "execution-receipt-denied.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/decision/reasons",
+      "value": []
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/decision/reasons"
+    }
+  ]
+}

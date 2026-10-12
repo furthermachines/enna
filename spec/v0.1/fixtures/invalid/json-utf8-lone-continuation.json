@@ -1,0 +1,12 @@
+{
+  "description": "Bytes that are not UTF-8: a continuation byte with no lead byte before it.",
+  "section": "2.1",
+  "validate": "json",
+  "input_base64": "eyJwcm90b2NvbF92ZXJzaW9uIjoiMC4xIiwic3VtbWFyeSI6IniAeSJ9",
+  "expected": [
+    {
+      "code": "invalid_json",
+      "path": ""
+    }
+  ]
+}

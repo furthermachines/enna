@@ -1,0 +1,19 @@
+{
+  "description": "Under software-delivery/0.1, an action in a namespace the profile owns is one of its seven.",
+  "section": "14.2",
+  "validate": "object",
+  "base": "execution-receipt.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/action/name",
+      "value": "repo.merge"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/action/name"
+    }
+  ]
+}

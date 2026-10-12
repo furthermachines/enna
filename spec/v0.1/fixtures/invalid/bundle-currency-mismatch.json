@@ -1,0 +1,23 @@
+{
+  "description": "A cost in another currency than the limits.",
+  "section": "9.9",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/6/cost/currency",
+      "value": "EUR"
+    }
+  ],
+  "reseal": "receipts",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "currency_mismatch",
+      "path": "/6/cost"
+    }
+  ]
+}

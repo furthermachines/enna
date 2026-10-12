@@ -1,0 +1,19 @@
+{
+  "description": "A token's prefix is a domain, so none of its labels starts with a hyphen.",
+  "section": "2.2",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/outputs/0/kind",
+      "value": "-harborpine.example/pull_request"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/outputs/0/kind"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "description": "A replay changes nothing, so it lists no effects.",
+  "section": "6.3",
+  "validate": "object",
+  "base": "execution-receipt.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/outcome/status",
+      "value": "replayed"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/effects"
+    }
+  ]
+}

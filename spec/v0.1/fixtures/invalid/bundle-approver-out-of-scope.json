@@ -1,0 +1,67 @@
+{
+  "description": "A consulted stakeholder approved.",
+  "section": "9.6",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/2/approvals/0/approver",
+      "value": {
+        "kind": "person",
+        "id": "theo.okafor",
+        "issuer": "https://id.harborpine.example",
+        "display": "Theo Okafor"
+      }
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "approver_out_of_scope",
+      "path": "/2/approvals/0/approver"
+    },
+    {
+      "code": "approver_out_of_scope",
+      "path": "/3/authority"
+    },
+    {
+      "code": "context_out_of_scope",
+      "path": "/3/context"
+    },
+    {
+      "code": "approver_out_of_scope",
+      "path": "/5/authority"
+    },
+    {
+      "code": "context_out_of_scope",
+      "path": "/5/context"
+    },
+    {
+      "code": "approver_out_of_scope",
+      "path": "/6/authority"
+    },
+    {
+      "code": "context_out_of_scope",
+      "path": "/6/context"
+    },
+    {
+      "code": "approver_out_of_scope",
+      "path": "/7/authority"
+    },
+    {
+      "code": "context_out_of_scope",
+      "path": "/7/context"
+    },
+    {
+      "code": "approver_out_of_scope",
+      "path": "/8/authority"
+    },
+    {
+      "code": "context_out_of_scope",
+      "path": "/8/context"
+    }
+  ]
+}

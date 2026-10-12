@@ -1,0 +1,29 @@
+{
+  "description": "A PAP confirmation is asserted, never verified, whatever evidence it points to.",
+  "section": "5.3",
+  "validate": "object",
+  "base": "authority-binding-pap.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/approvals/0/assurance",
+      "value": "verified"
+    },
+    {
+      "op": "add",
+      "path": "/approvals/0/evidence",
+      "value": [
+        {
+          "kind": "operation_confirmation",
+          "ref": "https://harborpine.example/account/operations/op_kestrel_restore"
+        }
+      ]
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/approvals/0/assurance"
+    }
+  ]
+}

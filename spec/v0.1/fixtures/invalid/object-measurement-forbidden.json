@@ -1,0 +1,22 @@
+{
+  "description": "Only a criterion judged over a measurement window states a measurement.",
+  "section": "3.2",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/criteria/0/measurement",
+      "value": {
+        "window_seconds": 86400,
+        "starts": "on_acceptance"
+      }
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/criteria/0/measurement"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "description": "A permit gives no reasons.",
+  "section": "6.3",
+  "validate": "object",
+  "base": "execution-receipt.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/decision/reasons",
+      "value": ["approval_missing"]
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/decision/reasons"
+    }
+  ]
+}

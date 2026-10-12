@@ -1,0 +1,27 @@
+{
+  "description": "A grant's cost limit in another currency than the contract's limit and the costs it caps.",
+  "section": "9.9",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/2/grants/5/limits/cost/currency",
+      "value": "EUR"
+    }
+  ],
+  "reseal": "all",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "currency_mismatch",
+      "path": "/2/grants/5/limits/cost"
+    },
+    {
+      "code": "currency_mismatch",
+      "path": "/8/cost"
+    }
+  ]
+}

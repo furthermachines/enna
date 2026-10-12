@@ -1,0 +1,12 @@
+{
+  "description": "Of two repeated member names, only the first to repeat in text order is reported.",
+  "section": "2.1",
+  "validate": "json",
+  "input_text": "{\"protocol_version\":\"0.1\",\"summary\":\"a\",\"type\":\"x\",\"summary\":\"b\",\"type\":\"y\"}",
+  "expected": [
+    {
+      "code": "duplicate_member",
+      "path": "/summary"
+    }
+  ]
+}

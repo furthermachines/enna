@@ -1,0 +1,28 @@
+{
+  "description": "Identifiers repeat within an evaluation's criteria and its receipts.",
+  "section": "2.3",
+  "validate": "object",
+  "base": "evaluation-result.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/criteria/4/criterion_id",
+      "value": "AC-4"
+    },
+    {
+      "op": "replace",
+      "path": "/receipts/1/id",
+      "value": "rcpt_branch"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/criteria/4/criterion_id"
+    },
+    {
+      "code": "schema_violation",
+      "path": "/receipts/1/id"
+    }
+  ]
+}

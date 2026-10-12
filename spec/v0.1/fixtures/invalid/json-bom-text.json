@@ -1,0 +1,12 @@
+{
+  "description": "A byte order mark before the JSON text is refused when the text is checked as text too.",
+  "section": "2.1",
+  "validate": "json",
+  "input_text": "\ufeff{\"protocol_version\":\"0.1\"}",
+  "expected": [
+    {
+      "code": "invalid_json",
+      "path": ""
+    }
+  ]
+}

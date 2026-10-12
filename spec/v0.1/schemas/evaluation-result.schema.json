@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://businessagentprotocol.org/spec/v0.1/schemas/evaluation-result.schema.json",
+  "title": "Evaluation result",
+  "description": "Criterion-by-criterion evidence for a contract revision, kept apart from whether execution finished and from whether the accountable owner accepted the outcome. A passing test suite is not evidence of customer value. Acceptance is recorded as a new revision.",
+  "type": "object",
+  "allOf": [
+    { "$ref": "common.schema.json#/$defs/object_base" },
+    { "$ref": "common.schema.json#/$defs/revisable" }
+  ],
+  "required": [
+    "contract",
+    "receipts",
+    "evaluator",
+    "execution",
+    "criteria",
+    "technical_result",
+    "acceptance",
+    "business_impact"
+  ],
+  "$comment": "Every shared member is listed here, as true where this schema does not narrow it, because additionalProperties sees only this list; the shared schemas still apply through allOf.",
+  "properties": {
+    "protocol_version": true,
+    "type": { "const": "evaluation_result" },
+    "id": { "$ref": "common.schema.json#/$defs/evaluation_result_id" },
+    "revision": true,
+    "revision_author": true,
+    "change_summary": true,
+    "created_at": true,
+    "scope": true,
+    "profile": true,
+    "extensions": true,
+    "contract": { "$ref": "common.schema.json#/$defs/contract_ref" },
+    "receipts": {
+      "type": "array",
+      "items": { "$ref": "common.schema.json#/$defs/receipt_ref" }
+    },
+    "evaluator": {
+      "type": "object",
+      "required": ["principal", "name", "version"],
+      "properties": {
+        "principal": { "$ref": "common.schema.json#/$defs/principal" },
+        "name": { "$ref": "common.schema.json#/$defs/text" },
+        "version": { "$ref": "common.schema.json#/$defs/text" }
+      },
+      "additionalProperties": false
+    },
+    "execution": {
+      "type": "object",
+      "required": ["status"],
+      "properties": { "status": { "enum": ["complete", "partial", "incomplete"] } },
+      "additionalProperties": false
+    },
+    "criteria": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["criterion_id", "result", "method", "evidence"],
+        "properties": {
+          "criterion_id": { "$ref": "common.schema.json#/$defs/criterion_id" },
+          "result": { "enum": ["pass", "fail", "unknown"] },
+          "method": { "enum": ["automated_check", "human_judgment", "measurement_window"] },
+          "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" } },
+          "limitations": {
+            "type": "array",
+            "items": { "$ref": "common.schema.json#/$defs/text" }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "technical_result": {
+      "description": "Derived: fail if any required criterion fails, pass only if every required criterion passes, unknown otherwise.",
+      "enum": ["pass", "fail", "unknown"]
+    },
+    "acceptance": {
+      "type": "object",
+      "required": ["decision"],
+      "properties": {
+        "decision": { "enum": ["pending", "accepted", "rejected"] },
+        "by": {
+          "description": "The owner, an acceptor the contract names, or an agent the owner delegated through an approved acceptance.decide grant.",
+          "$ref": "common.schema.json#/$defs/principal"
+        },
+        "at": { "$ref": "common.schema.json#/$defs/timestamp" },
+        "scope": { "$ref": "common.schema.json#/$defs/token" },
+        "notes": { "$ref": "common.schema.json#/$defs/text" }
+      },
+      "additionalProperties": false,
+      "if": {
+        "required": ["decision"],
+        "properties": { "decision": { "const": "pending" } }
+      },
+      "then": { "properties": { "by": false, "at": false } },
+      "else": { "required": ["by", "at"] }
+    },
+    "business_impact": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": { "enum": ["unknown", "measuring", "measured"] },
+        "window": {
+          "type": "object",
+          "minProperties": 1,
+          "properties": {
+            "starts_at": { "$ref": "common.schema.json#/$defs/timestamp" },
+            "window_seconds": { "type": "integer", "minimum": 1, "maximum": 9007199254740991 }
+          },
+          "additionalProperties": false
+        },
+        "notes": { "$ref": "common.schema.json#/$defs/text" }
+      },
+      "additionalProperties": false
+    },
+    "limitations": {
+      "type": "array",
+      "items": { "$ref": "common.schema.json#/$defs/text" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "required": ["kind", "ref", "digest", "summary"],
+      "properties": {
+        "kind": { "$ref": "common.schema.json#/$defs/token" },
+        "ref": { "$ref": "common.schema.json#/$defs/text" },
+        "digest": { "$ref": "common.schema.json#/$defs/artifact_digest" },
+        "summary": { "$ref": "common.schema.json#/$defs/text" },
+        "counts": {
+          "type": "object",
+          "required": ["passed", "failed"],
+          "properties": {
+            "passed": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+            "failed": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+            "skipped": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 }
+          },
+          "additionalProperties": false
+        },
+        "measurements": {
+          "description": "Quantities the evidence reports. A value a fixture or a simulation states, rather than one measured, is marked illustrative.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name", "value", "unit"],
+            "properties": {
+              "name": { "$ref": "common.schema.json#/$defs/token" },
+              "value": {
+                "type": "integer",
+                "minimum": -9007199254740991,
+                "maximum": 9007199254740991
+              },
+              "unit": { "$ref": "common.schema.json#/$defs/token" },
+              "illustrative": { "const": true }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

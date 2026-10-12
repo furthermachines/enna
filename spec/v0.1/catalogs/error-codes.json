@@ -1,0 +1,204 @@
+{
+  "draft": "0.1",
+  "defined_in": {
+    "section": "8.4",
+    "url": "https://businessagentprotocol.org/spec/v0.1/envelope-and-errors/"
+  },
+  "codes": [
+    {
+      "code": "invalid_json",
+      "area": "Shape and versions",
+      "description": "The document is not well-formed UTF-8 JSON, or a string in it holds a lone surrogate."
+    },
+    {
+      "code": "duplicate_member",
+      "area": "Shape and versions",
+      "description": "An object has two members with the same name."
+    },
+    {
+      "code": "schema_violation",
+      "area": "Shape and versions",
+      "description": "A value does not match its schema: a missing member, a wrong type, format, pattern or enum value, a null, or a duplicate ID."
+    },
+    {
+      "code": "unknown_member",
+      "area": "Shape and versions",
+      "description": "A closed object carries a member its schema does not define."
+    },
+    {
+      "code": "unsupported_version",
+      "area": "Shape and versions",
+      "description": "The protocol_version is not one this consumer supports."
+    },
+    {
+      "code": "unsupported_profile",
+      "area": "Shape and versions",
+      "description": "The object follows a profile this Enforcement point does not know, so it cannot enforce the profile's rules."
+    },
+    {
+      "code": "timestamp_in_future",
+      "area": "Shape and versions",
+      "description": "A record states that something happened later than the injected current time."
+    },
+    {
+      "code": "reference_unresolved",
+      "area": "References and scope",
+      "description": "A reference names an object or link that is not present."
+    },
+    {
+      "code": "revision_mismatch",
+      "area": "References and scope",
+      "description": "A reference names a revision other than the one present, or revisions that must match differ."
+    },
+    {
+      "code": "tenant_mismatch",
+      "area": "References and scope",
+      "description": "A scope lies outside the contract's organization and workspace, and no approved grant names that workspace."
+    },
+    {
+      "code": "currency_mismatch",
+      "area": "Money and limits",
+      "description": "Two amounts that must be compared or added are in different currencies."
+    },
+    {
+      "code": "limit_exceeded",
+      "area": "Money and limits",
+      "description": "A cost or a count exceeds its limit."
+    },
+    {
+      "code": "approval_missing",
+      "area": "Approvals",
+      "description": "No valid approval covers the action."
+    },
+    {
+      "code": "approval_expired",
+      "area": "Approvals",
+      "description": "The approval had expired when the action started."
+    },
+    {
+      "code": "approval_revoked",
+      "area": "Approvals",
+      "description": "The approval was revoked before the action started."
+    },
+    {
+      "code": "approval_stale",
+      "area": "Approvals",
+      "description": "The approval covers another contract revision or another version of the binding."
+    },
+    {
+      "code": "approval_denied",
+      "area": "Approvals",
+      "description": "An approver in scope denied the authority."
+    },
+    {
+      "code": "approver_out_of_scope",
+      "area": "Approvals",
+      "description": "The approver may not approve this contract, or does not hold, by the contract's assignment, the role the grant requires."
+    },
+    {
+      "code": "separation_of_duties",
+      "area": "Approvals",
+      "description": "At the Controlled level and above, an action over the declared threshold has no approval from someone other than the requester."
+    },
+    {
+      "code": "quorum_not_met",
+      "area": "Approvals",
+      "description": "Fewer distinct people gave a valid approval for the action than its grant's min_approvals requires."
+    },
+    {
+      "code": "authority_expired",
+      "area": "Authority",
+      "description": "The action falls outside the authority's valid_from to expires_at window."
+    },
+    {
+      "code": "authority_revoked",
+      "area": "Authority",
+      "description": "The authority, or a binding it was delegated from, was revoked before the action started."
+    },
+    {
+      "code": "authority_insufficient",
+      "area": "Authority",
+      "description": "No grant covers the action and its resource, or the agent that acted is not the binding's grantee."
+    },
+    {
+      "code": "subdelegation_forbidden",
+      "area": "Authority",
+      "description": "The parent authority forbids further delegation, or the delegation is deeper than its parent allows."
+    },
+    {
+      "code": "attenuation_violated",
+      "area": "Authority",
+      "description": "Delegated authority is broader than its parent: another action, a wider resource, higher limits, fewer conditions or a lower quorum, a higher separation-of-duties threshold, a longer window or a wrong depth."
+    },
+    {
+      "code": "context_stale",
+      "area": "Context",
+      "description": "A context item was stale, or of unknown age, when an action that used it started."
+    },
+    {
+      "code": "context_out_of_scope",
+      "area": "Context",
+      "description": "A context item lies outside the tenant boundary, or an action cites context that neither the contract nor its own binding reaches."
+    },
+    {
+      "code": "idempotency_conflict",
+      "area": "Execution and integrity",
+      "description": "An idempotency key was reused for another action, resource or payload, or an action took effect twice under one key."
+    },
+    {
+      "code": "illegal_transition",
+      "area": "Execution and integrity",
+      "description": "The lifecycle does not allow this event in this state."
+    },
+    {
+      "code": "digest_mismatch",
+      "area": "Execution and integrity",
+      "description": "A digest does not match the content it covers."
+    },
+    {
+      "code": "chain_broken",
+      "area": "Execution and integrity",
+      "description": "The receipt chain is missing a link, forks, or runs backwards in time."
+    },
+    {
+      "code": "evidence_missing",
+      "area": "Evaluation and acceptance",
+      "description": "A required criterion is not evaluated, or a pass or a fail carries no evidence."
+    },
+    {
+      "code": "criterion_unknown",
+      "area": "Evaluation and acceptance",
+      "description": "The evaluation names a criterion the contract does not define."
+    },
+    {
+      "code": "technical_result_mismatch",
+      "area": "Evaluation and acceptance",
+      "description": "technical_result differs from the result derived from the required criteria."
+    },
+    {
+      "code": "acceptance_premature",
+      "area": "Evaluation and acceptance",
+      "description": "Acceptance was decided before execution and evaluation finished (while an action's final outcome was unknown, cited or not, before an effect ended, or before the evaluation existed), for work with no effect, or in the evaluation's first revision."
+    },
+    {
+      "code": "acceptance_not_owner",
+      "area": "Evaluation and acceptance",
+      "description": "Acceptance came from someone other than the contract owner, an acceptor the contract names, or the owner's delegate."
+    },
+    {
+      "code": "unsupported_critical_extension",
+      "area": "Extensions",
+      "description": "The object, envelope or discovery document carries a critical extension this consumer does not support. In an authority binding every extension counts as critical."
+    },
+    {
+      "code": "domain_mismatch",
+      "area": "Discovery",
+      "description": "organization.domain is not the requested host, ignoring a leading www., or a linked document names another domain."
+    },
+    {
+      "code": "issuer_mismatch",
+      "area": "Discovery",
+      "description": "The issuer metadata does not name auth.issuer exactly, or its enna_domains omits the domain."
+    }
+  ]
+}

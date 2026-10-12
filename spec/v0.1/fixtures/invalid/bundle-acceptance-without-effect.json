@@ -1,0 +1,58 @@
+{
+  "description": "Work with no effect in the record is accepted.",
+  "section": "9.13",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "remove",
+      "path": "/8"
+    },
+    {
+      "op": "remove",
+      "path": "/7"
+    },
+    {
+      "op": "remove",
+      "path": "/6"
+    },
+    {
+      "op": "remove",
+      "path": "/5"
+    },
+    {
+      "op": "remove",
+      "path": "/3"
+    },
+    {
+      "op": "remove",
+      "path": "/4/receipts/5"
+    },
+    {
+      "op": "remove",
+      "path": "/4/receipts/4"
+    },
+    {
+      "op": "remove",
+      "path": "/4/receipts/3"
+    },
+    {
+      "op": "remove",
+      "path": "/4/receipts/2"
+    },
+    {
+      "op": "remove",
+      "path": "/4/receipts/0"
+    }
+  ],
+  "reseal": "receipts",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "acceptance_premature",
+      "path": "/4/acceptance"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "description": "A byte order mark before the JSON text is refused, though some decoders drop it silently.",
+  "section": "2.1",
+  "validate": "json",
+  "input_base64": "77u/eyJwcm90b2NvbF92ZXJzaW9uIjoiMC4xIn0=",
+  "expected": [
+    {
+      "code": "invalid_json",
+      "path": ""
+    }
+  ]
+}

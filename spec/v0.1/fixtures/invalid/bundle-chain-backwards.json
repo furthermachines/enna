@@ -1,0 +1,26 @@
+{
+  "description": "A receipt links to a receipt created after it.",
+  "section": "9.14",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/4/integrity/previous_digest",
+      "value": "sha256:652127f2acc181b8739046ff9a5432071cdc215ae685eec61530a41a4fa19c4a"
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "digest_mismatch",
+      "path": "/4/integrity/digest"
+    },
+    {
+      "code": "chain_broken",
+      "path": "/4/integrity/previous_digest"
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "description": "A production deploy that only a standing approval covers has no approval, because its binding follows the profile, though its contract and receipt do not.",
+  "section": "14.4",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/2/grants/-",
+      "value": {
+        "action": "production.deploy",
+        "resource": {
+          "type": "production_environment",
+          "scope": {
+            "organization": "harborpine.example",
+            "workspace": "internal",
+            "project": "brand-approvals"
+          }
+        },
+        "limits": {
+          "count": 1
+        }
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/2/approvals/0/method",
+      "value": "standing"
+    },
+    {
+      "op": "remove",
+      "path": "/0/profile"
+    },
+    {
+      "op": "add",
+      "path": "/-",
+      "value": {
+        "protocol_version": "0.1",
+        "type": "execution_receipt",
+        "id": "rcpt_production",
+        "created_at": "2026-10-13T12:10:00Z",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "internal",
+          "project": "brand-approvals"
+        },
+        "contract": {
+          "id": "wc_brand_approvals",
+          "revision": 1
+        },
+        "authority": {
+          "id": "auth_coding_agent",
+          "revision": 1
+        },
+        "action": {
+          "name": "production.deploy",
+          "resource": {
+            "type": "production_environment",
+            "scope": {
+              "organization": "harborpine.example",
+              "workspace": "internal",
+              "project": "brand-approvals"
+            }
+          },
+          "requested_at": "2026-10-13T12:00:00Z",
+          "idempotency_key": "brand-approvals-production-1",
+          "payload_digest": "sha256:0b88cd887a8e527aa4026f0c1f0a48b9fa4a344402b5bd01159a628551704f8d"
+        },
+        "actor": {
+          "principal": {
+            "kind": "agent",
+            "id": "https://agents.harborpine.example/coding",
+            "display": "Coding agent"
+          },
+          "performed_by": "agent",
+          "runtime": {
+            "name": "fixture-runtime",
+            "version": "0.1.0"
+          }
+        },
+        "decision": {
+          "result": "permit",
+          "reasons": [],
+          "evaluated_at": "2026-10-13T12:00:01Z",
+          "policy_ref": "harborpine-agent-work@1"
+        },
+        "outcome": {
+          "status": "succeeded",
+          "summary": "Done."
+        },
+        "started_at": "2026-10-13T12:00:02Z",
+        "finished_at": "2026-10-13T12:10:00Z",
+        "effects": [
+          {
+            "description": "Deployed the approval gate to production."
+          }
+        ],
+        "trace": {
+          "correlation_id": "brand-approvals"
+        },
+        "integrity": {
+          "canonicalization": "rfc8785",
+          "previous_digest": "sha256:652127f2acc181b8739046ff9a5432071cdc215ae685eec61530a41a4fa19c4a",
+          "attestation": {
+            "kind": "none"
+          },
+          "digest": "sha256:16ca4f332c0bd3c9eb1857c8ae2dce1e80b125433762dca9a345e53a7668bbe7"
+        }
+      }
+    }
+  ],
+  "reseal": "all",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "approval_missing",
+      "path": "/10/authority"
+    }
+  ]
+}

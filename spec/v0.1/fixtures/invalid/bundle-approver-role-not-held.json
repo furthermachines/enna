@@ -1,0 +1,25 @@
+{
+  "description": "The branch's grant requires a role under which nobody approved.",
+  "section": "9.7",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/2/grants/1/conditions",
+      "value": {
+        "approver_roles": ["engineering_lead"]
+      }
+    }
+  ],
+  "reseal": "all",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "approver_out_of_scope",
+      "path": "/3/authority"
+    }
+  ]
+}

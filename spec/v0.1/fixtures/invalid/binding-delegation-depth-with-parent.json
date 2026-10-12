@@ -1,0 +1,22 @@
+{
+  "description": "A binding with a parent has a depth of at least 1.",
+  "section": "5.6",
+  "validate": "object",
+  "base": "authority-binding.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/delegation/parent",
+      "value": {
+        "id": "auth_planning_agent",
+        "revision": 1
+      }
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/delegation/depth"
+    }
+  ]
+}

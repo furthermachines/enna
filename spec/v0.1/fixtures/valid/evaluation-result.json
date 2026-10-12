@@ -1,0 +1,139 @@
+{
+  "protocol_version": "0.1",
+  "type": "evaluation_result",
+  "id": "eval_brand_approvals",
+  "revision": 1,
+  "created_at": "2026-10-14T10:00:00Z",
+  "scope": {
+    "organization": "harborpine.example",
+    "workspace": "internal",
+    "project": "brand-approvals"
+  },
+  "profile": "software-delivery/0.1",
+  "contract": {
+    "id": "wc_brand_approvals",
+    "revision": 1
+  },
+  "receipts": [
+    {
+      "id": "rcpt_branch",
+      "digest": "sha256:06d91777872676cbd1519356e82a020889dbcc32b68af0823a4572234e8b7d20"
+    },
+    {
+      "id": "rcpt_lumen_read_denied",
+      "digest": "sha256:3e7f314d0e085ac0001978a47bd84d5c050c11e30bc9b7f2e4f88998215e0ffc"
+    },
+    {
+      "id": "rcpt_commit",
+      "digest": "sha256:dfd385f14c7096a3d4315c1d766f8d3d5be0004c8e6cc6abbbed206b62bdab56"
+    },
+    {
+      "id": "rcpt_ci",
+      "digest": "sha256:c068b494f1782da96751c9f4974d08a3d9a198d658a7ac767f4b7556b7225b39"
+    },
+    {
+      "id": "rcpt_pull_request",
+      "digest": "sha256:8ad44f7f8155d67ebf6c65a3569b6e151a5bef4c1b2a23452a090c9c79724367"
+    },
+    {
+      "id": "rcpt_preview",
+      "digest": "sha256:652127f2acc181b8739046ff9a5432071cdc215ae685eec61530a41a4fa19c4a"
+    }
+  ],
+  "evaluator": {
+    "principal": {
+      "kind": "agent",
+      "id": "https://agents.harborpine.example/evaluator",
+      "display": "Evaluator agent"
+    },
+    "name": "harborpine-evaluator",
+    "version": "0.1.0"
+  },
+  "execution": {
+    "status": "complete"
+  },
+  "criteria": [
+    {
+      "criterion_id": "AC-1",
+      "result": "pass",
+      "method": "automated_check",
+      "evidence": [
+        {
+          "kind": "test_report",
+          "ref": "https://ci.harborpine.example/collab-app/runs/812/approval-gate.json",
+          "digest": "sha256:97ab49ed582226109b4f03bf24a7a457ef7afc80e169700fe96fcd6205125965",
+          "summary": "Unapproved publishing is blocked.",
+          "counts": {
+            "passed": 18,
+            "failed": 0
+          }
+        }
+      ]
+    },
+    {
+      "criterion_id": "AC-2",
+      "result": "pass",
+      "method": "automated_check",
+      "evidence": [
+        {
+          "kind": "test_report",
+          "ref": "https://ci.harborpine.example/collab-app/runs/812/approval-records.json",
+          "digest": "sha256:0d85ea6c0293a60fa7a8dd6bdad6ac999f883285179a4b1900e892872dbfc916",
+          "summary": "Each approval is recorded.",
+          "counts": {
+            "passed": 9,
+            "failed": 0
+          }
+        }
+      ]
+    },
+    {
+      "criterion_id": "AC-3",
+      "result": "pass",
+      "method": "automated_check",
+      "evidence": [
+        {
+          "kind": "test_report",
+          "ref": "https://ci.harborpine.example/collab-app/runs/812/tenant-isolation.json",
+          "digest": "sha256:b154122e627f8df5df4ea965aba0ebff8ee3f3e09d906428950108300233b97a",
+          "summary": "No cross-workspace reads.",
+          "counts": {
+            "passed": 24,
+            "failed": 0,
+            "skipped": 1
+          }
+        }
+      ],
+      "limitations": ["One cross-region case is skipped in the preview environment."]
+    },
+    {
+      "criterion_id": "AC-4",
+      "result": "pass",
+      "method": "human_judgment",
+      "evidence": [
+        {
+          "kind": "review",
+          "ref": "https://git.harborpine.example/collab-app/pull/318#review-1",
+          "digest": "sha256:71c43f40b31947dbf52e012b1a31e991368a27bc880aafcd43dce397901b278a",
+          "summary": "Dana tried the preview and found the flow usable."
+        }
+      ]
+    },
+    {
+      "criterion_id": "AC-5",
+      "result": "unknown",
+      "method": "measurement_window",
+      "evidence": [],
+      "limitations": ["The 30-day window starts only when a pilot client approves."]
+    }
+  ],
+  "technical_result": "pass",
+  "acceptance": {
+    "decision": "pending"
+  },
+  "business_impact": {
+    "status": "unknown",
+    "notes": "Pilot adoption has not been measured; the window starts on pilot approval."
+  },
+  "limitations": ["A passing test suite is not evidence of customer value."]
+}

@@ -1,0 +1,21 @@
+{
+  "description": "The evaluator accepts after the owner's approval of the delegation was revoked.",
+  "section": "9.13",
+  "validate": "bundle",
+  "base": "bundle-delegated-acceptance.json",
+  "options": {
+    "now": "2026-10-20T00:00:00Z",
+    "revocations": [
+      {
+        "id": "apr_dana_acceptance",
+        "revoked_at": "2026-10-16T14:30:00Z"
+      }
+    ]
+  },
+  "expected": [
+    {
+      "code": "acceptance_not_owner",
+      "path": "/9/acceptance/by"
+    }
+  ]
+}

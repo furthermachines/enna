@@ -1,0 +1,22 @@
+{
+  "description": "Accepted while execution was incomplete.",
+  "section": "9.13",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/9/execution/status",
+      "value": "incomplete"
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "acceptance_premature",
+      "path": "/9/acceptance"
+    }
+  ]
+}

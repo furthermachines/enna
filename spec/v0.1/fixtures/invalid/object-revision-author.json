@@ -1,0 +1,23 @@
+{
+  "description": "From revision 2 a revision names its author and its change.",
+  "section": "2.5",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/revision",
+      "value": 2
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/change_summary"
+    },
+    {
+      "code": "schema_violation",
+      "path": "/revision_author"
+    }
+  ]
+}

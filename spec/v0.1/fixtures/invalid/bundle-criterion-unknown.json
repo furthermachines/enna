@@ -1,0 +1,22 @@
+{
+  "description": "The evaluation names a criterion the contract lacks.",
+  "section": "9.12",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/9/criteria/4/criterion_id",
+      "value": "AC-9"
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "criterion_unknown",
+      "path": "/9/criteria/4/criterion_id"
+    }
+  ]
+}

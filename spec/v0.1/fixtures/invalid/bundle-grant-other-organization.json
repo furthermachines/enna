@@ -1,0 +1,31 @@
+{
+  "description": "A grant names a resource of another organization.",
+  "section": "9.4",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/2/grants/-",
+      "value": {
+        "action": "harborpine.example/workspace_comments.read",
+        "resource": {
+          "type": "workspace_comments",
+          "scope": {
+            "organization": "lumenbeverages.example"
+          }
+        }
+      }
+    }
+  ],
+  "reseal": "all",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "tenant_mismatch",
+      "path": "/2/grants/6/resource/scope"
+    }
+  ]
+}

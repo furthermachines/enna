@@ -1,0 +1,83 @@
+{
+  "description": "At Assured, only verified approvals authorize an effect, and the only approval is asserted.",
+  "section": "9.16",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/3/integrity/attestation",
+      "value": {
+        "kind": "jws",
+        "ref": "https://attest.harborpine.example/receipts/rcpt_branch.jws"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/4/integrity/attestation",
+      "value": {
+        "kind": "jws",
+        "ref": "https://attest.harborpine.example/receipts/rcpt_lumen_read_denied.jws"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/5/integrity/attestation",
+      "value": {
+        "kind": "jws",
+        "ref": "https://attest.harborpine.example/receipts/rcpt_commit.jws"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/6/integrity/attestation",
+      "value": {
+        "kind": "jws",
+        "ref": "https://attest.harborpine.example/receipts/rcpt_ci.jws"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/7/integrity/attestation",
+      "value": {
+        "kind": "jws",
+        "ref": "https://attest.harborpine.example/receipts/rcpt_pull_request.jws"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/8/integrity/attestation",
+      "value": {
+        "kind": "jws",
+        "ref": "https://attest.harborpine.example/receipts/rcpt_preview.jws"
+      }
+    }
+  ],
+  "reseal": "receipts",
+  "options": {
+    "now": "2026-10-20T00:00:00Z",
+    "level": "assured"
+  },
+  "expected": [
+    {
+      "code": "approval_missing",
+      "path": "/3/authority"
+    },
+    {
+      "code": "approval_missing",
+      "path": "/5/authority"
+    },
+    {
+      "code": "approval_missing",
+      "path": "/6/authority"
+    },
+    {
+      "code": "approval_missing",
+      "path": "/7/authority"
+    },
+    {
+      "code": "approval_missing",
+      "path": "/8/authority"
+    }
+  ]
+}

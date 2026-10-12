@@ -1,0 +1,19 @@
+{
+  "description": "An action name's prefix is a domain, so none of its labels ends with a hyphen.",
+  "section": "2.4",
+  "validate": "object",
+  "base": "authority-binding.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/grants/0/action",
+      "value": "harborpine-.example/workspace_comments.read"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/grants/0/action"
+    }
+  ]
+}

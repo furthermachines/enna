@@ -1,0 +1,24 @@
+{
+  "description": "Under software-delivery/0.1 a commit's digest is its git object ID.",
+  "section": "14.4",
+  "validate": "object",
+  "base": "execution-receipt.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/artifacts/0/kind",
+      "value": "commit"
+    },
+    {
+      "op": "replace",
+      "path": "/artifacts/0/digest",
+      "value": "sha384:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/artifacts/0/digest"
+    }
+  ]
+}

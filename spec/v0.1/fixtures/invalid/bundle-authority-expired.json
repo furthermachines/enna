@@ -1,0 +1,31 @@
+{
+  "description": "Effects after the authority expired.",
+  "section": "9.7",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/2/expires_at",
+      "value": "2026-10-13T11:00:03Z"
+    }
+  ],
+  "reseal": "all",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "authority_expired",
+      "path": "/6/started_at"
+    },
+    {
+      "code": "authority_expired",
+      "path": "/7/started_at"
+    },
+    {
+      "code": "authority_expired",
+      "path": "/8/started_at"
+    }
+  ]
+}

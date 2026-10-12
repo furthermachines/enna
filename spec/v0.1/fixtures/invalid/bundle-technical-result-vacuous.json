@@ -1,0 +1,37 @@
+{
+  "description": "A contract with no required criterion derives unknown, never a vacuous pass.",
+  "section": "7.4",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/0/criteria/0/required",
+      "value": false
+    },
+    {
+      "op": "replace",
+      "path": "/0/criteria/1/required",
+      "value": false
+    },
+    {
+      "op": "replace",
+      "path": "/0/criteria/2/required",
+      "value": false
+    },
+    {
+      "op": "replace",
+      "path": "/0/criteria/3/required",
+      "value": false
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "technical_result_mismatch",
+      "path": "/9/technical_result"
+    }
+  ]
+}

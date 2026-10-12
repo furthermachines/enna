@@ -1,0 +1,112 @@
+{
+  "description": "The second preview, created last, is listed first in the record, so record order and creation order differ and links to the first preview; the branch, first in creation order, links outside the record, so the chain has no first receipt.",
+  "section": "9.14",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/3",
+      "value": {
+        "protocol_version": "0.1",
+        "type": "execution_receipt",
+        "id": "rcpt_preview_2",
+        "created_at": "2026-10-13T12:06:10Z",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "internal",
+          "project": "brand-approvals"
+        },
+        "profile": "software-delivery/0.1",
+        "contract": {
+          "id": "wc_brand_approvals",
+          "revision": 1
+        },
+        "context": {
+          "id": "ctx_brand_approvals",
+          "revision": 1
+        },
+        "authority": {
+          "id": "auth_coding_agent",
+          "revision": 1
+        },
+        "action": {
+          "name": "preview.deploy",
+          "resource": {
+            "type": "preview_environment",
+            "scope": {
+              "organization": "harborpine.example",
+              "workspace": "internal",
+              "project": "brand-approvals"
+            }
+          },
+          "requested_at": "2026-10-13T12:00:00Z",
+          "idempotency_key": "brand-approvals-preview-2",
+          "payload_digest": "sha256:65ed272e38736c73d0ca2e8c43fc12a8ae9010e133eb7225ff00043e07808ab9"
+        },
+        "actor": {
+          "principal": {
+            "kind": "agent",
+            "id": "https://agents.harborpine.example/coding",
+            "display": "Coding agent"
+          },
+          "performed_by": "agent",
+          "runtime": {
+            "name": "fixture-runtime",
+            "version": "0.1.0"
+          }
+        },
+        "decision": {
+          "result": "permit",
+          "reasons": [],
+          "evaluated_at": "2026-10-13T12:00:01Z",
+          "policy_ref": "harborpine-agent-work@1"
+        },
+        "outcome": {
+          "status": "succeeded",
+          "summary": "Done."
+        },
+        "started_at": "2026-10-13T12:00:02Z",
+        "finished_at": "2026-10-13T12:06:10Z",
+        "effects": [
+          {
+            "description": "A second preview deployed."
+          }
+        ],
+        "trace": {
+          "correlation_id": "brand-approvals"
+        },
+        "integrity": {
+          "canonicalization": "rfc8785",
+          "previous_digest": "sha256:652127f2acc181b8739046ff9a5432071cdc215ae685eec61530a41a4fa19c4a",
+          "attestation": {
+            "kind": "none"
+          },
+          "digest": "sha256:0b87e15652878aa8e490e322c9fffa5b640424f48094dabe230fabc1dfd98349"
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/4/integrity/previous_digest",
+      "value": "sha256:16ca4f332c0bd3c9eb1857c8ae2dce1e80b125433762dca9a345e53a7668bbe7"
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "chain_broken",
+      "path": "/4/integrity"
+    },
+    {
+      "code": "digest_mismatch",
+      "path": "/4/integrity/digest"
+    },
+    {
+      "code": "chain_broken",
+      "path": "/4/integrity/previous_digest"
+    }
+  ]
+}

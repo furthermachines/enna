@@ -1,0 +1,19 @@
+{
+  "description": "The issuer metadata names auth.issuer with a trailing slash, which is not exactly the same issuer.",
+  "section": "12.4",
+  "validate": "discovery",
+  "base": "discovery-harborpine.json",
+  "options": {
+    "requestedHost": "harborpine.example",
+    "issuerMetadata": {
+      "issuer": "https://id.harborpine.example/",
+      "enna_domains": ["harborpine.example"]
+    }
+  },
+  "expected": [
+    {
+      "code": "issuer_mismatch",
+      "path": "/auth/issuer"
+    }
+  ]
+}

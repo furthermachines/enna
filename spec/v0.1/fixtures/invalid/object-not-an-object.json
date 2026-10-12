@@ -1,0 +1,12 @@
+{
+  "description": "A document checked as an object that is not a JSON object is refused at its root.",
+  "section": "8.2",
+  "validate": "object",
+  "base": "bundle-brand-approvals.json",
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": ""
+    }
+  ]
+}

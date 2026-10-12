@@ -1,0 +1,12 @@
+{
+  "description": "The first repetition in text order is reported, here one nested in an array, and nothing after it.",
+  "section": "2.1",
+  "validate": "json",
+  "input_text": "{\"criteria\":[{\"id\":\"AC-1\",\"id\":\"AC-2\"}],\"type\":\"a\",\"type\":\"b\"}",
+  "expected": [
+    {
+      "code": "duplicate_member",
+      "path": "/criteria/0/id"
+    }
+  ]
+}

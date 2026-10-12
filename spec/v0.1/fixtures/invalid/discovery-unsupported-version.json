@@ -1,0 +1,22 @@
+{
+  "description": "A document from another version is refused before the host it was requested from is checked.",
+  "section": "12.3",
+  "validate": "discovery",
+  "base": "discovery-harborpine.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/protocol_version",
+      "value": "0.2"
+    }
+  ],
+  "options": {
+    "requestedHost": "lumenbeverages.example"
+  },
+  "expected": [
+    {
+      "code": "unsupported_version",
+      "path": "/protocol_version"
+    }
+  ]
+}

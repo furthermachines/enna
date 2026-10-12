@@ -1,0 +1,42 @@
+{
+  "description": "Each invariant applies on its own, so an effect whose binding is not in the record is still held to the freshness of the context it cites.",
+  "section": "9.1",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/3/authority/id",
+      "value": "auth_reader_agent"
+    },
+    {
+      "op": "replace",
+      "path": "/1/items/0/scope/workspace",
+      "value": "internal"
+    },
+    {
+      "op": "replace",
+      "path": "/1/items/2/scope/workspace",
+      "value": "internal"
+    },
+    {
+      "op": "replace",
+      "path": "/1/items/2/freshness/as_of",
+      "value": "2026-10-13T10:00:00Z"
+    }
+  ],
+  "reseal": "receipts",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "reference_unresolved",
+      "path": "/3/authority"
+    },
+    {
+      "code": "context_stale",
+      "path": "/3/context"
+    }
+  ]
+}

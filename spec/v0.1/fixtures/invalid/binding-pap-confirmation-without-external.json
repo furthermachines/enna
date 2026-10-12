@@ -1,0 +1,18 @@
+{
+  "description": "A PAP confirmation carries the confirmation it records.",
+  "section": "5.3",
+  "validate": "object",
+  "base": "authority-binding-pap.json",
+  "patch": [
+    {
+      "op": "remove",
+      "path": "/approvals/0/external"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/approvals/0/external"
+    }
+  ]
+}

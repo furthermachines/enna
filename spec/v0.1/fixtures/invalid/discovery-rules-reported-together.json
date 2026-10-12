@@ -1,0 +1,31 @@
+{
+  "description": "A document's critical extensions and the domain rule are reported together.",
+  "section": "12.7",
+  "validate": "discovery",
+  "base": "discovery-harborpine.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/extensions",
+      "value": {
+        "example.com/directory": {
+          "version": "1",
+          "critical": true
+        }
+      }
+    }
+  ],
+  "options": {
+    "requestedHost": "lumenbeverages.example"
+  },
+  "expected": [
+    {
+      "code": "unsupported_critical_extension",
+      "path": "/extensions/example.com~1directory"
+    },
+    {
+      "code": "domain_mismatch",
+      "path": "/organization/domain"
+    }
+  ]
+}

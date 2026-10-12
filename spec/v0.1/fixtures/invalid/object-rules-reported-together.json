@@ -1,0 +1,37 @@
+{
+  "description": "Object rules are reported together.",
+  "section": "8.2",
+  "validate": "object",
+  "base": "evaluation-result.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/criteria/0/evidence",
+      "value": []
+    },
+    {
+      "op": "replace",
+      "path": "/acceptance",
+      "value": {
+        "decision": "accepted",
+        "by": {
+          "kind": "person",
+          "id": "dana.whitfield",
+          "issuer": "https://id.harborpine.example",
+          "display": "Dana Whitfield"
+        },
+        "at": "2026-10-14T11:00:00Z"
+      }
+    }
+  ],
+  "expected": [
+    {
+      "code": "acceptance_premature",
+      "path": "/acceptance/decision"
+    },
+    {
+      "code": "evidence_missing",
+      "path": "/criteria/0/evidence"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "description": "A denied action cost nothing.",
+  "section": "6.3",
+  "validate": "object",
+  "base": "execution-receipt-denied.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/cost",
+      "value": {
+        "currency": "USD",
+        "amount": "0.10"
+      }
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/cost"
+    }
+  ]
+}

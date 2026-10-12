@@ -1,0 +1,23 @@
+{
+  "description": "The evaluator accepts under a binding whose grant is another action than acceptance.decide.",
+  "section": "9.13",
+  "validate": "bundle",
+  "base": "bundle-delegated-acceptance.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/10/grants/0/action",
+      "value": "harborpine.example/acceptance.decide"
+    }
+  ],
+  "reseal": "all",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "acceptance_not_owner",
+      "path": "/9/acceptance/by"
+    }
+  ]
+}

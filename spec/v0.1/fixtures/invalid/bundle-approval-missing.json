@@ -1,0 +1,58 @@
+{
+  "description": "Effects with no approval at all.",
+  "section": "9.7",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/2/approvals",
+      "value": []
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "approval_missing",
+      "path": "/3/authority"
+    },
+    {
+      "code": "context_out_of_scope",
+      "path": "/3/context"
+    },
+    {
+      "code": "approval_missing",
+      "path": "/5/authority"
+    },
+    {
+      "code": "context_out_of_scope",
+      "path": "/5/context"
+    },
+    {
+      "code": "approval_missing",
+      "path": "/6/authority"
+    },
+    {
+      "code": "context_out_of_scope",
+      "path": "/6/context"
+    },
+    {
+      "code": "approval_missing",
+      "path": "/7/authority"
+    },
+    {
+      "code": "context_out_of_scope",
+      "path": "/7/context"
+    },
+    {
+      "code": "approval_missing",
+      "path": "/8/authority"
+    },
+    {
+      "code": "context_out_of_scope",
+      "path": "/8/context"
+    }
+  ]
+}

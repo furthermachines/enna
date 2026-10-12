@@ -1,0 +1,22 @@
+{
+  "description": "technical_result is derived, never asserted.",
+  "section": "7.4",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/9/technical_result",
+      "value": "unknown"
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "technical_result_mismatch",
+      "path": "/9/technical_result"
+    }
+  ]
+}

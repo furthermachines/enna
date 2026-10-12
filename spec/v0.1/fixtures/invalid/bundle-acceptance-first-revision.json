@@ -1,0 +1,22 @@
+{
+  "description": "In a record, an acceptance decided in the evaluation's first revision is reported under its index.",
+  "section": "9.13",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/9/revision",
+      "value": 1
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "acceptance_premature",
+      "path": "/9/acceptance/decision"
+    }
+  ]
+}

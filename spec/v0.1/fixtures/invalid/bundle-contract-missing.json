@@ -1,0 +1,21 @@
+{
+  "description": "A record holds a work contract.",
+  "section": "9.1",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "remove",
+      "path": "/0"
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": ""
+    }
+  ]
+}

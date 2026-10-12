@@ -1,0 +1,15 @@
+{
+  "description": "The document was requested from another host than the domain it names.",
+  "section": "12.2",
+  "validate": "discovery",
+  "base": "discovery-harborpine.json",
+  "options": {
+    "requestedHost": "evil.example"
+  },
+  "expected": [
+    {
+      "code": "domain_mismatch",
+      "path": "/organization/domain"
+    }
+  ]
+}

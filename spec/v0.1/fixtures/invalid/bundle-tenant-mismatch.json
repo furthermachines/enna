@@ -1,0 +1,27 @@
+{
+  "description": "A commit lands in a client workspace no grant names.",
+  "section": "9.4",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/5/action/resource/scope/workspace",
+      "value": "lumen-beverages"
+    }
+  ],
+  "reseal": "receipts",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "authority_insufficient",
+      "path": "/5/action"
+    },
+    {
+      "code": "tenant_mismatch",
+      "path": "/5/action/resource/scope"
+    }
+  ]
+}

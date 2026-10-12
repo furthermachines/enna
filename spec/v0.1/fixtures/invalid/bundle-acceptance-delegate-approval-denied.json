@@ -1,0 +1,22 @@
+{
+  "description": "The evaluator accepts under a binding that the owner denied.",
+  "section": "9.13",
+  "validate": "bundle",
+  "base": "bundle-delegated-acceptance.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/10/approvals/0/decision",
+      "value": "denied"
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "acceptance_not_owner",
+      "path": "/9/acceptance/by"
+    }
+  ]
+}

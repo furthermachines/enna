@@ -1,0 +1,19 @@
+{
+  "description": "A profile identifier's prefix is a domain, so none of its labels starts with a hyphen.",
+  "section": "2.14",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/profile",
+      "value": "-harborpine.example/support/0.1"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/profile"
+    }
+  ]
+}

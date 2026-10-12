@@ -1,0 +1,43 @@
+{
+  "description": "poppy.json's organization.domain starts with U+212A KELVIN SIGN, which only a Unicode case fold makes k, so it does not match enna.json's kestrel.example.",
+  "section": "12.5",
+  "validate": "discovery",
+  "base": "discovery-harborpine.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/organization/domain",
+      "value": "kestrel.example"
+    },
+    {
+      "op": "replace",
+      "path": "/pap/poppy_json",
+      "value": "https://kestrel.example/.well-known/poppy.json"
+    }
+  ],
+  "options": {
+    "requestedHost": "kestrel.example",
+    "poppy": {
+      "url": "https://kestrel.example/.well-known/poppy.json",
+      "document": {
+        "protocol_version": "0.1",
+        "organization": {
+          "name": "Harbor & Pine",
+          "domain": "Kestrel.example"
+        },
+        "extensions": {
+          "businessagentprotocol.org/enna": {
+            "version": "0.1",
+            "url": "https://kestrel.example/.well-known/enna.json"
+          }
+        }
+      }
+    }
+  },
+  "expected": [
+    {
+      "code": "domain_mismatch",
+      "path": "/pap/poppy_json"
+    }
+  ]
+}

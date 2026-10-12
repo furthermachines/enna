@@ -1,0 +1,19 @@
+{
+  "description": "A work contract ID must start with wc_.",
+  "section": "2.3",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/id",
+      "value": "ctx_brand_approvals"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/id"
+    }
+  ]
+}

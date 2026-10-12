@@ -1,0 +1,18 @@
+{
+  "description": "Under software-delivery/0.1, a test report given as evidence carries its counts.",
+  "section": "14.3",
+  "validate": "object",
+  "base": "evaluation-result.json",
+  "patch": [
+    {
+      "op": "remove",
+      "path": "/criteria/0/evidence/0/counts"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/criteria/0/evidence/0/counts"
+    }
+  ]
+}

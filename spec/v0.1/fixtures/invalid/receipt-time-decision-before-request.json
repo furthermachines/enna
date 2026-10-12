@@ -1,0 +1,19 @@
+{
+  "description": "The decision comes no earlier than the request.",
+  "section": "6.3",
+  "validate": "object",
+  "base": "execution-receipt.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/decision/evaluated_at",
+      "value": "2026-10-13T08:59:59Z"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/decision/evaluated_at"
+    }
+  ]
+}

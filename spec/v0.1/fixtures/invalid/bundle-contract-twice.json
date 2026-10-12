@@ -1,0 +1,155 @@
+{
+  "description": "A record holds exactly one contract revision, so a second one is refused at its type.",
+  "section": "9.1",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/-",
+      "value": {
+        "protocol_version": "0.1",
+        "type": "work_contract",
+        "id": "wc_brand_approvals",
+        "revision": 2,
+        "created_at": "2026-10-14T09:00:00Z",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "internal",
+          "project": "brand-approvals"
+        },
+        "profile": "software-delivery/0.1",
+        "summary": "Run a scoped experiment: block and record explicit client approval before a branded external project is published, keeping client workspaces isolated. Budget USD 400.00, medium risk, due 2026-10-26.",
+        "objective": {
+          "outcome": "Agency clients can require their own approval before anything branded goes out, so they keep trusting shared projects.",
+          "request": "Add an approval gate to external publishing for branded projects, behind a feature flag, with a preview for the owner."
+        },
+        "owner": {
+          "kind": "person",
+          "id": "dana.whitfield",
+          "issuer": "https://id.harborpine.example",
+          "display": "Dana Whitfield"
+        },
+        "requester": {
+          "kind": "person",
+          "id": "dana.whitfield",
+          "issuer": "https://id.harborpine.example",
+          "display": "Dana Whitfield"
+        },
+        "stakeholders": [
+          {
+            "principal": {
+              "kind": "person",
+              "id": "priya.raman",
+              "issuer": "https://id.harborpine.example",
+              "display": "Priya Raman"
+            },
+            "role": "approver",
+            "approver_roles": ["product_manager"]
+          },
+          {
+            "principal": {
+              "kind": "person",
+              "id": "theo.okafor",
+              "issuer": "https://id.harborpine.example",
+              "display": "Theo Okafor"
+            },
+            "role": "consulted"
+          }
+        ],
+        "criteria": [
+          {
+            "id": "AC-1",
+            "statement": "Publishing a branded external project is blocked until a client approver has approved it.",
+            "required": true,
+            "method": "automated_check"
+          },
+          {
+            "id": "AC-2",
+            "statement": "Every approval is recorded with the approver, the time and the version approved.",
+            "required": true,
+            "method": "automated_check"
+          },
+          {
+            "id": "AC-3",
+            "statement": "Nothing from one client workspace is visible in another.",
+            "required": true,
+            "method": "automated_check"
+          },
+          {
+            "id": "AC-4",
+            "statement": "The owner reviews the preview and judges the flow usable.",
+            "required": true,
+            "method": "human_judgment"
+          },
+          {
+            "id": "AC-5",
+            "statement": "Pilot clients use the approval gate on at least half of their branded projects.",
+            "required": false,
+            "method": "measurement_window",
+            "measurement": {
+              "window_seconds": 2592000,
+              "starts": "on_pilot_approval"
+            }
+          }
+        ],
+        "constraints": [
+          {
+            "id": "C-1",
+            "kind": "must_not",
+            "statement": "Read or write anything in the Lumen Beverages workspace."
+          },
+          {
+            "id": "C-2",
+            "kind": "must",
+            "statement": "Keep the gate behind a feature flag that is off for clients outside the pilot."
+          },
+          {
+            "id": "C-3",
+            "kind": "must_not",
+            "statement": "Deploy to production."
+          }
+        ],
+        "deadline_at": "2026-10-30T17:00:00Z",
+        "limits": {
+          "cost": {
+            "currency": "USD",
+            "amount": "400.00"
+          },
+          "risk": {
+            "max_level": "medium",
+            "notes": "Preview only; nothing reaches clients without the flag."
+          }
+        },
+        "outputs": [
+          {
+            "id": "OUT-1",
+            "kind": "pull_request",
+            "description": "A reviewed pull request with the gate."
+          },
+          {
+            "id": "OUT-2",
+            "kind": "preview_url",
+            "description": "A preview the owner can try."
+          }
+        ],
+        "revision_author": {
+          "kind": "person",
+          "id": "dana.whitfield",
+          "issuer": "https://id.harborpine.example",
+          "display": "Dana Whitfield"
+        },
+        "change_summary": "Moved the deadline to 2026-10-30."
+      }
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/10/type"
+    }
+  ]
+}

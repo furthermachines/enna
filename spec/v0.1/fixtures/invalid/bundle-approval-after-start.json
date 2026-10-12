@@ -1,0 +1,22 @@
+{
+  "description": "The only approval was given after the branch was created.",
+  "section": "9.7",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/2/approvals/0/decided_at",
+      "value": "2026-10-13T10:30:00Z"
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "approval_missing",
+      "path": "/3/authority"
+    }
+  ]
+}

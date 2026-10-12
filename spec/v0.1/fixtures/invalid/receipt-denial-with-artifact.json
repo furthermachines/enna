@@ -1,0 +1,27 @@
+{
+  "description": "A denied action produced nothing.",
+  "section": "6.3",
+  "validate": "object",
+  "base": "execution-receipt-denied.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/artifacts",
+      "value": [
+        {
+          "id": "art_branch",
+          "kind": "branch",
+          "ref": "https://git.harborpine.example/collab-app/tree/feat/brand-approval-gate",
+          "media_type": "text/plain",
+          "digest": "sha1:3f786850e387550fdab836ed7e6dc881de23001b"
+        }
+      ]
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/artifacts"
+    }
+  ]
+}

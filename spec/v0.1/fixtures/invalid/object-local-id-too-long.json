@@ -1,0 +1,19 @@
+{
+  "description": "A local identifier has at most 64 characters.",
+  "section": "2.3",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/constraints/0/id",
+      "value": "C-111111111111111111111111111111111111111111111111111111111111111"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/constraints/0/id"
+    }
+  ]
+}

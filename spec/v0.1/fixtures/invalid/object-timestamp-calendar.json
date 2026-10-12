@@ -1,0 +1,19 @@
+{
+  "description": "Every field of a timestamp is in range, and 2026 has no February 29.",
+  "section": "2.7",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/created_at",
+      "value": "2026-02-29T09:00:00Z"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/created_at"
+    }
+  ]
+}

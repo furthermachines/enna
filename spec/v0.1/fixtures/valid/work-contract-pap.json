@@ -1,0 +1,61 @@
+{
+  "protocol_version": "0.1",
+  "type": "work_contract",
+  "id": "wc_kestrel_access",
+  "revision": 1,
+  "created_at": "2026-10-18T09:00:00Z",
+  "scope": {
+    "organization": "harborpine.example",
+    "workspace": "kestrel-media"
+  },
+  "summary": "Restore access to the Kestrel Media workspace on the paid plan by re-running provisioning. No charge.",
+  "requester": {
+    "kind": "person",
+    "id": "u_8f3a2c91",
+    "issuer": "https://pa.example/agent"
+  },
+  "owner": {
+    "kind": "person",
+    "id": "theo.okafor",
+    "issuer": "https://id.harborpine.example",
+    "display": "Theo Okafor"
+  },
+  "objective": {
+    "outcome": "The Kestrel Media admin can use the workspace they paid for."
+  },
+  "criteria": [
+    {
+      "id": "AC-1",
+      "statement": "The admin can sign in to the sandbox workspace.",
+      "required": true,
+      "method": "automated_check"
+    }
+  ],
+  "limits": {
+    "cost": {
+      "currency": "USD",
+      "amount": "0.00"
+    },
+    "risk": {
+      "max_level": "low"
+    }
+  },
+  "extensions": {
+    "pap": {
+      "version": "1",
+      "operation_id": "op_kestrel_restore",
+      "revision": 1,
+      "terms": {
+        "workspace": "kestrel-media",
+        "charge": {
+          "currency": "USD",
+          "amount": "0.00"
+        }
+      },
+      "expires_at": "2026-10-20T17:00:00Z",
+      "user_approval_required": true,
+      "url": "https://harborpine.example/account/operations/op_kestrel_restore",
+      "account": "acct_kestrel_admin"
+    }
+  }
+}

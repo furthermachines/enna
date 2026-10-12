@@ -1,0 +1,23 @@
+{
+  "description": "The evaluator accepts under a binding that grants acceptance.decide on another contract.",
+  "section": "9.13",
+  "validate": "bundle",
+  "base": "bundle-delegated-acceptance.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/10/grants/0/resource/id",
+      "value": "wc_brand_refresh"
+    }
+  ],
+  "reseal": "all",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "acceptance_not_owner",
+      "path": "/9/acceptance/by"
+    }
+  ]
+}

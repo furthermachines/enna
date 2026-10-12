@@ -1,0 +1,19 @@
+{
+  "description": "A revision is an integer from 1.",
+  "section": "2.5",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/revision",
+      "value": 0
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/revision"
+    }
+  ]
+}

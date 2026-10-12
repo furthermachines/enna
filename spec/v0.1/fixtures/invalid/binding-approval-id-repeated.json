@@ -1,0 +1,40 @@
+{
+  "description": "An identifier repeats within a binding's approvals.",
+  "section": "2.3",
+  "validate": "object",
+  "base": "authority-binding.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/approvals/-",
+      "value": {
+        "id": "apr_priya_brand_approvals",
+        "approver": {
+          "kind": "person",
+          "id": "dana.whitfield",
+          "issuer": "https://id.harborpine.example",
+          "display": "Dana Whitfield"
+        },
+        "approver_role": "head_of_product",
+        "decision": "approved",
+        "decided_at": "2026-10-12T10:15:00Z",
+        "expires_at": "2026-10-19T10:15:00Z",
+        "covers": {
+          "contract": {
+            "id": "wc_brand_approvals",
+            "revision": 1
+          },
+          "binding_digest": "sha256:63b87a1648932ceaa849aceaf420e446d0bad06918ee6d98e9c642aa0ea1e1d6"
+        },
+        "method": "interactive",
+        "assurance": "asserted"
+      }
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/approvals/1/id"
+    }
+  ]
+}

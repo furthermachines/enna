@@ -1,0 +1,24 @@
+{
+  "description": "A Consumer that does not know an object's profile still applies the core rules.",
+  "section": "2.14",
+  "validate": "object",
+  "base": "execution-receipt.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/profile",
+      "value": "harborpine.example/support/0.1"
+    },
+    {
+      "op": "replace",
+      "path": "/finished_at",
+      "value": "2026-10-13T09:00:01Z"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/finished_at"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "description": "A receipt cites a revision of its context manifest that the record does not hold.",
+  "section": "9.2",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/3/context/revision",
+      "value": 2
+    }
+  ],
+  "reseal": "receipts",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "revision_mismatch",
+      "path": "/3/context"
+    }
+  ]
+}

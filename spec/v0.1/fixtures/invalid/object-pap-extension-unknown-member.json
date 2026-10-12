@@ -1,0 +1,19 @@
+{
+  "description": "The pap extension is closed.",
+  "section": "3.7",
+  "validate": "object",
+  "base": "work-contract-pap.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/extensions/pap/channel",
+      "value": "web"
+    }
+  ],
+  "expected": [
+    {
+      "code": "unknown_member",
+      "path": "/extensions/pap/channel"
+    }
+  ]
+}

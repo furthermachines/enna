@@ -1,0 +1,22 @@
+{
+  "description": "At Controlled, every approval expires.",
+  "section": "9.16",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "remove",
+      "path": "/2/approvals/0/expires_at"
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z",
+    "level": "controlled"
+  },
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/2/approvals/0/expires_at"
+    }
+  ]
+}

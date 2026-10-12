@@ -1,0 +1,24 @@
+{
+  "description": "Only a PAP confirmation carries external.",
+  "section": "5.3",
+  "validate": "object",
+  "base": "authority-binding.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/approvals/0/external",
+      "value": {
+        "operation_id": "op_brand_approvals",
+        "revision": 1,
+        "approved_by": "user",
+        "confirmed_at": "2026-10-12T10:15:00Z"
+      }
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/approvals/0/external"
+    }
+  ]
+}

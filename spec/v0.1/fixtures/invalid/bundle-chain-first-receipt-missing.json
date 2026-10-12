@@ -1,0 +1,30 @@
+{
+  "description": "The first receipt links to a receipt outside the record, as if into an earlier revision's chain, so the chain has no first receipt.",
+  "section": "9.14",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/3/integrity/previous_digest",
+      "value": "sha256:16ca4f332c0bd3c9eb1857c8ae2dce1e80b125433762dca9a345e53a7668bbe7"
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "chain_broken",
+      "path": "/3/integrity"
+    },
+    {
+      "code": "digest_mismatch",
+      "path": "/3/integrity/digest"
+    },
+    {
+      "code": "chain_broken",
+      "path": "/3/integrity/previous_digest"
+    }
+  ]
+}

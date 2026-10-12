@@ -1,0 +1,26 @@
+{
+  "description": "The evaluator accepts under a binding whose only owner approval covers another contract revision.",
+  "section": "9.13",
+  "validate": "bundle",
+  "base": "bundle-delegated-acceptance.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/10/approvals/0/covers/contract/revision",
+      "value": 2
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "approval_stale",
+      "path": "/10/approvals/0/covers/contract"
+    },
+    {
+      "code": "acceptance_not_owner",
+      "path": "/9/acceptance/by"
+    }
+  ]
+}

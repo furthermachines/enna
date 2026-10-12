@@ -1,0 +1,27 @@
+{
+  "description": "An action whose outcome is unknown lists no artifacts.",
+  "section": "6.3",
+  "validate": "object",
+  "base": "execution-receipt.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/outcome/status",
+      "value": "unknown"
+    },
+    {
+      "op": "remove",
+      "path": "/finished_at"
+    },
+    {
+      "op": "remove",
+      "path": "/effects"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/artifacts"
+    }
+  ]
+}

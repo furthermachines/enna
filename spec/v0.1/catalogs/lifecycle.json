@@ -1,0 +1,338 @@
+{
+  "draft": "0.1",
+  "defined_in": {
+    "section": "10",
+    "url": "https://businessagentprotocol.org/spec/v0.1/lifecycle/"
+  },
+  "states": [
+    "proposed",
+    "awaiting_approval",
+    "authorized",
+    "executing",
+    "execution_complete",
+    "evaluating",
+    "awaiting_acceptance",
+    "accepted",
+    "rejected",
+    "cancelled",
+    "blocked"
+  ],
+  "terminal_states": [
+    "accepted",
+    "rejected",
+    "cancelled"
+  ],
+  "events": [
+    "request_approval",
+    "approve",
+    "reject",
+    "start",
+    "complete_execution",
+    "start_evaluation",
+    "complete_evaluation",
+    "accept",
+    "revise",
+    "cancel",
+    "block",
+    "resume"
+  ],
+  "transitions": [
+    {
+      "from": "proposed",
+      "event": "request_approval",
+      "to": "awaiting_approval"
+    },
+    {
+      "from": "proposed",
+      "event": "revise",
+      "to": "awaiting_approval"
+    },
+    {
+      "from": "proposed",
+      "event": "cancel",
+      "to": "cancelled"
+    },
+    {
+      "from": "awaiting_approval",
+      "event": "approve",
+      "to": "authorized"
+    },
+    {
+      "from": "awaiting_approval",
+      "event": "reject",
+      "to": "rejected"
+    },
+    {
+      "from": "awaiting_approval",
+      "event": "revise",
+      "to": "awaiting_approval"
+    },
+    {
+      "from": "awaiting_approval",
+      "event": "cancel",
+      "to": "cancelled"
+    },
+    {
+      "from": "authorized",
+      "event": "start",
+      "to": "executing"
+    },
+    {
+      "from": "authorized",
+      "event": "block",
+      "to": "blocked"
+    },
+    {
+      "from": "authorized",
+      "event": "revise",
+      "to": "awaiting_approval"
+    },
+    {
+      "from": "authorized",
+      "event": "cancel",
+      "to": "cancelled"
+    },
+    {
+      "from": "executing",
+      "event": "complete_execution",
+      "to": "execution_complete"
+    },
+    {
+      "from": "executing",
+      "event": "block",
+      "to": "blocked"
+    },
+    {
+      "from": "execution_complete",
+      "event": "start_evaluation",
+      "to": "evaluating"
+    },
+    {
+      "from": "execution_complete",
+      "event": "revise",
+      "to": "awaiting_approval"
+    },
+    {
+      "from": "execution_complete",
+      "event": "cancel",
+      "to": "cancelled"
+    },
+    {
+      "from": "evaluating",
+      "event": "complete_evaluation",
+      "to": "awaiting_acceptance"
+    },
+    {
+      "from": "evaluating",
+      "event": "revise",
+      "to": "awaiting_approval"
+    },
+    {
+      "from": "evaluating",
+      "event": "cancel",
+      "to": "cancelled"
+    },
+    {
+      "from": "awaiting_acceptance",
+      "event": "accept",
+      "to": "accepted"
+    },
+    {
+      "from": "awaiting_acceptance",
+      "event": "reject",
+      "to": "rejected"
+    },
+    {
+      "from": "awaiting_acceptance",
+      "event": "revise",
+      "to": "awaiting_approval"
+    },
+    {
+      "from": "awaiting_acceptance",
+      "event": "cancel",
+      "to": "cancelled"
+    },
+    {
+      "from": "blocked",
+      "event": "request_approval",
+      "to": "awaiting_approval"
+    },
+    {
+      "from": "blocked",
+      "event": "resume",
+      "to": "authorized"
+    },
+    {
+      "from": "blocked",
+      "event": "complete_execution",
+      "to": "execution_complete"
+    },
+    {
+      "from": "blocked",
+      "event": "revise",
+      "to": "awaiting_approval"
+    },
+    {
+      "from": "blocked",
+      "event": "cancel",
+      "to": "cancelled"
+    }
+  ],
+  "block_reasons": [
+    "approval_missing",
+    "approval_expired",
+    "approval_revoked",
+    "approval_stale",
+    "approval_denied",
+    "approver_out_of_scope",
+    "separation_of_duties",
+    "quorum_not_met",
+    "authority_expired",
+    "authority_revoked",
+    "authority_insufficient",
+    "subdelegation_forbidden",
+    "attenuation_violated",
+    "context_stale",
+    "context_out_of_scope",
+    "tenant_mismatch",
+    "limit_exceeded",
+    "currency_mismatch"
+  ],
+  "a2a": {
+    "task_states": [
+      "TASK_STATE_UNSPECIFIED",
+      "TASK_STATE_SUBMITTED",
+      "TASK_STATE_WORKING",
+      "TASK_STATE_COMPLETED",
+      "TASK_STATE_FAILED",
+      "TASK_STATE_CANCELED",
+      "TASK_STATE_INPUT_REQUIRED",
+      "TASK_STATE_REJECTED",
+      "TASK_STATE_AUTH_REQUIRED"
+    ],
+    "states": {
+      "proposed": {
+        "a2a": "TASK_STATE_SUBMITTED",
+        "match": "approximate",
+        "note": "A2A's submitted means acknowledged; an Enna proposal has its terms on offer but is not yet sent for approval."
+      },
+      "awaiting_approval": {
+        "a2a": "TASK_STATE_INPUT_REQUIRED",
+        "match": "approximate",
+        "note": "Approval is a decision by an accountable person. TASK_STATE_AUTH_REQUIRED is about credentials and never stands for approval."
+      },
+      "authorized": {
+        "a2a": "TASK_STATE_WORKING",
+        "match": "approximate",
+        "note": "A2A has no approved-but-not-started state."
+      },
+      "executing": {
+        "a2a": "TASK_STATE_WORKING",
+        "match": "exact",
+        "note": ""
+      },
+      "execution_complete": {
+        "a2a": "TASK_STATE_WORKING",
+        "match": "approximate",
+        "note": "Execution has finished but evaluation and acceptance remain; TASK_STATE_COMPLETED would claim the business work is done."
+      },
+      "evaluating": {
+        "a2a": "TASK_STATE_WORKING",
+        "match": "approximate",
+        "note": "Evaluation is still work on the contract."
+      },
+      "awaiting_acceptance": {
+        "a2a": "TASK_STATE_INPUT_REQUIRED",
+        "match": "approximate",
+        "note": "Waits for the owner's acceptance decision."
+      },
+      "accepted": {
+        "a2a": "TASK_STATE_COMPLETED",
+        "match": "exact",
+        "note": ""
+      },
+      "rejected": {
+        "a2a": "TASK_STATE_REJECTED",
+        "match": "approximate",
+        "note": "A2A's rejected means the agent declined the task; Enna's means an accountable person declined, at approval or at acceptance."
+      },
+      "cancelled": {
+        "a2a": "TASK_STATE_CANCELED",
+        "match": "exact",
+        "note": "Same meaning; A2A spells it canceled, Enna follows PAP's cancelled."
+      },
+      "blocked": {
+        "a2a": "TASK_STATE_INPUT_REQUIRED",
+        "match": "approximate",
+        "note": "A business block waits for a person to fix authority, context or limits. It is neither a transport failure nor TASK_STATE_AUTH_REQUIRED."
+      }
+    },
+    "unmapped": {
+      "TASK_STATE_FAILED": "Enna has no failed business state: a failed action is a receipt outcome and a failed criterion is an evaluation result, and the contract still moves to evaluation and acceptance.",
+      "TASK_STATE_AUTH_REQUIRED": "Transport authentication stays at the transport. A missing approval is awaiting_approval or blocked, never this state.",
+      "TASK_STATE_UNSPECIFIED": "Not a state Enna reports."
+    }
+  },
+  "pap": {
+    "states": {
+      "proposed": {
+        "pap": "proposed",
+        "match": "approximate",
+        "note": "PAP has no draft state; an operation exists only once it is proposed for confirmation."
+      },
+      "awaiting_approval": {
+        "pap": "proposed",
+        "match": "exact",
+        "note": ""
+      },
+      "authorized": {
+        "pap": "in_progress",
+        "match": "approximate",
+        "note": "PAP starts performing at confirmation and has no confirmed-but-waiting state."
+      },
+      "executing": {
+        "pap": "in_progress",
+        "match": "exact",
+        "note": ""
+      },
+      "execution_complete": {
+        "pap": "from_receipts",
+        "match": "derived",
+        "note": "Execution has finished, so PAP's final state comes from the receipts: succeeded, failed or cancelled."
+      },
+      "evaluating": {
+        "pap": "from_receipts",
+        "match": "derived",
+        "note": "Execution has finished, so PAP's final state comes from the receipts: succeeded, failed or cancelled."
+      },
+      "awaiting_acceptance": {
+        "pap": "from_receipts",
+        "match": "derived",
+        "note": "Execution has finished, so PAP's final state comes from the receipts: succeeded, failed or cancelled."
+      },
+      "accepted": {
+        "pap": "from_receipts",
+        "match": "derived",
+        "note": "Execution has finished, so PAP's final state comes from the receipts: succeeded, failed or cancelled."
+      },
+      "rejected": {
+        "pap": "from_receipts",
+        "match": "derived",
+        "note": "From the receipts; with none, nothing ran and the operation was declined, which PAP calls cancelled."
+      },
+      "cancelled": {
+        "pap": "cancelled",
+        "match": "exact",
+        "note": ""
+      },
+      "blocked": {
+        "pap": "in_progress",
+        "match": "approximate",
+        "note": "A block comes after confirmation, and PAP keeps the operation in progress until its outcome is known."
+      }
+    },
+    "unmapped": {
+      "expired": "A contract does not expire on its own. An expired approval or authority blocks the work instead (approval_expired, authority_expired)."
+    }
+  }
+}

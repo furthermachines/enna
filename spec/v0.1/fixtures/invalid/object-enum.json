@@ -1,0 +1,19 @@
+{
+  "description": "A value outside its enum.",
+  "section": "8.2",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/criteria/0/method",
+      "value": "manual"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/criteria/0/method"
+    }
+  ]
+}

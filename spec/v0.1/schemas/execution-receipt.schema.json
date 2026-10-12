@@ -1,0 +1,234 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://businessagentprotocol.org/spec/v0.1/schemas/execution-receipt.schema.json",
+  "title": "Execution receipt",
+  "description": "An immutable record of one proposed or performed action: who, under which authority and context, the decision, the outcome and every change made. A digest shows the record is unchanged only against a digest the reader already trusts, and an edited record can be resealed; it does not show that the action was authorized or that the producer was honest.",
+  "type": "object",
+  "allOf": [
+    { "$ref": "common.schema.json#/$defs/object_base" },
+    {
+      "if": {
+        "required": ["decision"],
+        "properties": {
+          "decision": { "required": ["result"], "properties": { "result": { "const": "deny" } } }
+        }
+      },
+      "then": {
+        "properties": {
+          "decision": { "properties": { "reasons": { "minItems": 1 } } },
+          "outcome": { "properties": { "status": { "const": "denied" } } },
+          "effects": { "maxItems": 0 },
+          "artifacts": { "maxItems": 0 },
+          "started_at": false,
+          "finished_at": false,
+          "cost": false
+        }
+      },
+      "else": {
+        "required": ["started_at"],
+        "if": {
+          "required": ["outcome"],
+          "properties": {
+            "outcome": {
+              "required": ["status"],
+              "properties": { "status": { "const": "replayed" } }
+            }
+          }
+        },
+        "else": { "required": ["authority"] },
+        "properties": {
+          "decision": { "properties": { "reasons": { "maxItems": 0 } } },
+          "outcome": { "properties": { "status": { "not": { "const": "denied" } } } }
+        }
+      }
+    },
+    {
+      "if": {
+        "required": ["outcome"],
+        "properties": {
+          "outcome": { "required": ["status"], "properties": { "status": { "const": "replayed" } } }
+        }
+      },
+      "then": { "properties": { "effects": { "maxItems": 0 } } }
+    },
+    {
+      "if": {
+        "required": ["outcome"],
+        "properties": {
+          "outcome": { "required": ["status"], "properties": { "status": { "const": "unknown" } } }
+        }
+      },
+      "then": {
+        "properties": {
+          "effects": { "maxItems": 0 },
+          "artifacts": { "maxItems": 0 },
+          "finished_at": false
+        }
+      }
+    }
+  ],
+  "required": ["contract", "action", "actor", "decision", "outcome", "integrity"],
+  "$comment": "Every shared member is listed here, as true where this schema does not narrow it, because additionalProperties sees only this list; the shared schemas still apply through allOf.",
+  "properties": {
+    "protocol_version": true,
+    "type": { "const": "execution_receipt" },
+    "id": { "$ref": "common.schema.json#/$defs/execution_receipt_id" },
+    "created_at": true,
+    "scope": true,
+    "profile": true,
+    "extensions": true,
+    "contract": { "$ref": "common.schema.json#/$defs/contract_ref" },
+    "context": { "$ref": "common.schema.json#/$defs/context_ref" },
+    "authority": { "$ref": "common.schema.json#/$defs/authority_ref" },
+    "action": {
+      "type": "object",
+      "required": ["name", "resource", "requested_at", "idempotency_key", "payload_digest"],
+      "properties": {
+        "name": { "$ref": "common.schema.json#/$defs/action_name" },
+        "resource": { "$ref": "common.schema.json#/$defs/resource" },
+        "requested_at": { "$ref": "common.schema.json#/$defs/timestamp" },
+        "idempotency_key": { "type": "string", "pattern": "^[A-Za-z0-9_-]{1,256}$" },
+        "payload_digest": { "$ref": "common.schema.json#/$defs/digest" },
+        "retry_of": {
+          "description": "The idempotency key of the earlier attempt at the same action that this one retries after a known failure.",
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]{1,256}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "actor": {
+      "type": "object",
+      "required": ["principal", "performed_by"],
+      "properties": {
+        "principal": { "$ref": "common.schema.json#/$defs/principal" },
+        "performed_by": { "enum": ["agent", "human"] },
+        "runtime": {
+          "type": "object",
+          "required": ["name", "version"],
+          "properties": {
+            "name": { "$ref": "common.schema.json#/$defs/text" },
+            "version": { "$ref": "common.schema.json#/$defs/text" },
+            "adapter": { "$ref": "common.schema.json#/$defs/text" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "decision": {
+      "type": "object",
+      "required": ["result", "reasons", "evaluated_at"],
+      "properties": {
+        "result": { "enum": ["permit", "deny"] },
+        "reasons": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "common.schema.json#/$defs/error_code" }
+        },
+        "evaluated_at": { "$ref": "common.schema.json#/$defs/timestamp" },
+        "policy_ref": { "$ref": "common.schema.json#/$defs/text" }
+      },
+      "additionalProperties": false
+    },
+    "outcome": {
+      "type": "object",
+      "required": ["status", "summary"],
+      "properties": {
+        "status": {
+          "enum": ["succeeded", "failed", "denied", "cancelled", "unknown", "replayed"]
+        },
+        "summary": {
+          "description": "Every change made, partial ones included.",
+          "$ref": "common.schema.json#/$defs/text"
+        }
+      },
+      "additionalProperties": false
+    },
+    "started_at": { "$ref": "common.schema.json#/$defs/timestamp" },
+    "finished_at": { "$ref": "common.schema.json#/$defs/timestamp" },
+    "effects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["description"],
+        "properties": {
+          "description": { "$ref": "common.schema.json#/$defs/text" },
+          "external_ref": { "$ref": "common.schema.json#/$defs/text" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "ref", "media_type", "digest"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/artifact_id" },
+          "kind": { "$ref": "common.schema.json#/$defs/token" },
+          "ref": { "$ref": "common.schema.json#/$defs/uri" },
+          "media_type": {
+            "type": "string",
+            "pattern": "^[a-z0-9!#$&^_.+-]+/[a-z0-9!#$&^_.+-]+$"
+          },
+          "digest": { "$ref": "common.schema.json#/$defs/artifact_digest" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "cost": { "$ref": "common.schema.json#/$defs/money" },
+    "trace": {
+      "type": "object",
+      "minProperties": 1,
+      "properties": {
+        "traceparent": {
+          "type": "string",
+          "pattern": "^00-[0-9a-f]{32}-[0-9a-f]{16}-[0-9a-f]{2}$"
+        },
+        "correlation_id": { "$ref": "common.schema.json#/$defs/text" },
+        "transport": {
+          "type": "object",
+          "minProperties": 1,
+          "properties": {
+            "a2a_task_id": { "$ref": "common.schema.json#/$defs/text" },
+            "a2a_context_id": { "$ref": "common.schema.json#/$defs/text" },
+            "mcp_request_id": { "$ref": "common.schema.json#/$defs/text" },
+            "pap_operation_id": { "$ref": "common.schema.json#/$defs/text" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "integrity": {
+      "type": "object",
+      "required": ["canonicalization", "digest", "attestation"],
+      "properties": {
+        "canonicalization": { "const": "rfc8785" },
+        "digest": {
+          "description": "sha256 over the RFC 8785 form of this receipt with integrity.digest removed.",
+          "$ref": "common.schema.json#/$defs/digest"
+        },
+        "previous_digest": {
+          "description": "The digest of the previous receipt of the same contract revision; absent on the first receipt of each revision, because a chain restarts at every revision.",
+          "$ref": "common.schema.json#/$defs/digest"
+        },
+        "attestation": {
+          "type": "object",
+          "required": ["kind"],
+          "properties": {
+            "kind": { "enum": ["none", "jws", "in_toto"] },
+            "ref": { "$ref": "common.schema.json#/$defs/text" }
+          },
+          "additionalProperties": false,
+          "if": { "required": ["kind"], "properties": { "kind": { "const": "none" } } },
+          "then": { "properties": { "ref": false } },
+          "else": { "required": ["ref"] }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

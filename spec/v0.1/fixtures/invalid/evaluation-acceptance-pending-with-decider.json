@@ -1,0 +1,24 @@
+{
+  "description": "A pending acceptance names nobody who decided.",
+  "section": "7.5",
+  "validate": "object",
+  "base": "evaluation-result.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/acceptance/by",
+      "value": {
+        "kind": "person",
+        "id": "dana.whitfield",
+        "issuer": "https://id.harborpine.example",
+        "display": "Dana Whitfield"
+      }
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/acceptance/by"
+    }
+  ]
+}

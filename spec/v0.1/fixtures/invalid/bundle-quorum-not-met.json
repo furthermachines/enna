@@ -1,0 +1,25 @@
+{
+  "description": "The preview's grant needs two approvers, and only one person approved.",
+  "section": "9.7",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/2/grants/5/conditions",
+      "value": {
+        "min_approvals": 2
+      }
+    }
+  ],
+  "reseal": "all",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "quorum_not_met",
+      "path": "/8/authority"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "description": "An action finishes no earlier than it started.",
+  "section": "6.3",
+  "validate": "object",
+  "base": "execution-receipt.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/finished_at",
+      "value": "2026-10-13T09:00:01Z"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/finished_at"
+    }
+  ]
+}

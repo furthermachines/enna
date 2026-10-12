@@ -1,0 +1,23 @@
+{
+  "description": "CI ran on a pipeline no grant covers.",
+  "section": "9.7",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/6/action/resource/id",
+      "value": "another-pipeline"
+    }
+  ],
+  "reseal": "receipts",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "authority_insufficient",
+      "path": "/6/action"
+    }
+  ]
+}

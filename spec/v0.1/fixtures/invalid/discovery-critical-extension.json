@@ -1,0 +1,27 @@
+{
+  "description": "A discovery document's unknown critical extension is refused, as an object's is.",
+  "section": "2.12",
+  "validate": "discovery",
+  "base": "discovery-harborpine.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/extensions",
+      "value": {
+        "example.com/directory": {
+          "version": "1",
+          "critical": true
+        }
+      }
+    }
+  ],
+  "options": {
+    "requestedHost": "harborpine.example"
+  },
+  "expected": [
+    {
+      "code": "unsupported_critical_extension",
+      "path": "/extensions/example.com~1directory"
+    }
+  ]
+}

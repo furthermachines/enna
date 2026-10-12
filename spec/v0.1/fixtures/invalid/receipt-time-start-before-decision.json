@@ -1,0 +1,19 @@
+{
+  "description": "An action starts no earlier than the decision that allowed it.",
+  "section": "6.3",
+  "validate": "object",
+  "base": "execution-receipt.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/started_at",
+      "value": "2026-10-13T09:00:00.5Z"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/started_at"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "description": "An integer is at most 9007199254740991, so a business impact window of 9007199254740992 seconds is refused.",
+  "section": "2.15",
+  "validate": "object",
+  "base": "evaluation-result.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/business_impact/window",
+      "value": {
+        "window_seconds": 9007199254740992
+      }
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/business_impact/window/window_seconds"
+    }
+  ]
+}

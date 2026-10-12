@@ -1,0 +1,25 @@
+{
+  "description": "A second receipt has no previous digest, so the chain has two first receipts.",
+  "section": "9.14",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "remove",
+      "path": "/6/integrity/previous_digest"
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "chain_broken",
+      "path": "/6/integrity"
+    },
+    {
+      "code": "digest_mismatch",
+      "path": "/6/integrity/digest"
+    }
+  ]
+}

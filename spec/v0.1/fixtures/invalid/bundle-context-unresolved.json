@@ -1,0 +1,23 @@
+{
+  "description": "A receipt cites a context manifest the record does not hold.",
+  "section": "9.2",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/3/context/id",
+      "value": "ctx_research_notes"
+    }
+  ],
+  "reseal": "receipts",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "reference_unresolved",
+      "path": "/3/context"
+    }
+  ]
+}

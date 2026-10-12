@@ -1,0 +1,114 @@
+{
+  "description": "The same CI request took effect twice under one idempotency key.",
+  "section": "9.11",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/-",
+      "value": {
+        "protocol_version": "0.1",
+        "type": "execution_receipt",
+        "id": "rcpt_ci_again",
+        "created_at": "2026-10-13T11:40:02Z",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "internal",
+          "project": "brand-approvals"
+        },
+        "profile": "software-delivery/0.1",
+        "contract": {
+          "id": "wc_brand_approvals",
+          "revision": 1
+        },
+        "context": {
+          "id": "ctx_brand_approvals",
+          "revision": 1
+        },
+        "authority": {
+          "id": "auth_coding_agent",
+          "revision": 1
+        },
+        "action": {
+          "name": "ci.run",
+          "resource": {
+            "type": "pipeline",
+            "id": "collab-app-ci",
+            "scope": {
+              "organization": "harborpine.example",
+              "workspace": "internal",
+              "project": "brand-approvals"
+            }
+          },
+          "requested_at": "2026-10-13T11:05:00Z",
+          "idempotency_key": "brand-approvals-ci-1",
+          "payload_digest": "sha256:f877baea3633b43df2d10f966e172cf53d9e38dc1a1f7396a1d4bf41c0f2371d"
+        },
+        "actor": {
+          "principal": {
+            "kind": "agent",
+            "id": "https://agents.harborpine.example/coding",
+            "display": "Coding agent"
+          },
+          "performed_by": "agent",
+          "runtime": {
+            "name": "fixture-runtime",
+            "version": "0.1.0"
+          }
+        },
+        "decision": {
+          "result": "permit",
+          "reasons": [],
+          "evaluated_at": "2026-10-13T11:40:01Z",
+          "policy_ref": "harborpine-agent-work@1"
+        },
+        "outcome": {
+          "status": "succeeded",
+          "summary": "CI passed: 142 tests, none failed."
+        },
+        "started_at": "2026-10-13T11:40:02Z",
+        "finished_at": "2026-10-13T11:40:02Z",
+        "effects": [
+          {
+            "description": "One CI run recorded."
+          }
+        ],
+        "artifacts": [
+          {
+            "id": "art_ci_report",
+            "kind": "test_report",
+            "ref": "https://ci.harborpine.example/collab-app/runs/812/report.json",
+            "media_type": "application/json",
+            "digest": "sha256:fe215bc33a56a14b5e539d207ccd09eb6ab6da71b56832761111bbb8eab0d070"
+          }
+        ],
+        "cost": {
+          "currency": "USD",
+          "amount": "12.40"
+        },
+        "trace": {
+          "correlation_id": "brand-approvals"
+        },
+        "integrity": {
+          "canonicalization": "rfc8785",
+          "previous_digest": "sha256:7aaafbffcffccb4535bdbea056d5cb4a8b1e0ff958c3c740acaba6b8975b4a10",
+          "attestation": {
+            "kind": "none"
+          },
+          "digest": "sha256:16ca4f332c0bd3c9eb1857c8ae2dce1e80b125433762dca9a345e53a7668bbe7"
+        }
+      }
+    }
+  ],
+  "reseal": "receipts",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "idempotency_conflict",
+      "path": "/10/action/idempotency_key"
+    }
+  ]
+}

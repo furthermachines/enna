@@ -1,0 +1,27 @@
+{
+  "description": "A receipt cannot say both that nobody knows whether the action took effect and what it changed.",
+  "section": "6.3",
+  "validate": "object",
+  "base": "execution-receipt.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/outcome/status",
+      "value": "unknown"
+    },
+    {
+      "op": "remove",
+      "path": "/finished_at"
+    },
+    {
+      "op": "remove",
+      "path": "/artifacts"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/effects"
+    }
+  ]
+}

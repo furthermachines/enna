@@ -1,0 +1,114 @@
+{
+  "description": "CI cost more than its grant allows, and each later run under the grant is reported too.",
+  "section": "9.9",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/2/grants/4/limits/cost/amount",
+      "value": "10.00"
+    },
+    {
+      "op": "add",
+      "path": "/-",
+      "value": {
+        "protocol_version": "0.1",
+        "type": "execution_receipt",
+        "id": "rcpt_ci_2",
+        "created_at": "2026-10-13T12:15:00Z",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "internal",
+          "project": "brand-approvals"
+        },
+        "profile": "software-delivery/0.1",
+        "contract": {
+          "id": "wc_brand_approvals",
+          "revision": 1
+        },
+        "context": {
+          "id": "ctx_brand_approvals",
+          "revision": 1
+        },
+        "authority": {
+          "id": "auth_coding_agent",
+          "revision": 1
+        },
+        "action": {
+          "name": "ci.run",
+          "resource": {
+            "type": "pipeline",
+            "id": "collab-app-ci",
+            "scope": {
+              "organization": "harborpine.example",
+              "workspace": "internal",
+              "project": "brand-approvals"
+            }
+          },
+          "requested_at": "2026-10-13T12:00:00Z",
+          "idempotency_key": "brand-approvals-ci-2",
+          "payload_digest": "sha256:114aa146c20feb8f6b5e298f40e69c6ec1c114b2889858dc761227d468af1e00"
+        },
+        "actor": {
+          "principal": {
+            "kind": "agent",
+            "id": "https://agents.harborpine.example/coding",
+            "display": "Coding agent"
+          },
+          "performed_by": "agent",
+          "runtime": {
+            "name": "fixture-runtime",
+            "version": "0.1.0"
+          }
+        },
+        "decision": {
+          "result": "permit",
+          "reasons": [],
+          "evaluated_at": "2026-10-13T12:00:01Z",
+          "policy_ref": "harborpine-agent-work@1"
+        },
+        "outcome": {
+          "status": "succeeded",
+          "summary": "Done."
+        },
+        "started_at": "2026-10-13T12:00:02Z",
+        "finished_at": "2026-10-13T12:15:00Z",
+        "effects": [
+          {
+            "description": "One more CI run recorded."
+          }
+        ],
+        "cost": {
+          "currency": "USD",
+          "amount": "5.00"
+        },
+        "trace": {
+          "correlation_id": "brand-approvals"
+        },
+        "integrity": {
+          "canonicalization": "rfc8785",
+          "previous_digest": "sha256:652127f2acc181b8739046ff9a5432071cdc215ae685eec61530a41a4fa19c4a",
+          "attestation": {
+            "kind": "none"
+          },
+          "digest": "sha256:16ca4f332c0bd3c9eb1857c8ae2dce1e80b125433762dca9a345e53a7668bbe7"
+        }
+      }
+    }
+  ],
+  "reseal": "all",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "limit_exceeded",
+      "path": "/10/cost"
+    },
+    {
+      "code": "limit_exceeded",
+      "path": "/6/cost"
+    }
+  ]
+}

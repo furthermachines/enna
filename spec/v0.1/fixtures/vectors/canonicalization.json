@@ -1,0 +1,133 @@
+{
+  "draft": "0.1",
+  "defined_in": {
+    "section": "2.15",
+    "url": "https://businessagentprotocol.org/spec/v0.1/conventions/"
+  },
+  "cases": [
+    {
+      "description": "The example of RFC 8785, section 3.2.2, with the canonical form that section 3.2.3 gives for it.",
+      "input_text": "{\n  \"numbers\": [333333333.33333329, 1E30, 4.50, 2e-3, 0.000000000000000000000000001],\n  \"string\": \"\\u20ac$\\u000F\\u000aA'\\u0042\\u0022\\u005c\\\\\\\"\\/\",\n  \"literals\": [null, true, false]\n}",
+      "canonical": "{\"literals\":[null,true,false],\"numbers\":[333333333.3333333,1e+30,4.5,0.002,1e-27],\"string\":\"€$\\u000f\\nA'B\\\"\\\\\\\\\\\"/\"}",
+      "digest": "sha256:2d5e01a318d0f0879ab568c4be289c8b1f64ef8921a53c6277d5e069978baacb"
+    },
+    {
+      "description": "The sorting example of RFC 8785, section 3.2.3: names sort by UTF-16 code units, so the emoji, a surrogate pair, sorts before U+FB33, the reverse of code point order.",
+      "input_text": "{\n  \"\\u20ac\": \"Euro Sign\",\n  \"\\r\": \"Carriage Return\",\n  \"\\ufb33\": \"Hebrew Letter Dalet With Dagesh\",\n  \"1\": \"One\",\n  \"\\ud83d\\ude00\": \"Emoji: Grinning Face\",\n  \"\\u0080\": \"Control\",\n  \"\\u00f6\": \"Latin Small Letter O With Diaeresis\"\n}",
+      "canonical": "{\"\\r\":\"Carriage Return\",\"1\":\"One\",\"\u0080\":\"Control\",\"ö\":\"Latin Small Letter O With Diaeresis\",\"€\":\"Euro Sign\",\"😀\":\"Emoji: Grinning Face\",\"דּ\":\"Hebrew Letter Dalet With Dagesh\"}",
+      "digest": "sha256:5e321556d22018a9656991a9e94f77ec175fa193e52a2429d312f8419ec8b08c"
+    },
+    {
+      "description": "Members sort at every depth, arrays keep their order, and no white space is written.",
+      "input_text": "{\n  \"z\": [3, 1, 2],\n  \"a\": {\n    \"y\": { \"b\": 1, \"a\": 2 },\n    \"x\": [ { \"d\": 4, \"c\": 3 }, \"e\" ]\n  }\n}",
+      "canonical": "{\"a\":{\"x\":[{\"c\":3,\"d\":4},\"e\"],\"y\":{\"a\":2,\"b\":1}},\"z\":[3,1,2]}",
+      "digest": "sha256:62d4628a3fbee2d44172bb1e8e2fad7be344f6a2f02a245fb8868019dc393f94"
+    },
+    {
+      "description": "Names sort as strings, not as numbers, and a name sorts before every longer name that begins with it.",
+      "input_text": "{\"b\": 3, \"ab\": 2, \"a\": 1, \"9\": \"nine\", \"10\": \"ten\"}",
+      "canonical": "{\"10\":\"ten\",\"9\":\"nine\",\"a\":1,\"ab\":2,\"b\":3}",
+      "digest": "sha256:77f2e875200956c02bf638dd2439536fbc33d6c695cb6879ff0de822dbaff046"
+    },
+    {
+      "description": "Characters outside ASCII are written as UTF-8, never escaped, whether or not the input escapes them.",
+      "input_text": "[\"caf\\u00e9\", \"café\", \"\\ud83d\\ude00\", \"😀\", \"\\u65e5\\u672c\"]",
+      "canonical": "[\"café\",\"café\",\"😀\",\"😀\",\"日本\"]",
+      "digest": "sha256:76ff5cbb2734a0e51718f30b6745b71ceaf817f162ace15dcba11efc4dcdf94c"
+    },
+    {
+      "description": "A quotation mark and a backslash are always escaped with a backslash.",
+      "input_text": "[\"\\\"\", \"\\u0022\", \"\\\\\", \"\\u005C\"]",
+      "canonical": "[\"\\\"\",\"\\\"\",\"\\\\\",\"\\\\\"]",
+      "digest": "sha256:ee4493133be7a57113e37d8f8869aec2113bf9a5e46d016b119030712e9c82d7"
+    },
+    {
+      "description": "Backspace, tab, line feed, form feed and carriage return are written as \\b, \\t, \\n, \\f and \\r.",
+      "input_text": "\"a\\u0008b\\u0009c\\u000Ad\\u000Ce\\u000Df\"",
+      "canonical": "\"a\\bb\\tc\\nd\\fe\\rf\"",
+      "digest": "sha256:58c414ca18e039ec68e7ce1b86b78fd17bfb4402943c05ad93f7f38fc1a2f9c5"
+    },
+    {
+      "description": "Every other character from U+0000 to U+001F is written as \\u and four lowercase hexadecimal digits.",
+      "input_text": "\"\\u0000\\u0001\\u000B\\u000e\\u001F\"",
+      "canonical": "\"\\u0000\\u0001\\u000b\\u000e\\u001f\"",
+      "digest": "sha256:49b87ce4077d619798db85253267796ed6a279723a0b5b6717b6bb38b9e221d9"
+    },
+    {
+      "description": "A solidus is never escaped, and characters from U+007F on are written as they are, the controls among them included.",
+      "input_text": "[\"\\/\", \"/\", \"\\u007F\", \"\\u009f\"]",
+      "canonical": "[\"/\",\"/\",\"\u007f\",\"\u009f\"]",
+      "digest": "sha256:82d203c39ae1df94696db66741a6a1816a2304d8d7eba6b345dc61187b44b442"
+    },
+    {
+      "description": "Zero is written 0, and so is minus zero.",
+      "input_text": "[0, -0]",
+      "canonical": "[0,0]",
+      "digest": "sha256:3d5812abc84c11768aa73a732c85d75dbed439188f5bb3239e9b762ea31d9862"
+    },
+    {
+      "description": "The largest integers a double holds exactly, 2^53 - 1 and its negative, are written in full.",
+      "input_text": "[9007199254740991, -9007199254740991]",
+      "canonical": "[9007199254740991,-9007199254740991]",
+      "digest": "sha256:84bad60c1793654a7cdca854230af90af531ecc8f7656e2c7b2bd91890017b37"
+    },
+    {
+      "description": "An integer written with a fraction or an exponent is written as a plain integer.",
+      "input_text": "[1.0, 1E2]",
+      "canonical": "[1,100]",
+      "digest": "sha256:94b10bd6b1677ef0fe11fa26597e8e8128db886d5127686faf544da56b5ec655"
+    },
+    {
+      "description": "1E23 is the double 0x44b52d02c7e14af6 of RFC 8785, Appendix B, written 1e+23.",
+      "input_text": "[1E23]",
+      "canonical": "[1e+23]",
+      "digest": "sha256:99b4b6ff80b1eb8fbead63911b6003d69427ddac861c8156ffbb5c964153e0d3"
+    },
+    {
+      "description": "0.0000010 is the double 0x3eb0c6f7a0b5ed8d of RFC 8785, Appendix B, written 0.000001.",
+      "input_text": "[0.0000010]",
+      "canonical": "[0.000001]",
+      "digest": "sha256:1051d381ca47ccc627251714cc2a92838b92b0e9cf0130318b25b82ef7e18d9e"
+    },
+    {
+      "description": "10^21 in full is the double 0x444b1ae4d6e2ef50 of RFC 8785, Appendix B, written 1e+21: it is the first power of ten written with an exponent.",
+      "input_text": "[1000000000000000000000]",
+      "canonical": "[1e+21]",
+      "digest": "sha256:5f5f297c3b2ec0b2793ea5cfe3f242ad4bd3aa438734268b6c9b7251a643d86c"
+    },
+    {
+      "description": "2^68 in full is the double 0x4430000000000000 of RFC 8785, Appendix B, written as its shortest digits followed by zeros.",
+      "input_text": "[295147905179352825856]",
+      "canonical": "[295147905179352830000]",
+      "digest": "sha256:2edb2c2239a3eb643dd133448032ea9d8a4344e057998c87e8a6ce8f12440eba"
+    },
+    {
+      "description": "5E-324 is the smallest positive double, 0x0000000000000001 in RFC 8785, Appendix B, written 5e-324.",
+      "input_text": "[5E-324]",
+      "canonical": "[5e-324]",
+      "digest": "sha256:36ae31cf02ccda095c0e10f6eb921c5c76dc4a045971112fdffbb8bf72329e47"
+    },
+    {
+      "description": "-1.7976931348623157E308 is the most negative finite double, 0xffefffffffffffff in RFC 8785, Appendix B, written -1.7976931348623157e+308.",
+      "input_text": "[-1.7976931348623157E308]",
+      "canonical": "[-1.7976931348623157e+308]",
+      "digest": "sha256:62e4ec28f61074300d8d6214d96551c2816f260e3ed33d866c170903397da32b"
+    },
+    {
+      "description": "The literals true, false and null are written as they are, and an empty object or array has nothing between its brackets.",
+      "input_text": "{ \"t\": true, \"f\": false, \"n\": null, \"o\": { }, \"a\": [ ] }",
+      "canonical": "{\"a\":[],\"f\":false,\"n\":null,\"o\":{},\"t\":true}",
+      "digest": "sha256:d54540f64e29451bbaaa55d8bc3247297964620eabc523c71e2c1cc504565e2f"
+    },
+    {
+      "description": "A lone surrogate in a string has no canonical form.",
+      "input_text": "{\"text\": \"x\\udead\"}",
+      "error": "lone_surrogate"
+    },
+    {
+      "description": "A lone surrogate in a member name has no canonical form.",
+      "input_text": "{\"\\ud83d\": 1}",
+      "error": "lone_surrogate"
+    }
+  ]
+}

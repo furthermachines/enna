@@ -1,0 +1,12 @@
+{
+  "description": "Decoding refuses a lone surrogate before it looks for repeated member names, even in the earlier of two members that a parser keeping the last one drops.",
+  "section": "2.1",
+  "validate": "json",
+  "input_text": "{\"protocol_version\":\"0.1\",\"summary\":\"x\\ud800y\",\"summary\":\"z\"}",
+  "expected": [
+    {
+      "code": "invalid_json",
+      "path": ""
+    }
+  ]
+}

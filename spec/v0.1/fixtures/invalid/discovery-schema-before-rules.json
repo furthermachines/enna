@@ -1,0 +1,22 @@
+{
+  "description": "A document that fails its schema is not checked against the host it was requested from.",
+  "section": "12.7",
+  "validate": "discovery",
+  "base": "discovery-harborpine.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/private_pdp",
+      "value": "https://pdp.harborpine.internal"
+    }
+  ],
+  "options": {
+    "requestedHost": "lumenbeverages.example"
+  },
+  "expected": [
+    {
+      "code": "unknown_member",
+      "path": "/private_pdp"
+    }
+  ]
+}

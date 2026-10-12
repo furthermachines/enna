@@ -1,0 +1,19 @@
+{
+  "description": "Context is referenced, never embedded, so a data: URI in any case is refused.",
+  "section": "4.2",
+  "validate": "object",
+  "base": "context-manifest.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/items/0/source/ref",
+      "value": "DATA:text/plain;base64,SGVsbG8="
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/items/0/source/ref"
+    }
+  ]
+}

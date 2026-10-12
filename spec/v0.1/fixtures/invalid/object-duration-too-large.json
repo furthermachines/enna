@@ -1,0 +1,19 @@
+{
+  "description": "A duration is at most 9007199254740991 seconds, the largest integer a JSON number holds exactly.",
+  "section": "2.7",
+  "validate": "object",
+  "base": "context-manifest.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/retention_seconds",
+      "value": 9007199254740992
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/retention_seconds"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://businessagentprotocol.org/spec/v0.1/schemas/profiles/software-delivery-0.1.schema.json",
+  "title": "Profile software-delivery/0.1",
+  "description": "Applies, on top of the core schema, to any object whose profile is software-delivery/0.1. The profile owns the repo, ci, preview, production and feature_flag action namespaces, and the plain (not domain-prefixed) artifact and evidence kinds. A production.deploy action also needs its own grant and an approval whose method is not standing, which validateBundle checks.",
+  "type": "object",
+  "allOf": [
+    {
+      "if": {
+        "required": ["type"],
+        "properties": { "type": { "const": "authority_binding" } }
+      },
+      "then": {
+        "properties": {
+          "grants": {
+            "items": { "properties": { "action": { "$ref": "#/$defs/action_name" } } }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "required": ["type"],
+        "properties": { "type": { "const": "execution_receipt" } }
+      },
+      "then": {
+        "properties": {
+          "action": { "properties": { "name": { "$ref": "#/$defs/action_name" } } },
+          "artifacts": { "items": { "$ref": "#/$defs/artifact" } }
+        }
+      }
+    },
+    {
+      "if": {
+        "required": ["type"],
+        "properties": { "type": { "const": "evaluation_result" } }
+      },
+      "then": {
+        "properties": {
+          "criteria": {
+            "items": { "properties": { "evidence": { "items": { "$ref": "#/$defs/evidence" } } } }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "actions": {
+      "enum": [
+        "repo.branch.create",
+        "repo.commit",
+        "repo.pull_request.open",
+        "ci.run",
+        "preview.deploy",
+        "production.deploy",
+        "feature_flag.set"
+      ]
+    },
+    "action_name": {
+      "if": { "type": "string", "pattern": "^(repo|ci|preview|production|feature_flag)\\." },
+      "then": { "$ref": "#/$defs/actions" }
+    },
+    "artifact_kinds": {
+      "enum": ["branch", "commit", "pull_request", "build", "test_report", "preview_url"]
+    },
+    "evidence_kinds": { "enum": ["test_report", "review", "preview_check"] },
+    "plain": {
+      "description": "A token with no domain prefix.",
+      "type": "string",
+      "pattern": "^[^/]*$"
+    },
+    "artifact": {
+      "properties": {
+        "kind": { "if": { "$ref": "#/$defs/plain" }, "then": { "$ref": "#/$defs/artifact_kinds" } }
+      },
+      "if": { "required": ["kind"], "properties": { "kind": { "const": "commit" } } },
+      "then": {
+        "properties": {
+          "digest": {
+            "description": "A commit's digest is its git object ID with the algorithm.",
+            "pattern": "^(sha1:[0-9a-f]{40}|sha256:[0-9a-f]{64})$"
+          }
+        }
+      }
+    },
+    "evidence": {
+      "properties": {
+        "kind": { "if": { "$ref": "#/$defs/plain" }, "then": { "$ref": "#/$defs/evidence_kinds" } }
+      },
+      "if": { "required": ["kind"], "properties": { "kind": { "const": "test_report" } } },
+      "then": { "required": ["counts"] }
+    }
+  }
+}

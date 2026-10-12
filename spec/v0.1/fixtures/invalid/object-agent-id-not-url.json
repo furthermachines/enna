@@ -1,0 +1,19 @@
+{
+  "description": "An agent is named by the HTTPS URL of its client metadata.",
+  "section": "2.11",
+  "validate": "object",
+  "base": "authority-binding.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/grantee/id",
+      "value": "coding-agent"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/grantee/id"
+    }
+  ]
+}

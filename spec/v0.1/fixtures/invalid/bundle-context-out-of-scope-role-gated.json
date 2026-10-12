@@ -1,0 +1,56 @@
+{
+  "description": "Context from a workspace that the effects' own binding names only in a grant that needs an approver role nobody holds, cited by every effect.",
+  "section": "9.4",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/2/grants/-",
+      "value": {
+        "action": "harborpine.example/workspace_comments.read",
+        "resource": {
+          "type": "workspace_comments",
+          "scope": {
+            "organization": "harborpine.example",
+            "workspace": "lumen-beverages"
+          }
+        },
+        "conditions": {
+          "approver_roles": ["compliance_approver"]
+        }
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/1/items/1/scope/workspace",
+      "value": "lumen-beverages"
+    }
+  ],
+  "reseal": "all",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "context_out_of_scope",
+      "path": "/3/context"
+    },
+    {
+      "code": "context_out_of_scope",
+      "path": "/5/context"
+    },
+    {
+      "code": "context_out_of_scope",
+      "path": "/6/context"
+    },
+    {
+      "code": "context_out_of_scope",
+      "path": "/7/context"
+    },
+    {
+      "code": "context_out_of_scope",
+      "path": "/8/context"
+    }
+  ]
+}

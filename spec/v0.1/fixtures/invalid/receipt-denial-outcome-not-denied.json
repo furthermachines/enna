@@ -1,0 +1,19 @@
+{
+  "description": "A denied action's outcome is denied.",
+  "section": "6.3",
+  "validate": "object",
+  "base": "execution-receipt-denied.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/outcome/status",
+      "value": "failed"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/outcome/status"
+    }
+  ]
+}

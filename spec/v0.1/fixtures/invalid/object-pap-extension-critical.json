@@ -1,0 +1,19 @@
+{
+  "description": "The pap extension is never critical.",
+  "section": "3.7",
+  "validate": "object",
+  "base": "work-contract-pap.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/extensions/pap/critical",
+      "value": true
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/extensions/pap/critical"
+    }
+  ]
+}

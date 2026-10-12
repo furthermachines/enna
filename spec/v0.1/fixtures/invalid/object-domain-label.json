@@ -1,0 +1,19 @@
+{
+  "description": "A label of a domain neither starts nor ends with a hyphen.",
+  "section": "2.10",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/scope/organization",
+      "value": "-harborpine.example"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/scope/organization"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "description": "A decided acceptance says when it was decided.",
+  "section": "7.5",
+  "validate": "object",
+  "base": "evaluation-result-accepted.json",
+  "patch": [
+    {
+      "op": "remove",
+      "path": "/acceptance/at"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/acceptance/at"
+    }
+  ]
+}

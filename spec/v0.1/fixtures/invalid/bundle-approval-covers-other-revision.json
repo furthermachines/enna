@@ -1,0 +1,62 @@
+{
+  "description": "The approval covers another contract revision, so it authorizes nothing in this one.",
+  "section": "9.5",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/2/approvals/0/covers/contract/revision",
+      "value": 2
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "approval_stale",
+      "path": "/2/approvals/0/covers/contract"
+    },
+    {
+      "code": "approval_stale",
+      "path": "/3/authority"
+    },
+    {
+      "code": "context_out_of_scope",
+      "path": "/3/context"
+    },
+    {
+      "code": "approval_stale",
+      "path": "/5/authority"
+    },
+    {
+      "code": "context_out_of_scope",
+      "path": "/5/context"
+    },
+    {
+      "code": "approval_stale",
+      "path": "/6/authority"
+    },
+    {
+      "code": "context_out_of_scope",
+      "path": "/6/context"
+    },
+    {
+      "code": "approval_stale",
+      "path": "/7/authority"
+    },
+    {
+      "code": "context_out_of_scope",
+      "path": "/7/context"
+    },
+    {
+      "code": "approval_stale",
+      "path": "/8/authority"
+    },
+    {
+      "code": "context_out_of_scope",
+      "path": "/8/context"
+    }
+  ]
+}

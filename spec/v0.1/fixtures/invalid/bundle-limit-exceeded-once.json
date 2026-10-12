@@ -1,0 +1,30 @@
+{
+  "description": "The receipts' total cost passes the contract's limit at CI, and is reported there once, not again at the preview.",
+  "section": "9.9",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/0/limits/cost/amount",
+      "value": "10.00"
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "limit_exceeded",
+      "path": "/2/grants/4/limits/cost"
+    },
+    {
+      "code": "limit_exceeded",
+      "path": "/2/grants/5/limits/cost"
+    },
+    {
+      "code": "limit_exceeded",
+      "path": "/6/cost"
+    }
+  ]
+}

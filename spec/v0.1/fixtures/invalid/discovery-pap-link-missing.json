@@ -1,0 +1,25 @@
+{
+  "description": "poppy.json does not link back to this enna.json.",
+  "section": "12.5",
+  "validate": "discovery",
+  "base": "discovery-harborpine.json",
+  "options": {
+    "requestedHost": "harborpine.example",
+    "poppy": {
+      "url": "https://harborpine.example/.well-known/poppy.json",
+      "document": {
+        "protocol_version": "0.1",
+        "organization": {
+          "name": "Harbor & Pine",
+          "domain": "harborpine.example"
+        }
+      }
+    }
+  },
+  "expected": [
+    {
+      "code": "reference_unresolved",
+      "path": "/pap/poppy_json"
+    }
+  ]
+}

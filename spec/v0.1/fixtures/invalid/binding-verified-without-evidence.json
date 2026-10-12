@@ -1,0 +1,19 @@
+{
+  "description": "A verified approval says where its evidence is.",
+  "section": "5.3",
+  "validate": "object",
+  "base": "authority-binding.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/approvals/0/assurance",
+      "value": "verified"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/approvals/0/evidence"
+    }
+  ]
+}

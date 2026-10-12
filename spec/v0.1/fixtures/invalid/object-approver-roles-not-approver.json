@@ -1,0 +1,19 @@
+{
+  "description": "Only an approver stakeholder holds approver roles.",
+  "section": "3.1",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/stakeholders/1/approver_roles",
+      "value": ["engineering_lead"]
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/stakeholders/1/approver_roles"
+    }
+  ]
+}

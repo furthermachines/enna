@@ -1,0 +1,24 @@
+{
+  "description": "An unknown critical extension is refused.",
+  "section": "2.12",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/extensions",
+      "value": {
+        "example.com/limits": {
+          "version": "1",
+          "critical": true
+        }
+      }
+    }
+  ],
+  "expected": [
+    {
+      "code": "unsupported_critical_extension",
+      "path": "/extensions/example.com~1limits"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "protocol_version": "0.1",
+  "type": "execution_receipt",
+  "id": "rcpt_lumen_read_denied",
+  "created_at": "2026-10-13T09:10:01Z",
+  "scope": {
+    "organization": "harborpine.example",
+    "workspace": "internal",
+    "project": "brand-approvals"
+  },
+  "profile": "software-delivery/0.1",
+  "contract": {
+    "id": "wc_brand_approvals",
+    "revision": 1
+  },
+  "action": {
+    "name": "harborpine.example/workspace_comments.read",
+    "resource": {
+      "type": "workspace_comments",
+      "scope": {
+        "organization": "harborpine.example",
+        "workspace": "lumen-beverages"
+      }
+    },
+    "requested_at": "2026-10-13T09:10:00Z",
+    "idempotency_key": "brand-approvals-lumen-read",
+    "payload_digest": "sha256:615029c029d808cd37be5a134a9ba292dd8cb014793196e447b26c2fe74901ea"
+  },
+  "actor": {
+    "principal": {
+      "kind": "agent",
+      "id": "https://agents.harborpine.example/coding",
+      "display": "Coding agent"
+    },
+    "performed_by": "agent",
+    "runtime": {
+      "name": "fixture-runtime",
+      "version": "0.1.0"
+    }
+  },
+  "decision": {
+    "result": "deny",
+    "reasons": ["authority_insufficient", "tenant_mismatch"],
+    "evaluated_at": "2026-10-13T09:10:01Z",
+    "policy_ref": "harborpine-agent-work@1"
+  },
+  "outcome": {
+    "status": "denied",
+    "summary": "Refused before any read: no grant names the Lumen Beverages workspace."
+  },
+  "trace": {
+    "correlation_id": "brand-approvals"
+  },
+  "integrity": {
+    "canonicalization": "rfc8785",
+    "previous_digest": "sha256:06d91777872676cbd1519356e82a020889dbcc32b68af0823a4572234e8b7d20",
+    "attestation": {
+      "kind": "none"
+    },
+    "digest": "sha256:3e7f314d0e085ac0001978a47bd84d5c050c11e30bc9b7f2e4f88998215e0ffc"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "description": "A receipt was relinked to fork the chain.",
+  "section": "9.14",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/8/integrity/previous_digest",
+      "value": "sha256:c068b494f1782da96751c9f4974d08a3d9a198d658a7ac767f4b7556b7225b39"
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "digest_mismatch",
+      "path": "/8/integrity/digest"
+    },
+    {
+      "code": "chain_broken",
+      "path": "/8/integrity/previous_digest"
+    }
+  ]
+}

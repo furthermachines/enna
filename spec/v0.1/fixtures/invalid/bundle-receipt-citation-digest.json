@@ -1,0 +1,22 @@
+{
+  "description": "The evaluation cites a receipt with another digest than the receipt has.",
+  "section": "9.2",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/9/receipts/2/digest",
+      "value": "sha256:06d91777872676cbd1519356e82a020889dbcc32b68af0823a4572234e8b7d20"
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "digest_mismatch",
+      "path": "/9/receipts/2"
+    }
+  ]
+}

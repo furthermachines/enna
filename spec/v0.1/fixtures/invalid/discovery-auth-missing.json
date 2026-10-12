@@ -1,0 +1,21 @@
+{
+  "description": "A document that lists agents names the issuer that vouches for them.",
+  "section": "12.3",
+  "validate": "discovery",
+  "base": "discovery-harborpine.json",
+  "patch": [
+    {
+      "op": "remove",
+      "path": "/auth"
+    }
+  ],
+  "options": {
+    "requestedHost": "harborpine.example"
+  },
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/auth"
+    }
+  ]
+}

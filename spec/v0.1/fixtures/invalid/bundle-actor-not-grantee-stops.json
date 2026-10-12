@@ -1,0 +1,44 @@
+{
+  "description": "A commit by an agent other than the grantee, after the approval expired, is reported only for its actor.",
+  "section": "9.7",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/2/approvals/0/expires_at",
+      "value": "2026-10-13T10:00:00Z"
+    },
+    {
+      "op": "replace",
+      "path": "/5/actor/principal",
+      "value": {
+        "kind": "agent",
+        "id": "https://agents.harborpine.example/support",
+        "display": "Support agent"
+      }
+    }
+  ],
+  "reseal": "receipts",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "authority_insufficient",
+      "path": "/5/actor/principal"
+    },
+    {
+      "code": "approval_expired",
+      "path": "/6/authority"
+    },
+    {
+      "code": "approval_expired",
+      "path": "/7/authority"
+    },
+    {
+      "code": "approval_expired",
+      "path": "/8/authority"
+    }
+  ]
+}

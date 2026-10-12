@@ -1,0 +1,113 @@
+{
+  "description": "A record never holds the same object twice, and the check stops there, so the repeated receipt's conflict and fork are not reported.",
+  "section": "9.1",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/-",
+      "value": {
+        "protocol_version": "0.1",
+        "type": "execution_receipt",
+        "id": "rcpt_preview",
+        "created_at": "2026-10-13T11:36:10Z",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "internal",
+          "project": "brand-approvals"
+        },
+        "profile": "software-delivery/0.1",
+        "contract": {
+          "id": "wc_brand_approvals",
+          "revision": 1
+        },
+        "context": {
+          "id": "ctx_brand_approvals",
+          "revision": 1
+        },
+        "authority": {
+          "id": "auth_coding_agent",
+          "revision": 1
+        },
+        "action": {
+          "name": "preview.deploy",
+          "resource": {
+            "type": "preview_environment",
+            "scope": {
+              "organization": "harborpine.example",
+              "workspace": "internal",
+              "project": "brand-approvals"
+            }
+          },
+          "requested_at": "2026-10-13T11:30:00Z",
+          "idempotency_key": "brand-approvals-preview-1",
+          "payload_digest": "sha256:f877baea3633b43df2d10f966e172cf53d9e38dc1a1f7396a1d4bf41c0f2371d"
+        },
+        "actor": {
+          "principal": {
+            "kind": "agent",
+            "id": "https://agents.harborpine.example/coding",
+            "display": "Coding agent"
+          },
+          "performed_by": "agent",
+          "runtime": {
+            "name": "fixture-runtime",
+            "version": "0.1.0"
+          }
+        },
+        "decision": {
+          "result": "permit",
+          "reasons": [],
+          "evaluated_at": "2026-10-13T11:30:01Z",
+          "policy_ref": "harborpine-agent-work@1"
+        },
+        "outcome": {
+          "status": "succeeded",
+          "summary": "Deployed a preview with the gate switched on."
+        },
+        "started_at": "2026-10-13T11:30:02Z",
+        "finished_at": "2026-10-13T11:36:10Z",
+        "effects": [
+          {
+            "description": "Preview environment pr-318 created.",
+            "external_ref": "https://pr-318.preview.harborpine.example"
+          }
+        ],
+        "artifacts": [
+          {
+            "id": "art_preview",
+            "kind": "preview_url",
+            "ref": "https://pr-318.preview.harborpine.example",
+            "media_type": "text/uri-list",
+            "digest": "sha256:f1bb5e5f160391a7d8b2e3bbb1b30e519dad0f0e9e3f3055fd8c7dd068170f8c"
+          }
+        ],
+        "cost": {
+          "currency": "USD",
+          "amount": "8.75"
+        },
+        "trace": {
+          "correlation_id": "brand-approvals"
+        },
+        "integrity": {
+          "canonicalization": "rfc8785",
+          "previous_digest": "sha256:8ad44f7f8155d67ebf6c65a3569b6e151a5bef4c1b2a23452a090c9c79724367",
+          "attestation": {
+            "kind": "none"
+          },
+          "digest": "sha256:652127f2acc181b8739046ff9a5432071cdc215ae685eec61530a41a4fa19c4a"
+        }
+      }
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/10/id"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "description": "The branch's grant requires the product manager role, and the only approval claims it from Dana, to whom the contract does not give it.",
+  "section": "9.7",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/2/grants/1/conditions",
+      "value": {
+        "approver_roles": ["product_manager"]
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/2/approvals/0/approver",
+      "value": {
+        "kind": "person",
+        "id": "dana.whitfield",
+        "issuer": "https://id.harborpine.example",
+        "display": "Dana Whitfield"
+      }
+    }
+  ],
+  "reseal": "all",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "approver_out_of_scope",
+      "path": "/3/authority"
+    }
+  ]
+}

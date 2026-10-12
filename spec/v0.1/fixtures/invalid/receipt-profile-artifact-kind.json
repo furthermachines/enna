@@ -1,0 +1,19 @@
+{
+  "description": "Under software-delivery/0.1, an artifact kind with no domain prefix is one the profile defines.",
+  "section": "14.3",
+  "validate": "object",
+  "base": "execution-receipt.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/artifacts/0/kind",
+      "value": "container_image"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/artifacts/0/kind"
+    }
+  ]
+}

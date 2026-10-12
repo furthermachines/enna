@@ -1,0 +1,22 @@
+{
+  "description": "The manifest serves a contract that is not in the bundle.",
+  "section": "9.2",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/1/contract/id",
+      "value": "wc_other"
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "reference_unresolved",
+      "path": "/1/contract"
+    }
+  ]
+}

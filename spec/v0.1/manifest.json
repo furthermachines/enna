@@ -1,0 +1,2141 @@
+{
+  "draft": "0.1",
+  "files": [
+    {
+      "path": "/spec/v0.1/authority-binding.md",
+      "media_type": "text/markdown; charset=utf-8",
+      "sha256": "f4414ea07dd0f81463095db7e0cd3a627ec67d2477413f07ae4fa9ac9786779b",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "path": "/spec/v0.1/catalogs/error-codes.json",
+      "media_type": "application/json",
+      "sha256": "166b81acf4bec78b93627595d1a068133faced74a1b0e63408c4c3f1037e208b",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/catalogs/extensions.json",
+      "media_type": "application/json",
+      "sha256": "9e759475e36581ae674ae1b16e14938a6486bf48d1ec9a39554b0ce5a2c12650",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/catalogs/identifiers.json",
+      "media_type": "application/json",
+      "sha256": "ea66f690f17e9dfbe02af8cf9e73ff02fe755275b8c7e54cd4178bc024f6f978",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/catalogs/lifecycle.json",
+      "media_type": "application/json",
+      "sha256": "c76d93872a06d77ea1932a467ef69f2ed27ae70df2b0af99db35cc9aafaa5f37",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/catalogs/profiles.json",
+      "media_type": "application/json",
+      "sha256": "f040a5dae6530ad724b32b23bace8f269730958ad81fe3c21e6cd9799137e653",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/conformance-checklist.md",
+      "media_type": "text/markdown; charset=utf-8",
+      "sha256": "fbbfd96249c7862dd5716fa274561d9b80060d38079d0e00b7c71f449dc9ae44",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "path": "/spec/v0.1/conformance-kit.md",
+      "media_type": "text/markdown; charset=utf-8",
+      "sha256": "23ba749c76ff1729213dee7e51c67e1ec7211b28c766590f71239eef109c5e9a",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "path": "/spec/v0.1/conformance.md",
+      "media_type": "text/markdown; charset=utf-8",
+      "sha256": "ade8b988b817573175b288cbb08dbb2bccb6594b36db926f93e76522a1c1f6be",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "path": "/spec/v0.1/context-manifest.md",
+      "media_type": "text/markdown; charset=utf-8",
+      "sha256": "b94821560dd9fd55ae1a4824736f76ec5955bd9b820344dfbbb607e560ae7562",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "path": "/spec/v0.1/conventions.md",
+      "media_type": "text/markdown; charset=utf-8",
+      "sha256": "fd15ddf742fa0b855d57f836bf748256ca5c2d579c661fb58ee54db91bb3acf8",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "path": "/spec/v0.1/discovery.md",
+      "media_type": "text/markdown; charset=utf-8",
+      "sha256": "f69d14b485a41996f7633882acc693c70344e84f69a4ea9818503ec9dea09241",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "path": "/spec/v0.1/envelope-and-errors.md",
+      "media_type": "text/markdown; charset=utf-8",
+      "sha256": "7786401200ae2599b38af07798858965114476ba4fd36689d2c180adecd2dd40",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "path": "/spec/v0.1/evaluation-result.md",
+      "media_type": "text/markdown; charset=utf-8",
+      "sha256": "77ccb76f2c95bb0ff344a294dc4eb04a13074ae67d68d615bad824b570e4a007",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "path": "/spec/v0.1/execution-receipt.md",
+      "media_type": "text/markdown; charset=utf-8",
+      "sha256": "9b69377d946e300ef6074220f015bc010a9393868c6865f2f316ea8e6f736d4e",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "path": "/spec/v0.1/execution-semantics.md",
+      "media_type": "text/markdown; charset=utf-8",
+      "sha256": "9ef93a0a3b5a9ed90900568208bf552604fda2b5fd47a60fad31e3f89b38719a",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/binding-approval-id-repeated.json",
+      "media_type": "application/json",
+      "sha256": "78b9d3ac60a7b159dd5ecb4fe129ad1c9b3444d1a448ca31579f28151c5cf7e0",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/binding-credential-ref-token.json",
+      "media_type": "application/json",
+      "sha256": "7de860f2e63752d56f329175cca3ddbd58e9f74844ea45989440337f3259c633",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/binding-delegation-depth-with-parent.json",
+      "media_type": "application/json",
+      "sha256": "b803ef53876af25e94ac3e4dc37d4e6e7ce43c90e663be07a59257824bd1f495",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/binding-delegation-depth-without-parent.json",
+      "media_type": "application/json",
+      "sha256": "033153b647203d4b732a231ce4c31c8c373167cba495455ed5bb0983bc42c0b6",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/binding-extension-always-critical.json",
+      "media_type": "application/json",
+      "sha256": "26b1d6d8edee1d2687f4d66d642fc692897cdd1e21d512e5565dc679759a4af3",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/binding-external-not-pap.json",
+      "media_type": "application/json",
+      "sha256": "43480e43e1b1897ae599ae46e8aea2eb75746866562ced948c6cf215b2ec2d77",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/binding-pap-confirmation-verified.json",
+      "media_type": "application/json",
+      "sha256": "ddd10c00442ec6d31c3a35b06f1fa6a74b0973d2ccc71c8c13f820a322e3e5a1",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/binding-pap-confirmation-without-external.json",
+      "media_type": "application/json",
+      "sha256": "f806c6316b50a2732a268a3e32f7cd8ad5ff34777da40219c46bdf2bc17e96a1",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/binding-pap-extension.json",
+      "media_type": "application/json",
+      "sha256": "227f23dee9fa9ea4f590565605969f8e9d137e57aa7199683944890824c1f380",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/binding-profile-action-namespace.json",
+      "media_type": "application/json",
+      "sha256": "d5fc14b15f77f274e57996a82aeb99d7adc13c647f43b3b1d81859883c9c2d84",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/binding-verified-without-evidence.json",
+      "media_type": "application/json",
+      "sha256": "1a361affb78d7dcd32787b6217de219e829532c3f1a5f0929b0abee10e4f1d43",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-before-earlier-revision.json",
+      "media_type": "application/json",
+      "sha256": "fc37a35d1fc98d9b01d3650ed8be0ab5adf5736ea7a2f2cc4302314b6651e221",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-before-effect-end.json",
+      "media_type": "application/json",
+      "sha256": "b3cae28bcb080637ef6f333d879bc3a47d7b475737c41f4337b7bbfb0e513062",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-delegate-approval-denied.json",
+      "media_type": "application/json",
+      "sha256": "ffe828d0b20d192a74f2b8ac64ca5d8ca71432388f48b30f7267bf76d95d958b",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-delegate-approval-expired.json",
+      "media_type": "application/json",
+      "sha256": "717cf419d5ae7203be0ddac23d8d6ba57402e7611d69d14faf0a3fb9b8765827",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-delegate-approval-later.json",
+      "media_type": "application/json",
+      "sha256": "11c0b36f162c1879f81481a9836b095758b63391468fc12a21ed7551ddbdffd7",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-delegate-approval-revoked.json",
+      "media_type": "application/json",
+      "sha256": "a58ade35615d47153bd12d55dea613e12f17cef63c54eeb4760fa64c94e12e81",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-delegate-approval-stale.json",
+      "media_type": "application/json",
+      "sha256": "7e6de17d934cad205ee8f7aa7b147c5b3979c30d78aab0f6e36843f07aa76d8e",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-delegate-approved-by-other.json",
+      "media_type": "application/json",
+      "sha256": "dcc599f472fa44a040145d335098e116949794149811ddde80fb6c4c2c0ab575",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-delegate-binding-revoked.json",
+      "media_type": "application/json",
+      "sha256": "e9a1458269ab2b3b24c476760e5683317e5e37ccd22f4876a81f39d6aa07bc3f",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-delegate-denied-by-approver.json",
+      "media_type": "application/json",
+      "sha256": "5eddc0e675fdc30bb2b37db1b23c2bf71f282c8a4ccebc626387413daa3fc1d5",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-delegate-grantor-not-owner.json",
+      "media_type": "application/json",
+      "sha256": "484c115b77dac6a5d5c0b75261b2818256a1f4357896cbead435c27f0846bd1d",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-delegate-other-action.json",
+      "media_type": "application/json",
+      "sha256": "6f7155f8cf9f6cad39b43d6ffb7b911f4c203042e0d6da3053f45269c2ff89d2",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-delegate-other-contract.json",
+      "media_type": "application/json",
+      "sha256": "bed2c469bc352f713ae8a263ccd936a95d1c09bae832454b9183f30b288ba852",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-delegate-other-grantee.json",
+      "media_type": "application/json",
+      "sha256": "75aea5cc32e281f06ed5b4a86bd5ab5762bee96a479d057628ef402a6102633a",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-delegate-outside-window.json",
+      "media_type": "application/json",
+      "sha256": "254fa728d37d9c030ebd876d1fca47241f66fbcff1fe6dbc76c33ed4a8fa97b6",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-delegate-parent-revoked.json",
+      "media_type": "application/json",
+      "sha256": "27451f3d86ec077a9a40f758a24bea01598d00723271b33303f22dbd1d44f488",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-delegate-resource-type.json",
+      "media_type": "application/json",
+      "sha256": "fb0e96451951d0810debb60e0e2f4268eb3dd61e2ae174723fdcefe9603cd2ca",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-delegation-unapproved.json",
+      "media_type": "application/json",
+      "sha256": "541d1e60245e4b9efb6796f92f0c77d9ac948cce87e67929584674f9501d8722",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-first-revision.json",
+      "media_type": "application/json",
+      "sha256": "fbeeb2bd8a091871eeb9c24479da52a89da42b9ad71b34d87f1ea6b7a30ce321",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-not-owner.json",
+      "media_type": "application/json",
+      "sha256": "733ebd5139b14724af2e5aeb349cf5dc37ed6655091cc402816b31bb8ad69421",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-outcome-unknown.json",
+      "media_type": "application/json",
+      "sha256": "ef16b459a3622568078985b638d8aa121627554095b612c8d8d804e5ecce3bfd",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-premature.json",
+      "media_type": "application/json",
+      "sha256": "8da80625d288f4fc4ab80210e39abc1862492bf90db87ff7165f62d3891a60ae",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-acceptance-without-effect.json",
+      "media_type": "application/json",
+      "sha256": "b3524049d6566f7de6c83e3065cbc92ff596ac91af60f3cc0184b45d3a00dd99",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-actor-not-grantee-context-reach.json",
+      "media_type": "application/json",
+      "sha256": "82ba286489e30274f3d96832e31ab31df12085e60e94264007c284e7274e0ed5",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-actor-not-grantee-context-stale.json",
+      "media_type": "application/json",
+      "sha256": "55d5c6575d66b4ae1a76f0f06c34ff3b0b4f1e1b507dae897dc66ee5a9e51044",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-actor-not-grantee-count-counted.json",
+      "media_type": "application/json",
+      "sha256": "f910ba050df27380997c716689cf2e94e65b3efa75d572917c6bf48cf61b8cb8",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-actor-not-grantee-stops.json",
+      "media_type": "application/json",
+      "sha256": "97f7cd6060adf51a8e92edc8cc4ea1ccc7cc9818fe800d532fd82a8a8a9ee1c9",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-actor-not-grantee.json",
+      "media_type": "application/json",
+      "sha256": "72b92d34d4db1d8d127149801a94945d1a33f28a5584b11e71b115aa50847d27",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-actor-principal-exact.json",
+      "media_type": "application/json",
+      "sha256": "0d031f361fd4b91d9151cf0c4176f969830cedffb6ad9c845f7f3f3022b35679",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-approval-after-start.json",
+      "media_type": "application/json",
+      "sha256": "ef71bf09f3fc844fd1e39b56f928722d04b3ea03412e15d1ca505bd6034d45e7",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-approval-asserted-at-assured.json",
+      "media_type": "application/json",
+      "sha256": "c17ebb1d1490ee89e23c0e93de1556ca4267a114af15a53bef29fe9f3ad40fb5",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-approval-covers-other-revision.json",
+      "media_type": "application/json",
+      "sha256": "f7aa415e3c93855294ff05f0ddc9b589df5c385fe0563ddac47fdbc0510593dd",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-approval-denied.json",
+      "media_type": "application/json",
+      "sha256": "7c0be5e97b258b4907a891914ef56337c3637a6c9a63bb962960738ce4003bde",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-approval-expired.json",
+      "media_type": "application/json",
+      "sha256": "84bc6291ddfd748e691fc6a0ad6a27ead09f0788596dcdc589b7e8e938460d03",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-approval-missing.json",
+      "media_type": "application/json",
+      "sha256": "ac469f8655f7b115d9905097ca49efebf918c07710aee4c4478cacffcee9dd7b",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-approval-revoked.json",
+      "media_type": "application/json",
+      "sha256": "134d59196483c5b2553652e1b42202cae340c5e2294f2f7068b610ffe0e2be99",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-approval-stale.json",
+      "media_type": "application/json",
+      "sha256": "fcd6cdba540f499ad4f93408f31ac74f45538b4a6a6c0b2ac3911a2087f56cb7",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-approval-without-expiry.json",
+      "media_type": "application/json",
+      "sha256": "13c1b0e6d740c5601dd0e4b847eb46230882cc6688cb3a43c982629e3a3a8db9",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-approver-out-of-scope.json",
+      "media_type": "application/json",
+      "sha256": "95c61411076cbd1cadc6e60ad8b176bc6bba9ace6d20da5f9ab5cad0e002fdec",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-approver-role-not-assigned.json",
+      "media_type": "application/json",
+      "sha256": "69a056cb8eaf8b80552366f11b98f125a72e4a41255ad6d8e34a9bef1dc85261",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-approver-role-not-held.json",
+      "media_type": "application/json",
+      "sha256": "692c9d167244adab0ebe24dd1f2d434bd06c4b8926085f60777cef2d227a0f0c",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-attenuation-grant-conditions.json",
+      "media_type": "application/json",
+      "sha256": "bfd055ef429f6ee15683a7cb90a319c6f6f8db06e77c643f96c603161cc52752",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-attenuation-grant-limits.json",
+      "media_type": "application/json",
+      "sha256": "ab645474f593aca90697097428d6e5a1254ecbcf6b2243ae9a0652227ae12ae4",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-attenuation-grant-resource.json",
+      "media_type": "application/json",
+      "sha256": "a910cd4a1b257187e1b7a47afa0d74a084d26b6b42a3aae7c8f3c8bf032034d5",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-attenuation-violated.json",
+      "media_type": "application/json",
+      "sha256": "a8babca2f00c7be9763a556e5ebeb3864ae16bc788456d88454429a7978b7f85",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-authority-expired.json",
+      "media_type": "application/json",
+      "sha256": "715782e824931b2b139ea79eaca3b7068340eaaaf5c1e3db82b0bf01a9dd8be9",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-authority-insufficient-action.json",
+      "media_type": "application/json",
+      "sha256": "105456d0847ce386ded78d6d81701827243b01817dd0bf05604c6e867d2dfb1e",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-authority-insufficient-approvals-unexamined.json",
+      "media_type": "application/json",
+      "sha256": "3850b2a0b1dd56b04d0ecd008c25bfca98d34f87daa883e47f1236a1c94d76d0",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-authority-insufficient-project.json",
+      "media_type": "application/json",
+      "sha256": "eb864a39bee956304c9c58b93c9f62fa6f4b7558eeee4a6ef615e46ca12d7ac5",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-authority-insufficient-resource-type.json",
+      "media_type": "application/json",
+      "sha256": "8ea470969b5c3e2adb5fb5ec8315b30f47b57f7baf6203ffc226216760a0cfb3",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-authority-insufficient.json",
+      "media_type": "application/json",
+      "sha256": "a22a6c60ebdcae471f8c83b8a134c289dab26310558d465efab2f271dbd699c4",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-authority-not-yet-valid.json",
+      "media_type": "application/json",
+      "sha256": "8d5733e70c677ff46df910d210b8bbf860f60b73bf52bfb2fe641a58e61444e4",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-authority-other-revision.json",
+      "media_type": "application/json",
+      "sha256": "bee1d696930e4038e0751c2bc8ee4ec319db6974a9fefb038dae0ca4e899ae9b",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-authority-revoked-ancestor.json",
+      "media_type": "application/json",
+      "sha256": "0769364e6a0eea026ddc53b63fb331e08bff00a0b3397ae6f5e13f7dbbdd799e",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-authority-revoked.json",
+      "media_type": "application/json",
+      "sha256": "ed56e569fb01dc732af068f424c5987c89e72dffdec149104e34d727b1653465",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-authority-unresolved-context-reach.json",
+      "media_type": "application/json",
+      "sha256": "5c4b7eb8ac7e35aaa061ede453871b34051b8d43d496be5561d8b9bcef22300d",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-authority-unresolved-context-stale.json",
+      "media_type": "application/json",
+      "sha256": "9e9b6e32ddbb4f93a585c84dda5728e6330e58700bccebd245e1b7e57e284007",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-authority-unresolved-cost-counted.json",
+      "media_type": "application/json",
+      "sha256": "a452142fd2162b51ad54b87a100bb1dab1d568a18d3383ef6a1508b816229d67",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-authority-unresolved.json",
+      "media_type": "application/json",
+      "sha256": "3ef957cf2e237f6487e86518d5eaa990330278db0dd9e417d580a339ff849f0f",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-chain-backwards.json",
+      "media_type": "application/json",
+      "sha256": "3aabad1bb1ed4fc6f71d4f7824794d82fe5912053eb1db99e6eae9e9fa73d366",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-chain-broken.json",
+      "media_type": "application/json",
+      "sha256": "19530dfbb249683188780348aeb25eb7ff229888655ba3e49b4db620825b7249",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-chain-first-receipt-missing.json",
+      "media_type": "application/json",
+      "sha256": "c6554babb23e7e567022fca1b3131b44a777d63aa560f50b78d026d3a6028b2b",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-chain-fork-in-creation-order.json",
+      "media_type": "application/json",
+      "sha256": "292d67ffed757940b0e47c32463281a0de49ab6ac5c816cc7dafb3b3b782cead",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-chain-no-first-in-creation-order.json",
+      "media_type": "application/json",
+      "sha256": "a713a2e357ec8928586ce0a4996e9df6383084f0b9f28e96db8fd028383b18be",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-chain-previous-unknown.json",
+      "media_type": "application/json",
+      "sha256": "5f33535026a4c39cd8c25463f73a8c82f945a992ac895436187b6d53b5a4922f",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-chain-second-first-in-creation-order.json",
+      "media_type": "application/json",
+      "sha256": "4a794ab11b1caf3bd8c526a28044f164525bd49eeea295b1f48fed0af7e1b3f2",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-chain-second-first-receipt.json",
+      "media_type": "application/json",
+      "sha256": "b1d0f3638bf2a0624561563f8b73034235ea0ed2284c8e88ecccd421d5b72ae4",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-context-age-unknown.json",
+      "media_type": "application/json",
+      "sha256": "abe763d8c2e2e6d6fab624b69206e73a703700bfbcf529da0bf903d3876fa5d5",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-context-as-of-after-start.json",
+      "media_type": "application/json",
+      "sha256": "6acaefd6bfa469b964635540016a6b4e1b16a07874bc6d6c73aaab02dfcfaaa4",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-context-item-outside-tenant.json",
+      "media_type": "application/json",
+      "sha256": "e224afb192e67cfcee58b7db37d3be33b9ac95693608b84e27f520c2881988f7",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-context-other-revision.json",
+      "media_type": "application/json",
+      "sha256": "2abda0163d76999bc57c5849318e784811f85fafd067935a3ba5337ff3e4cf31",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-context-out-of-scope-other-agent.json",
+      "media_type": "application/json",
+      "sha256": "bbf8b5afcbc7ba79b8c878ef8c33d58df676cd6dde4f525f875861731f59c5ac",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-context-out-of-scope-pap-confirmation.json",
+      "media_type": "application/json",
+      "sha256": "d2121dde355cdb7bf79e44e334cf678ff655b9b1cbc900c9793658c87ec58063",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-context-out-of-scope-quorum-gated.json",
+      "media_type": "application/json",
+      "sha256": "b67fc6887b950b9824a3ec93af126f330edc9b68a2601465d0c8086458059cb5",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-context-out-of-scope-revoked-binding.json",
+      "media_type": "application/json",
+      "sha256": "5c29ba19a71a460f8715ae30c4583e9749798bcc916c727e9f30e26bacea9be0",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-context-out-of-scope-role-gated.json",
+      "media_type": "application/json",
+      "sha256": "2fd455190ade54de7c29154fb25b7353796ba21878b39bd420c9fa0e53a61839",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-context-out-of-scope.json",
+      "media_type": "application/json",
+      "sha256": "3f62003149f56ad3859b07e12605292afc4e0dbdc435ea7d9474c9bccb5ad4e6",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-context-revision-mismatch.json",
+      "media_type": "application/json",
+      "sha256": "f9b5f845a649bfe8074c121cb5150dcbedb61e9a030cec5972639d08e264b803",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-context-stale.json",
+      "media_type": "application/json",
+      "sha256": "db23b407e494885385a19e697cc16643ddc021979b796bee78237db56dff78c6",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-context-unresolved.json",
+      "media_type": "application/json",
+      "sha256": "f04a6e0bcf748d05f606b1ca6c2fcc26b0f017dfa31a5f6cb09c4a693245a48f",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-contract-missing.json",
+      "media_type": "application/json",
+      "sha256": "997bb796309debb7dbe82fe75fd62052a67c4960a2eb366630a252a3fef3729f",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-contract-twice.json",
+      "media_type": "application/json",
+      "sha256": "72a79662208907bca9aa4ead22df4f5e588afd0136aa6562b498d8ece73582d5",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-criterion-unknown.json",
+      "media_type": "application/json",
+      "sha256": "232ae8c46630c405b5c000c77b3e598d181fe8efe30096b31951203930a5b86a",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-currency-mismatch.json",
+      "media_type": "application/json",
+      "sha256": "490e45876a06e06acd761b9022cf100ec651c953ad091f5305ac9cfe1c44d20f",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-delegation-deeper-than-allowed.json",
+      "media_type": "application/json",
+      "sha256": "ba2fbcd1bff4fc5f7950b41eb4a7679e62e4313d2f2af5c09e0177d56c980491",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-delegation-depth-not-one-below.json",
+      "media_type": "application/json",
+      "sha256": "998f9a299eb78f9422cea1565a4176f7a3e8230068cf575bf6c060b6813eb296",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-delegation-max-depth-raised.json",
+      "media_type": "application/json",
+      "sha256": "55ee52201eb8d61368a0251a7de7b32cafee31257009034668da3ac665ee4c83",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-delegation-outlives-parent.json",
+      "media_type": "application/json",
+      "sha256": "e2154bc7a01675928d4579811954c2ab131591d1d16b70d6ca5de8e8584f7bc5",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-delegation-starts-before-parent.json",
+      "media_type": "application/json",
+      "sha256": "ca5ed23fb929d0e9d45ec94d45d4092d0e995dbf383493c9251ef02994664d91",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-delegation-threshold-currency.json",
+      "media_type": "application/json",
+      "sha256": "0a6708382f472f94b34d6501cb77d46d176f174667a234668fdd356289ffb7d3",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-delegation-threshold-dropped.json",
+      "media_type": "application/json",
+      "sha256": "1acc209294064132fd32d759535eb03420975b09f263cf1570d1a562923516ac",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-delegation-threshold-raised.json",
+      "media_type": "application/json",
+      "sha256": "dd24e14e1ca2fb4b325601dbf89fcae96065bce99ea8e7a0246ea81260889bce",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-delegation-without-token-exchange.json",
+      "media_type": "application/json",
+      "sha256": "fed0caa79c294a8df9b8260e771203d90fb7b73d114ac730e66d4285941ede56",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-digest-mismatch.json",
+      "media_type": "application/json",
+      "sha256": "2dcb62574c1db751038cd6838d7c9b4330387304efbcff4bc13b378aff357003",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-evaluator-judges-own-work.json",
+      "media_type": "application/json",
+      "sha256": "708721e699d4240b83627434c96920c487b9b6beb3b370b4e5341420a3a9263a",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-evidence-missing-in-record.json",
+      "media_type": "application/json",
+      "sha256": "c5660e37a686f8b7509ea7051cccb5f3f049a4ea441cb07bd612c386801c17b9",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-evidence-missing.json",
+      "media_type": "application/json",
+      "sha256": "3a4f33c6d88270b6cfd05c2eee8a86fb45a8f63d22fb2142b2e4be819d38f9f0",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-first-grant-applies.json",
+      "media_type": "application/json",
+      "sha256": "923f629220fcea5291571819b2c7ded1ea4f6c37f96933f00da0a52b51716726",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-grant-cost-exceeded.json",
+      "media_type": "application/json",
+      "sha256": "d77590b3bdea811ea54d7f6ae9fa17d9b0349c42f90a1ce8241a3110d3229f82",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-grant-count-denial-not-counted.json",
+      "media_type": "application/json",
+      "sha256": "7fac0c6ac094d15890415251ee20f304550a12673614f64ea0040b247d24a3cf",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-grant-count-exceeded.json",
+      "media_type": "application/json",
+      "sha256": "f44dbda89edbd99dd2eac422295db67d44e070667d9ea74b6cbe8171f3a4623d",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-grant-limit-currency.json",
+      "media_type": "application/json",
+      "sha256": "26bdf44bc7aa912937798660a0c3a1cc423053e901245eb2c2964476cfbe1b09",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-grant-other-organization.json",
+      "media_type": "application/json",
+      "sha256": "c56574d253b923cd01bd3dd7be38b0fe6b0ce7e0d585b91379a09f66b7cda5b7",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-idempotency-conflict-name.json",
+      "media_type": "application/json",
+      "sha256": "f039b3ce2ccd83c312649eff97b15b76feace06c27a36e30a40b8214f208200d",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-idempotency-conflict-payload.json",
+      "media_type": "application/json",
+      "sha256": "c2fe9f5a502286e43629cf8f165375acc5a2decda939473a0395dc897f3fd3c9",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-idempotency-conflict-resource.json",
+      "media_type": "application/json",
+      "sha256": "2be46e95e3a193c02ea150cd0f3ea24c08d4520d1b997c834716476cd25e3dda",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-idempotency-conflict.json",
+      "media_type": "application/json",
+      "sha256": "bcac3bbff0ceceb398723f5210f0cf650b78bf005fa2ec50769fe6c8d53cafae",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-idempotency-known-then-unknown.json",
+      "media_type": "application/json",
+      "sha256": "a904aa885d89c4111042530ef34a5578f21b0c67a8d63c0d12c4b1c24c0a1cc9",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-idempotency-unknown-then-replay.json",
+      "media_type": "application/json",
+      "sha256": "f027427301ef1ca30002bbf8c2cbc7513ae1bee3ca0b7a7931f1cddd04446e4f",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-idempotency-unknown-then-unknown.json",
+      "media_type": "application/json",
+      "sha256": "cd554ef25a1083cbb5ef6142d5e2671e3e2fb4206f3d7cf32eff2d6255283a71",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-limit-exceeded-once.json",
+      "media_type": "application/json",
+      "sha256": "120dfe513ff56f8f2c7019e718bb7ce5e1d6c2a4c9465e953a4993e82f1df3c8",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-limit-exceeded.json",
+      "media_type": "application/json",
+      "sha256": "3c13d01c10ca0b5451dbd72a5cdd23d2ec179367754a8a53ad6b218f80aba1cc",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-not-an-array.json",
+      "media_type": "application/json",
+      "sha256": "57cbd129094054414b615b8844d44ddfb1440f045a72c73a31219fd28eda90fa",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-object-invalid.json",
+      "media_type": "application/json",
+      "sha256": "d69066393fe7952759454ef2e8c316e5b8b58b5312928d7ff26ff9eaa2c49de9",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-object-twice.json",
+      "media_type": "application/json",
+      "sha256": "c2b77f8149eeba1ad965e7d4b85475e4b3c495257311863c52a9c76820c9318f",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-pap-confirmation-outside-contract-scope.json",
+      "media_type": "application/json",
+      "sha256": "3b4111641d3eae7c6fcf58e8c3abded5cd9823ab144c6eaabd72cdd18b144af5",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-parent-other-revision.json",
+      "media_type": "application/json",
+      "sha256": "82924c3478bfb6df0db1e9b610b9c04f5b22f7b03429d2f4482ef49ca536cfe0",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-parent-unresolved.json",
+      "media_type": "application/json",
+      "sha256": "e70e36608bb00b257808f3fb9a28ae7449d81a5ad7a13fb08cb3e71a14ec9227",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-production-deploy-standing-binding-profile.json",
+      "media_type": "application/json",
+      "sha256": "d7e23f9e6678b6fd0bbbbcf2f647c2086acf1f05a0deafa903dcf1bc6b7dd0d4",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-production-deploy-standing-contract-profile.json",
+      "media_type": "application/json",
+      "sha256": "59edc90b4b63be7bd9623eef6505289db1d99db9b2bdb004f80277205ec9e628",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-production-deploy-standing-receipt-profile.json",
+      "media_type": "application/json",
+      "sha256": "a714bbc935d284e909908cb9ae530da4d75524f48fd1b1ee95bd06d1dd7f31a6",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-quorum-not-met.json",
+      "media_type": "application/json",
+      "sha256": "3ed1c8e1868cb3356100f401b67df8e8545b59d6001977f65f7c6103df25eb2f",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-receipt-citation-digest.json",
+      "media_type": "application/json",
+      "sha256": "4a2979b437c699663deb53a875765e3f4fdad3432186e34fb21d55b4377f2331",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-receipt-citation-unresolved.json",
+      "media_type": "application/json",
+      "sha256": "db2aea17d78616ba63472250c54a84bf5c75173d502e33557c48e5c126440f02",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-receipt-not-attested.json",
+      "media_type": "application/json",
+      "sha256": "b3736de18d5e12dfbacb6a26b4e4a65af43d4d5d2586d2a12c2445f93382e25d",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-receipt-policy-unnamed.json",
+      "media_type": "application/json",
+      "sha256": "92b775e2fcf2b2c0d248378bdf4f5bec8f38a7564bfb52755fc4eeb9fb284c84",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-reference-unresolved.json",
+      "media_type": "application/json",
+      "sha256": "cc9721fe7dbd20d7b76694e70ad4c963c122747283214fbebb888ffd8b08cc0e",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-revision-mismatch.json",
+      "media_type": "application/json",
+      "sha256": "e299eec732ea8f2c72fdda9215ba9a63758753a230f93389c83e7a71d59b6e79",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-scope-outside-tenant.json",
+      "media_type": "application/json",
+      "sha256": "07bbf05cf2cc7609ce7ef27a24c236e573d55c01e56b754cb056b215956b4b64",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-separation-of-duties-at-effect-start.json",
+      "media_type": "application/json",
+      "sha256": "6446bef265277f3869776f7044acf20a669dd0298a6104baf46d8c2367b08de5",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-separation-of-duties-binding-threshold.json",
+      "media_type": "application/json",
+      "sha256": "27a4584e5eb823bcc1e3f071f6d5b24f4bc2a66e1537faa3c2dac089f404d54f",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-separation-of-duties-grant-currency.json",
+      "media_type": "application/json",
+      "sha256": "a24e26b625b4922de81d07410a5648e98b310c4d11964e317d7b7ec6a28b172b",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-separation-of-duties-no-threshold.json",
+      "media_type": "application/json",
+      "sha256": "2e05b46145a4e66cd6badfd66073b9c0a02984477f45b904191e9cd609eec5d1",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-separation-of-duties-threshold-currency.json",
+      "media_type": "application/json",
+      "sha256": "256d84a198864394c3c7c39a910896516f46c25f3880a5c56d3f08df87f33260",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-separation-of-duties-threshold-not-loosened.json",
+      "media_type": "application/json",
+      "sha256": "0cea98a511182529126777e22a2105efae44f403cd057215aab1e9f3daf24d4b",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-separation-of-duties.json",
+      "media_type": "application/json",
+      "sha256": "b7660e82d633d7b47c846fefc9949abc1e9ba0452dcef0410fb000e9818ba8c7",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-subdelegation-forbidden.json",
+      "media_type": "application/json",
+      "sha256": "2cc7cb023874c67630b6f9bc5a38e718138a7f6efd2a414bae16d3cb69e1e3c2",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-subdelegation-parent-undelegable.json",
+      "media_type": "application/json",
+      "sha256": "5a212e6fb06522b84d71e96dd75665b0fd74a6b6d2a59e3e2fcb39cd30fe27e8",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-technical-result-mismatch.json",
+      "media_type": "application/json",
+      "sha256": "6f4211edc7f866fa82f800e5381beb5b1179281993e3dd45710ba83c40e7d743",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-technical-result-required-fail.json",
+      "media_type": "application/json",
+      "sha256": "7b247cafc508968911f850d03cc1abae7ec27b034a7ded71df50fd035cb567ae",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-technical-result-vacuous.json",
+      "media_type": "application/json",
+      "sha256": "ededbf0527b0f9e77f90748a3f92c51f1316618eba6feebbb4df7945ffbb6250",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-tenant-mismatch.json",
+      "media_type": "application/json",
+      "sha256": "f87096a216d7a49ed076e8f5f3a58e3fb81a7178e9f07163037b7afd5ee22a51",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-timestamp-in-future.json",
+      "media_type": "application/json",
+      "sha256": "ebe8e8036c6e43891ed5a53934ea5470ae0492b5303722664cff41d2e66a3866",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/bundle-timestamps-in-future.json",
+      "media_type": "application/json",
+      "sha256": "f1300ee322fa87e153818c69ab9880a0d251ee7ae09a2fe9734bf053f04eff91",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-auth-missing.json",
+      "media_type": "application/json",
+      "sha256": "36fc2e02823015760f351c80acf9e63e7746ead269ccf4fd2da0333da1f5a1f0",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-critical-extension.json",
+      "media_type": "application/json",
+      "sha256": "c8dfdab573896c52846847ea5545475335c9bb4d25437dfda346a7c9498c1141",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-domain-mismatch.json",
+      "media_type": "application/json",
+      "sha256": "4e087c89558e827e7f891cf7355575d244236c924f19f8626852104e16fee44d",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-domain-unicode-case.json",
+      "media_type": "application/json",
+      "sha256": "6a1a103450c739206734d1b2ac2a0dd22b2a736e6bebb7d90155365728849890",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-enna-domains-case.json",
+      "media_type": "application/json",
+      "sha256": "138ecfa40e7947fff5e2cf4df5416b609b464b4fb74e1cd724159adb48f2e11c",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-issuer-mismatch.json",
+      "media_type": "application/json",
+      "sha256": "8d0a4a35f0a41b12d8290906b4f51ea22b98da7d058ab7b4d69425d45272e083",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-issuer-trailing-slash.json",
+      "media_type": "application/json",
+      "sha256": "a99f7fa0a981148e55182396a69b3c5ee386bdc37b71a864eedfd284eefed1bc",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-link-default-port.json",
+      "media_type": "application/json",
+      "sha256": "1a05477aa082e74f77f5c66195015c084a692e2c716278b5f6c52c7bd02bf157",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-link-fragment.json",
+      "media_type": "application/json",
+      "sha256": "ebcc51c056de9d4f71823681d6b2f90404fdd4ee9fc3cf2e703f31c7e39c97a9",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-link-not-https.json",
+      "media_type": "application/json",
+      "sha256": "c925ad121bf28cb49e59f4f7c1fff856eb6ac2be16e770a9750135cc2a7ef1e2",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-link-other-host.json",
+      "media_type": "application/json",
+      "sha256": "9eb376311004093c85fffe95594a26466d61d6c9670da47e0666b745dc56f22e",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-link-path.json",
+      "media_type": "application/json",
+      "sha256": "d1384d95da74fce4bf79dafb2380f9f18991754fe0ddfa2d82617572a3c3bc42",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-link-port.json",
+      "media_type": "application/json",
+      "sha256": "6592125f424d50c02f1d7be68f63a03bc119b2889bd1dceec85f7ab921d6c160",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-link-query.json",
+      "media_type": "application/json",
+      "sha256": "70dc5769c852b0bd0921683e65e6b8d4c3a8569ce2804b9b9b78b4b3cd3e9e60",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-link-trailing-dot.json",
+      "media_type": "application/json",
+      "sha256": "05b9dff7e731e3046b144a87ef1cc92d39441709eb350e3f81d5305d2564896e",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-link-unicode-case.json",
+      "media_type": "application/json",
+      "sha256": "69049d5dc1d21167f761f714e2c91e51328e1d5333a230f4d6d1872a516ab5ea",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-link-userinfo.json",
+      "media_type": "application/json",
+      "sha256": "7b5d03db88feed9b8e0a4e5222c3978e3516dd8ae17979b465cfea16472fd59b",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-link-version.json",
+      "media_type": "application/json",
+      "sha256": "ce615e9c9ee3b71ab70d66cc2760b6a7625233baf0ce739e131dee0117fef728",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-pap-link-missing.json",
+      "media_type": "application/json",
+      "sha256": "bd14a701035fdf152d0df6c2858ca1cd7f1f22d30d0612dec1444e7e43d6d4a2",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-pap-member-missing.json",
+      "media_type": "application/json",
+      "sha256": "98dc3883156e32bb96b82577edba05d75c8683d0b7e87d62198a91c14768826e",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-poppy-domain-other.json",
+      "media_type": "application/json",
+      "sha256": "45bb38e25406c0133c8fcf323003531f9e7b31cf39f30b8fefae0a5d5b6fb878",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-poppy-domain-unicode-case.json",
+      "media_type": "application/json",
+      "sha256": "c12b0d9fba1fbdea5c96eb7358ed996f076a942612d802630362b0f18d35bda5",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-poppy-url-other.json",
+      "media_type": "application/json",
+      "sha256": "8c61fda544c79dd751df69f6132c6fc1887e981f97e35e780236d570bcc84e5c",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-rules-reported-together.json",
+      "media_type": "application/json",
+      "sha256": "e292ec6952124d8f5a7c10406615a0643c24121b102dc7acf6a2e94e5197f200",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-schema-before-rules.json",
+      "media_type": "application/json",
+      "sha256": "9cc5f376873c17ef3a1125a2f1091203df3d10252632aef9fc36f58f581f6c36",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-unknown-member.json",
+      "media_type": "application/json",
+      "sha256": "82d1e45fa7771903745613d717b24acd94f9f33cef1a0d667bce1d65ef64459c",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/discovery-unsupported-version.json",
+      "media_type": "application/json",
+      "sha256": "97662c2413fe9d433fc8c0619043ea99bb640dde27c40e67cd48a2d8f1074f16",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/envelope-critical-extension.json",
+      "media_type": "application/json",
+      "sha256": "35691ed22d08d14ab314a6a4e7d2562783a121bbf71d52ed05f3a7173bad5da1",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/envelope-errors-together.json",
+      "media_type": "application/json",
+      "sha256": "8733ce89f3a57328247b28b873903165bce98fe562255ea57145e1aaac1c939a",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/envelope-extension-after-schema.json",
+      "media_type": "application/json",
+      "sha256": "e375826ac067ce7c58c24700800fb65e31d3384352a7c9b50a64f24d6e0ce7dc",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/envelope-object-critical-extension.json",
+      "media_type": "application/json",
+      "sha256": "01d60d1bcb7a70365364421aa3feb3cb7a8499315eee6d999cbfadb82418c03c",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/envelope-object-error.json",
+      "media_type": "application/json",
+      "sha256": "222f6dc397cff7c62961881bedb58e6a989b1779baeeed6b2745ae0e25d88e63",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/envelope-unknown-member.json",
+      "media_type": "application/json",
+      "sha256": "58c1e6459470b74f319d57422519b3e80f5bba53c96ef3272b480560a625bf2d",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/envelope-unsupported-version.json",
+      "media_type": "application/json",
+      "sha256": "a9bf48e50af6b82aeb013d1b2c56257aba9c5e7a0133ba86bbbf21c810d83ce6",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/evaluation-acceptance-decided-without-time.json",
+      "media_type": "application/json",
+      "sha256": "f156f870e5c757383c7b15ade8579894a378195bd259a8845bfe15e6db334533",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/evaluation-acceptance-first-revision.json",
+      "media_type": "application/json",
+      "sha256": "fb76fd7567d3c2be28d27da65928e918b117d3f18611dca98218b2b308d24cc5",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/evaluation-acceptance-pending-with-decider.json",
+      "media_type": "application/json",
+      "sha256": "bc5531c8a2ba83f71376d4cdb600602683ad3f39b1ad974b90f6124adefb486b",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/evaluation-evidence-missing.json",
+      "media_type": "application/json",
+      "sha256": "416578d0b50beb8675e188fcc7e22a937b107bf659ea13b96e8404d4de34d160",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/evaluation-ids-repeated.json",
+      "media_type": "application/json",
+      "sha256": "40827097bf48598cee208f1b4eb29176c53cee36dddb1161b3a23999998e88d7",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/evaluation-impact-window-too-large.json",
+      "media_type": "application/json",
+      "sha256": "4e6d1feb8917b0a9f5bbc01148be69f8b9318fcc9adf053427c7ee374e964d3b",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/evaluation-profile-evidence-kind.json",
+      "media_type": "application/json",
+      "sha256": "10611ed3053ecdc7613c2d7209b80f87600d0df504ff70a66177a14e35c6b2d1",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/evaluation-profile-test-report-counts.json",
+      "media_type": "application/json",
+      "sha256": "8aa951cb91f602c6cc549b1ad619cd4e71a32780e4191488273a4fab443523bb",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/json-bom-bytes.json",
+      "media_type": "application/json",
+      "sha256": "15ec366973d2368887b0a2da7f850ff02071080630fb0b8cc14d822f733f5477",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/json-bom-text.json",
+      "media_type": "application/json",
+      "sha256": "ffebbff456f222330ee6c4af66331110a02d72e749a07afd7f2aa83a1029fc66",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/json-duplicate-member-first-reported.json",
+      "media_type": "application/json",
+      "sha256": "79d469fff4496032f4696f22de62141182b63db57efc534f108005363c81ea15",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/json-duplicate-member-nested-first.json",
+      "media_type": "application/json",
+      "sha256": "dd46b3ac2fe27d4c2f74fd575bed092361a13476e6d46180d3a3b664ecdc832e",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/json-duplicate-member-nested.json",
+      "media_type": "application/json",
+      "sha256": "8f390f465f1ef9f3f013fd9cfa3fff9513819ccb69c1644fc1f49cb4689c5d51",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/json-duplicate-member.json",
+      "media_type": "application/json",
+      "sha256": "86eef8872e0016ebc2e008b3be18dbdb3bf60356d2944424155f838d237d8223",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/json-invalid.json",
+      "media_type": "application/json",
+      "sha256": "af101d8c7143ff6c78a8b99c1308183f357ff4a33823fe48683573af9e2e0ace",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/json-lone-surrogate-in-repeated-member.json",
+      "media_type": "application/json",
+      "sha256": "e9d55acf9b966d89b2defb32c3a46a42a03d92eb88cffe951a6a3f05753f80e3",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/json-lone-surrogate-name.json",
+      "media_type": "application/json",
+      "sha256": "bbf907fc65b7f74d90e33e26a1b5c71705e0ce15e41cd7c400eb1b3e3e3cc6b6",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/json-lone-surrogate.json",
+      "media_type": "application/json",
+      "sha256": "dbc13fb3ee089c05173437714a8c967b1f3eea14f5dd8aa22990af8aea98ea1b",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/json-utf8-lone-continuation.json",
+      "media_type": "application/json",
+      "sha256": "286ed17c04089d48e8c4fd250536f33afa41bf5834467d56cd638664ad27f883",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/json-utf8-overlong.json",
+      "media_type": "application/json",
+      "sha256": "d0ef5781628eceee4bb82fe864d36da53bc1effe2c592d718f7b8871c66bc000",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/json-utf8-surrogate.json",
+      "media_type": "application/json",
+      "sha256": "11bfe931846993858a746303f866c11e95e7c9f96eb3787563040299277d8655",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/json-utf8-truncated.json",
+      "media_type": "application/json",
+      "sha256": "2e25594a4c9e454901c1b421775e872488ba293917a11081acc6b1d998d7fb56",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-acceptor-not-person.json",
+      "media_type": "application/json",
+      "sha256": "1ad70438b2b1a29a9d57ccd6a62d535f61fc8cc89617cb374d9ad373b57bfd12",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-action-name-prefix-label.json",
+      "media_type": "application/json",
+      "sha256": "ac3b8c6530d3afd67352fb06960b073e6fe4ad44212a5a609c238ea2744ea80e",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-agent-id-not-url.json",
+      "media_type": "application/json",
+      "sha256": "930ae445a4237e380febbe1d7b4a8937f107f725fb6c832cd69bf9d626b94347",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-approver-roles-not-approver.json",
+      "media_type": "application/json",
+      "sha256": "df144ce75c26a1221678bab1b58e4144feb14294365b29888bbe53c983c69034",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-artifact-digest-algorithm.json",
+      "media_type": "application/json",
+      "sha256": "a48b0f64bdd28d56139b1707e6d868cc615f2a52cc41a57ea0bb39e91014d274",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-context-data-uri.json",
+      "media_type": "application/json",
+      "sha256": "d6c8003a52382212b26bcd55cd29d956625316730f9ac6f31995fd899b67cec4",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-contract-ids-repeated.json",
+      "media_type": "application/json",
+      "sha256": "d4eb521153b125a0c6ad42025e0d5db8f63788fe5b3d11f1b42a740324ff1610",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-criterion-id-leading-zero.json",
+      "media_type": "application/json",
+      "sha256": "63e964ad81be7f854d7361338a8717fbb822b25450ecc41e3240ae3ab8fb1cb0",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-critical-extension.json",
+      "media_type": "application/json",
+      "sha256": "3cc63ca7832034daf84c4320f2d74b7346c71de7ffb8f019fd5781ba6a5dfc96",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-digest-uppercase.json",
+      "media_type": "application/json",
+      "sha256": "272329813b7014137506c6931f0103b111b55876f5ef87dfb221c4310cec4b74",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-domain-label.json",
+      "media_type": "application/json",
+      "sha256": "9850a416cc3a13f3a0463209f394ba81c0bc777e73cb2a4d52b3ea542cbfa763",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-domain-trailing-newline.json",
+      "media_type": "application/json",
+      "sha256": "885a1792ad81343e1a4813810dbb2825889e5e191c7a47441860ad768434a664",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-duration-too-large.json",
+      "media_type": "application/json",
+      "sha256": "5314a7f463a2d0c3b8f94f644eec3c645c9b56edcfc46fbf1f83e147d99baab4",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-enum.json",
+      "media_type": "application/json",
+      "sha256": "316d2c76e8282ee20adaef05e6302a218e25d2efebb58b40a9f5141c4935424b",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-extension-name-prefix-label.json",
+      "media_type": "application/json",
+      "sha256": "780085ee0a5fa35eebbbc3d77ff601a0e171452bc746016300fe95cdc929c351",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-extension-version-missing.json",
+      "media_type": "application/json",
+      "sha256": "c61cf292bd650b18be716afce40e97eb447132491ab4ad663742f2fb79e86fda",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-id-prefix.json",
+      "media_type": "application/json",
+      "sha256": "32fbbe6c42465e70394e872894e33bdc9744383b7df8423fdff587e7e909a2dd",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-idempotency-key-alphabet.json",
+      "media_type": "application/json",
+      "sha256": "2595d9ec191759c23b1b0478958d2e0de48f8149888dd7f9af297babe55d271a",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-leap-second-misplaced.json",
+      "media_type": "application/json",
+      "sha256": "18a0fddebfa151f548833b23bfc014d80bb432507a2f7ac0592266b83dd7b112",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-local-id-too-long.json",
+      "media_type": "application/json",
+      "sha256": "3bee64532379fbb6c03fb25b9c57b12bf39b13151079df1da8a8d87944ea6018",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-manifest-item-id-repeated.json",
+      "media_type": "application/json",
+      "sha256": "7a433023ac4ed2ef6261251a671909fd9b68006c3db48fb2abd1f796a3b71b12",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-measurement-forbidden.json",
+      "media_type": "application/json",
+      "sha256": "0f89ed0482866929cce482d1ae7552186569c122eb79afb3ceab18cc78f310c7",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-measurement-missing.json",
+      "media_type": "application/json",
+      "sha256": "d230d3e87fa738d08fa3fecd742044edf83457d4a5f8f1c4c147f483d93a326f",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-measurement-window-too-large.json",
+      "media_type": "application/json",
+      "sha256": "ee3c82a9b1cb7a92eb4a808f17861656bb382e0b976aa58a586aaf0d8452f871",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-money-currency-lowercase.json",
+      "media_type": "application/json",
+      "sha256": "63207ec48bcb9229294132dfc7f4c23756087c4b8139510c409e7cf5b0a4149d",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-money-exponent.json",
+      "media_type": "application/json",
+      "sha256": "0749b1b43bf395a9382a699401ceb0042838e543b61d6eb443187ee81c7f7ff2",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-not-an-object.json",
+      "media_type": "application/json",
+      "sha256": "f3171a63035cda7e8e1819a433348f045acbd4ae21430b069c119136f25cc2ed",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-null.json",
+      "media_type": "application/json",
+      "sha256": "b15556ae445d3872cc55750ca529969a00c9bedb86f459d4f0c4a2a9f0b387f7",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-organization-id-not-domain.json",
+      "media_type": "application/json",
+      "sha256": "d9f3920d2245c40d4d748627317fc6bd720756e436a09e4a493ffc59b39d5fb2",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-pap-extension-critical.json",
+      "media_type": "application/json",
+      "sha256": "83548a682120b5c5e402725be5b012668e0063b7f88f0e2fc73f7e870a5cde9e",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-pap-extension-unknown-member.json",
+      "media_type": "application/json",
+      "sha256": "747afae51eb3309d56fb8974b539f7f4ed7f94b3058582ff4905e177616f9aa7",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-person-issuer-missing.json",
+      "media_type": "application/json",
+      "sha256": "8859f0998e002f5171bfba702170d780451e585e93912b17451ad2dbb8dbb8b5",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-profile-before-object-rules.json",
+      "media_type": "application/json",
+      "sha256": "4e3a807f6b5b667b2b391b1c284b7f307f9b2b540d0f7176c0ee9c406385b9f0",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-profile-prefix-label.json",
+      "media_type": "application/json",
+      "sha256": "494266255cd916b2d88448a82a1925d1101ec196d2c6043fa6daf346344ae312",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-revision-author.json",
+      "media_type": "application/json",
+      "sha256": "75c059e1d3152ac29900d344bbf52e760683748dceecb5d4f94cfe16b472a550",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-revision-too-large.json",
+      "media_type": "application/json",
+      "sha256": "6bdfd9f9e1931b093cbd845464a15df99a6d143bd737ea000351127bc2a3ad7a",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-revision-zero.json",
+      "media_type": "application/json",
+      "sha256": "5f69e2cc71d1f632a2fdce63e53200fab6d8f7e3af330701ef9405da4e427637",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-rules-reported-together.json",
+      "media_type": "application/json",
+      "sha256": "ae3d7c678f923be27dc6c1641093a868480c18db2235e8b9e22ced2d58f90157",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-schema-before-object-rules.json",
+      "media_type": "application/json",
+      "sha256": "f6a13b77874e64c70966fbdfa06356eb4a42b20c3ffc326895899384a33b31c2",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-schema-before-profile.json",
+      "media_type": "application/json",
+      "sha256": "74fc4033908f1822dbe643174ad400c68365799fbc325f797b336bc169cb7a11",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-text-empty.json",
+      "media_type": "application/json",
+      "sha256": "32ad004a928a2511ea57de7879f0c41ff1bec31a17f2c76d75238e1bb6650c15",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-timestamp-calendar.json",
+      "media_type": "application/json",
+      "sha256": "e743cf3465dd78c17d41a8f99da544592e3c8bed905219422fb9defd98f2f358",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-timestamp-lowercase.json",
+      "media_type": "application/json",
+      "sha256": "956bb4c43e78a0b1a2058cd2787b9f8f67104c7cc715f123001f6c0c2f3181e9",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-timestamp-no-seconds.json",
+      "media_type": "application/json",
+      "sha256": "5a1a846ad6267bacadd2d1d55227eb01b54594cee70e0ad984749f8b5b2d70ed",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-timestamp-offset.json",
+      "media_type": "application/json",
+      "sha256": "4345a191a29d719909e0141680d1e15545044b64ba833e579224c21fe20a5bb6",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-token-prefix-label.json",
+      "media_type": "application/json",
+      "sha256": "dc6e3c0b4f77dbc96329f5b86281887bf82cea0a62cb64f1ef2541bb476693ec",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-type-unknown.json",
+      "media_type": "application/json",
+      "sha256": "239f82eaf121df30f85502f4cacbbe476f8639f33dfd3c16d4bdb0999d13cf96",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-unknown-member-nested.json",
+      "media_type": "application/json",
+      "sha256": "0a4d24af8075787c03630ca0f6cf974819543135c0b2fbf4246828c96415f396",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-unknown-member.json",
+      "media_type": "application/json",
+      "sha256": "8703a1804b677b25983c1206c71a06966a1bcdd02d44a366e8287d1b5210bb2a",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-unknown-profile-core-rules.json",
+      "media_type": "application/json",
+      "sha256": "4939d36ad4dd06545908d7ccb887c5d21f3f752164cedbf0a76bfcb20e6bd932",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-unsupported-version.json",
+      "media_type": "application/json",
+      "sha256": "bf279d65dc5b2207e5134c0db49f0206c5c19043ff04b7b6fd17116c95d6a984",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-uri-bracket-in-path.json",
+      "media_type": "application/json",
+      "sha256": "a595b5e7a87fd9812d8c5228ff66e323e1ad3ada15a04319e53faa4ca7038ec7",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-uri-hierarchical-part-empty.json",
+      "media_type": "application/json",
+      "sha256": "423e0e4eacc95601325c65f18763bb70e068010ea0878db9f14c984f807fff67",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-uri-port-not-digits.json",
+      "media_type": "application/json",
+      "sha256": "f8f1298828cba222f1a71b7393c6b3d3091def895ce395093630f61b6b3755f2",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-url-bracket-in-path.json",
+      "media_type": "application/json",
+      "sha256": "dc60bdbb6b6edb66c763671989219c8b75c38ab009ba92be5ec24b6b8724b7dc",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-url-non-ascii.json",
+      "media_type": "application/json",
+      "sha256": "343d623efecc375e79464e2ccd4711fc97731b48482934be1ad5c53a86d5b4fe",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-url-port-not-digits.json",
+      "media_type": "application/json",
+      "sha256": "aa21605dd8a48ed85a96814f16fe0747f85852d69b35e797c4694e165058c4f6",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-version-missing.json",
+      "media_type": "application/json",
+      "sha256": "fcfb3ba3770d470848c38ea5cc3831154ce61e214b94548727719cb2a9194dc0",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/object-version-not-string.json",
+      "media_type": "application/json",
+      "sha256": "946ec9d1fa1cee1784bf0d705e0990d129b84a72eb7c032f79bbed6514db8671",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-artifact-id-repeated.json",
+      "media_type": "application/json",
+      "sha256": "b5d0dc12be940bdeeaf819cb839fd9fc19de0793b321fb897130d380fd4a7d79",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-attestation-none-with-ref.json",
+      "media_type": "application/json",
+      "sha256": "f2d46e69c9552d644d6a5eaba041819555f9fbeee1789805edecc0b28162c68e",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-attestation-ref-missing.json",
+      "media_type": "application/json",
+      "sha256": "37835729a7f07481ec5da186ae0be5216fbea9bd745f8c4cbf3a20c95622f87e",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-denial-outcome-not-denied.json",
+      "media_type": "application/json",
+      "sha256": "33ccb4ab563abbdb986a2c15d2928a8a1cd748e670bdb98f254d5a256288d336",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-denial-with-artifact.json",
+      "media_type": "application/json",
+      "sha256": "529435018783359e83f804538ee2d59583f994de1060e77b0453a915ec97d802",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-denial-with-cost.json",
+      "media_type": "application/json",
+      "sha256": "9d714e13f1e6b976ec1ceade5b751ef488966846b35d9c85844b7b2d9356e699",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-denial-with-effect.json",
+      "media_type": "application/json",
+      "sha256": "0d520344a00e75d87c429a6de874605d978a295bc1e7797621735343b330f2e3",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-denial-with-finish.json",
+      "media_type": "application/json",
+      "sha256": "5f94b53345a1502f60ecf41d2334a3901a2a55e625210be163ac5dfa6044a7cb",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-denial-with-start.json",
+      "media_type": "application/json",
+      "sha256": "73cc4df6941b6e42cfc7ecdd672dff2377f5c1cf6942b0237a2f4cff2689c6e9",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-denial-without-reason.json",
+      "media_type": "application/json",
+      "sha256": "6b344bee047ce3feb61302c7ee008149a6f452dc655b3270eab4210f4e2232df",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-permit-outcome-denied.json",
+      "media_type": "application/json",
+      "sha256": "952b2fa67f524a2b0be08936b415f79684df7f7b73c00588f89d5546d196fa3f",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-permit-with-reason.json",
+      "media_type": "application/json",
+      "sha256": "6f31645c1f4894f0024c776012f44e284856f3420cac40797f223a1665784ea3",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-permit-without-authority.json",
+      "media_type": "application/json",
+      "sha256": "ba3a39fde871c1795e43a9d85fe7209a1901a306a11896a90c823e5191dc4661",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-permit-without-start.json",
+      "media_type": "application/json",
+      "sha256": "82ddf3c16ea7ff0a63c52e0548a6d35ab5a8f947e8c5aae5c1c15a511e471083",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-profile-action-namespace.json",
+      "media_type": "application/json",
+      "sha256": "b0361d707febc97d11eec2e8f33676c720f987462c5b7809e0a0a216dcf8b970",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-profile-artifact-kind.json",
+      "media_type": "application/json",
+      "sha256": "9c831e8f25449a678fb303ebf802804292aaa07f9933123c4564bf7a48e6f074",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-profile-commit-digest.json",
+      "media_type": "application/json",
+      "sha256": "56a146e18923a80d82402ffd4ee4213aaf47616b54acc71215e8fd228d766ba7",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-replay-with-effect.json",
+      "media_type": "application/json",
+      "sha256": "d41ff5e983a68217bce005f204f4dcbb27d80723fc08c6205bb2f66e920a1ef9",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-time-decision-before-request.json",
+      "media_type": "application/json",
+      "sha256": "d4b8f8131092caaecd78823a78a25c8a9aece3189802ca338964e8cb9b80c6cc",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-time-finish-before-start.json",
+      "media_type": "application/json",
+      "sha256": "0daddac67733ad1e0d9ce1fb987ae4567656a3b9a1d8ff82bd5f095946a28bf3",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-time-leap-second.json",
+      "media_type": "application/json",
+      "sha256": "cebec60d34aeb81f56347bd1857376ca7caff6bb97dc30317e3e083f4f429191",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-time-start-before-decision.json",
+      "media_type": "application/json",
+      "sha256": "b24d91ffbba92cd30a84b1d8ad0b3c4d43258d385db5fa844d8a9bfcf6fefe63",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-traceparent-shape.json",
+      "media_type": "application/json",
+      "sha256": "c51f53cd4995e5f9f286d802dda2b4b2e4f0c0d6edba0227eb959947e2e19398",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-unknown-finished.json",
+      "media_type": "application/json",
+      "sha256": "15bef03367e381a0df9e700c15292b52a4d753cead0ebabb20f4652caca0c798",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-unknown-with-artifact.json",
+      "media_type": "application/json",
+      "sha256": "a35a4c69f6b667371189825a0b09caffbdecada7a5ee2c1dfadd8d83a1fe446a",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/invalid/receipt-unknown-with-effect.json",
+      "media_type": "application/json",
+      "sha256": "293d5a25992f69c21b2be1130729aac5c035341d7c44d3a41d3e9172405a8abc",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/authority-binding-pap.json",
+      "media_type": "application/json",
+      "sha256": "6b746ae1b044cda6fc9e80d7b746053948a02de97da39e3922204d3990affb3e",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/authority-binding.json",
+      "media_type": "application/json",
+      "sha256": "88f3d0d8ff808c0778d721b06dae22270fbb99f491e85483e18af1d0904959c9",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/bundle-brand-approvals.json",
+      "media_type": "application/json",
+      "sha256": "87fa14adac4d339f012fce7f91dda3361d86e864b627aeb90c22028b39629c69",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/bundle-delegated-acceptance.json",
+      "media_type": "application/json",
+      "sha256": "3d534d8efcfdd669dbe782e869265c2aba7f0f6a1ec795dc0dcd2d3b1f166597",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/bundle-exact-decimal-sums.json",
+      "media_type": "application/json",
+      "sha256": "ab73d16a5cde1df054b7483ea5d8d79fc2e1e14f9c0ff11971b25e0c87d85457",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/bundle-inclusive-instants.json",
+      "media_type": "application/json",
+      "sha256": "a70a239db03245664947b83f8adc0dd2c5fd9bef29ffc8e1681d9463a1f28ad2",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/bundle-owner-approves-own-contract.json",
+      "media_type": "application/json",
+      "sha256": "8ca5fd8ecdc99d870b7bf3518e9680fd456c1287073d95968f87e7e978012817",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/bundle-refusals-and-replays.json",
+      "media_type": "application/json",
+      "sha256": "98c604d7cdee2662a3ead3ac80118c0c3bbc7dcebecf5f557d315392ecb83a63",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/bundle-tolerated-variations.json",
+      "media_type": "application/json",
+      "sha256": "92c22be8a90a0e18f4fbfcd6ffe7f523ca37ba3306705993646603bf5f8ca687",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/bundle-unknown-outcome-settled.json",
+      "media_type": "application/json",
+      "sha256": "b00247096434aa5454755bd857b21448c5f460211b4f15adf5a77a25f3b1bbe8",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/context-manifest.json",
+      "media_type": "application/json",
+      "sha256": "d232810ac23ef5b6145b80dd48c7bbbe2ada5f6e8248799224d9961c85d9ddea",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/discovery-harborpine-capitals.json",
+      "media_type": "application/json",
+      "sha256": "b382339755a6af906b334dfced8c9d28f6efc93c3f7be8ace06ac5c4ccf6eba1",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/discovery-harborpine.json",
+      "media_type": "application/json",
+      "sha256": "b382339755a6af906b334dfced8c9d28f6efc93c3f7be8ace06ac5c4ccf6eba1",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/discovery-spec-site.json",
+      "media_type": "application/json",
+      "sha256": "1c8c875aebc99b4c45b491d1fa0fd6f5fa5a0ad0871c9f931b46bfd9ec640c67",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/envelope.json",
+      "media_type": "application/json",
+      "sha256": "bf5bdfeb975374e973fec884970008e37c88611143446e0330a71fabb9c80d5b",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/evaluation-result-accepted.json",
+      "media_type": "application/json",
+      "sha256": "dc55a916a757bb12c895a9d52afcae672f38641a068e946d7cbff9384aacef4f",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/evaluation-result.json",
+      "media_type": "application/json",
+      "sha256": "87e8259bd4f56da56b71667cdc826b5de7152a3136c049348415f0a894b30c14",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/execution-receipt-denied.json",
+      "media_type": "application/json",
+      "sha256": "d9b0035c1dec37f6f82b3e42f38fa8c85028c051457c1c651b3e0aec22c16f5f",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/execution-receipt.json",
+      "media_type": "application/json",
+      "sha256": "1e3e4226e564976a8703e7e3847d4e9e28ccb3bcede828a01b8c9b928f299a50",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/index.json",
+      "media_type": "application/json",
+      "sha256": "cda7f5aeebae841e77dcf5ee916dfc8de427e9088a858ab43ad954fb93054613",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/work-contract-leap-second.json",
+      "media_type": "application/json",
+      "sha256": "960f391d9f598e3531cf6dc806dc5c9edc8b04ef8ce27eaa07a5bb14d5ecff0e",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/work-contract-pap.json",
+      "media_type": "application/json",
+      "sha256": "0327f35629a46b200378f019de2203beb70f58209a6b91195c7ca9ee0ad96356",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/valid/work-contract.json",
+      "media_type": "application/json",
+      "sha256": "af010195e58705e63e1561a377e134a9cfc76d9844cc748b03e80782506ad8f7",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/vectors/canonicalization.json",
+      "media_type": "application/json",
+      "sha256": "2ca1d09c67a386d967dddd9b97e7e014b09af2caed71111a916ad865243f620c",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/fixtures/vectors/digests.json",
+      "media_type": "application/json",
+      "sha256": "7072eeb1ccf6a2b96a25a0421b63198c7e5ab9e7875587552e5eb9f240feeea1",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/invariants.md",
+      "media_type": "text/markdown; charset=utf-8",
+      "sha256": "239a77bcfbbc1675f362192be3cf8949af7bb982c1cc5c67ee3f90d20df31823",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "path": "/spec/v0.1/lifecycle.md",
+      "media_type": "text/markdown; charset=utf-8",
+      "sha256": "c542f55c8744c281bded67003541af9a8c397c905b96526dbe1f61e4a82c3628",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "path": "/spec/v0.1/non-goals-and-open-questions.md",
+      "media_type": "text/markdown; charset=utf-8",
+      "sha256": "3c84a09909553a7c2eea529962b2536a1146340fffbe530523dc6c9b8d1f699f",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "path": "/spec/v0.1/overview.md",
+      "media_type": "text/markdown; charset=utf-8",
+      "sha256": "a799464a5737c72aad3cc3d06c148a8fc913cdc2604d77432ef0fe6294461a77",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "path": "/spec/v0.1/references.md",
+      "media_type": "text/markdown; charset=utf-8",
+      "sha256": "8df39b3fbfd8dd31fe9a36b1b0c855a11f07d2f0be3357c25df7e5359b073930",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "path": "/spec/v0.1/relationships-and-mappings.md",
+      "media_type": "text/markdown; charset=utf-8",
+      "sha256": "7e3338ce9d8fcdd4f210c01a7c1d9053239904e3a7b9560943b77ec2c7bf451a",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "path": "/spec/v0.1/schemas/authority-binding.schema.json",
+      "media_type": "application/schema+json",
+      "sha256": "fc64de5ce75a491219bb55cc38b783eba0e3f993148517c28992196fee7ccfac",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/schemas/common.schema.json",
+      "media_type": "application/schema+json",
+      "sha256": "182098478cda3b517c535cbe11fca2fe039bf57837ba0c1104eb36730e190f87",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/schemas/context-manifest.schema.json",
+      "media_type": "application/schema+json",
+      "sha256": "de6811e21b3f8949781588627b0e9764b748e1f66577ec2dee7226def1897294",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/schemas/discovery.schema.json",
+      "media_type": "application/schema+json",
+      "sha256": "a6ac8e5bbff696b8a7504cb00f8770cd9c4a59b891066c09c40b3243c41c84fc",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/schemas/envelope.schema.json",
+      "media_type": "application/schema+json",
+      "sha256": "865d07b04e87068122c27948d2e1692041c814d8f4845a1df013fd3eea189ac3",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/schemas/error.schema.json",
+      "media_type": "application/schema+json",
+      "sha256": "b1f30d9842fb666d938c6c342fd00f609e79f862552f5178e7d6dd33d1341db6",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/schemas/evaluation-result.schema.json",
+      "media_type": "application/schema+json",
+      "sha256": "f708729a0a539acc1b89f55361050ab665b87827fe202eda1b4825ef13231406",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/schemas/execution-receipt.schema.json",
+      "media_type": "application/schema+json",
+      "sha256": "04a7e10a8fd2dafff2074663419e79185823d034fb12347af23e44c9df97b184",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/schemas/profiles/software-delivery-0.1.schema.json",
+      "media_type": "application/schema+json",
+      "sha256": "e7dcf342bdfb20ccdd1476e67fb4a876df9d528c07d764a09f6535dc707569e3",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/schemas/work-contract.schema.json",
+      "media_type": "application/schema+json",
+      "sha256": "72311af9c6362e80fa5af9bf7f2f6253168d7a533b358cdff8529b37a76469c0",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "/spec/v0.1/security.md",
+      "media_type": "text/markdown; charset=utf-8",
+      "sha256": "4737abc0e3032b8061fc50eb984541ec886312090e57f480bd4788e5e7d22540",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "path": "/spec/v0.1/software-delivery-profile.md",
+      "media_type": "text/markdown; charset=utf-8",
+      "sha256": "8f9aeda3a84adfdbcf88d277528f331e2ee6d67e1e235a4db8321acfbba937b1",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "path": "/spec/v0.1/work-contract.md",
+      "media_type": "text/markdown; charset=utf-8",
+      "sha256": "e2e22bb58fb800e98a557a9c69e08fbf401398894c7c6164630dae1fba1351cd",
+      "license": "CC-BY-4.0"
+    }
+  ]
+}

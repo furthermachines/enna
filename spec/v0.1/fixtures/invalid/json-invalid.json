@@ -1,0 +1,12 @@
+{
+  "description": "Not well-formed JSON.",
+  "section": "2.1",
+  "validate": "json",
+  "input_text": "{\"protocol_version\": \"0.1\",",
+  "expected": [
+    {
+      "code": "invalid_json",
+      "path": ""
+    }
+  ]
+}

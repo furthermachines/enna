@@ -1,0 +1,19 @@
+{
+  "description": "A URI has a hierarchical part that is not empty.",
+  "section": "2.14",
+  "validate": "object",
+  "base": "authority-binding.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/revocation/status_ref",
+      "value": "urn:"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/revocation/status_ref"
+    }
+  ]
+}

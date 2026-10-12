@@ -1,0 +1,19 @@
+{
+  "description": "A URI's port is digits only, so a revocation status at https://id.harborpine.example:status:x/enna is refused.",
+  "section": "2.14",
+  "validate": "object",
+  "base": "authority-binding.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/revocation/status_ref",
+      "value": "https://id.harborpine.example:status:x/enna"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/revocation/status_ref"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "description": "An envelope's own unknown critical extension is refused, as an object's is.",
+  "section": "2.12",
+  "validate": "envelope",
+  "base": "envelope.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/extensions",
+      "value": {
+        "example.com/routing": {
+          "version": "1",
+          "critical": true
+        }
+      }
+    }
+  ],
+  "expected": [
+    {
+      "code": "unsupported_critical_extension",
+      "path": "/extensions/example.com~1routing"
+    }
+  ]
+}

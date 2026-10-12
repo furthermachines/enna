@@ -1,0 +1,43 @@
+{
+  "description": "The evaluator accepts under a binding that Priya approved, but not the owner.",
+  "section": "9.13",
+  "validate": "bundle",
+  "base": "bundle-delegated-acceptance.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/10/approvals/0",
+      "value": {
+        "id": "apr_priya_acceptance",
+        "approver": {
+          "kind": "person",
+          "id": "priya.raman",
+          "issuer": "https://id.harborpine.example",
+          "display": "Priya Raman"
+        },
+        "approver_role": "product_manager",
+        "decision": "approved",
+        "decided_at": "2026-10-16T14:00:00Z",
+        "expires_at": "2026-10-23T14:00:00Z",
+        "covers": {
+          "contract": {
+            "id": "wc_brand_approvals",
+            "revision": 1
+          },
+          "binding_digest": "sha256:21e76ab198eeebe0b7b5fabe37d00c75c8c7f3ee42dd9863f79db2805c2df7a7"
+        },
+        "method": "interactive",
+        "assurance": "asserted"
+      }
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "acceptance_not_owner",
+      "path": "/9/acceptance/by"
+    }
+  ]
+}

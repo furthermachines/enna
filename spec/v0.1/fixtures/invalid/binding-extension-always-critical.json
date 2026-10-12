@@ -1,0 +1,23 @@
+{
+  "description": "In an authority binding every extension counts as critical, so unknown authority never grants anything.",
+  "section": "2.12",
+  "validate": "object",
+  "base": "authority-binding.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/extensions",
+      "value": {
+        "example.com/notes": {
+          "version": "1"
+        }
+      }
+    }
+  ],
+  "expected": [
+    {
+      "code": "unsupported_critical_extension",
+      "path": "/extensions/example.com~1notes"
+    }
+  ]
+}

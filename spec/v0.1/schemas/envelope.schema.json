@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://businessagentprotocol.org/spec/v0.1/schemas/envelope.schema.json",
+  "title": "Envelope",
+  "description": "Carries one or more Enna objects between parties. Each object is validated on its own; references to objects not in the envelope are allowed.",
+  "type": "object",
+  "required": ["protocol_version", "type", "id", "sent_at", "sender", "recipient", "objects"],
+  "properties": {
+    "protocol_version": { "$ref": "common.schema.json#/$defs/protocol_version" },
+    "type": { "const": "envelope" },
+    "id": { "$ref": "common.schema.json#/$defs/envelope_id" },
+    "sent_at": { "$ref": "common.schema.json#/$defs/timestamp" },
+    "sender": { "$ref": "common.schema.json#/$defs/principal" },
+    "recipient": { "$ref": "common.schema.json#/$defs/principal" },
+    "correlation": {
+      "type": "object",
+      "required": ["correlation_id"],
+      "properties": {
+        "correlation_id": { "$ref": "common.schema.json#/$defs/text" },
+        "in_reply_to": { "$ref": "common.schema.json#/$defs/envelope_id" }
+      },
+      "additionalProperties": false
+    },
+    "objects": { "type": "array", "minItems": 1, "items": { "type": "object" } },
+    "extensions": { "$ref": "common.schema.json#/$defs/extensions" }
+  },
+  "additionalProperties": false
+}

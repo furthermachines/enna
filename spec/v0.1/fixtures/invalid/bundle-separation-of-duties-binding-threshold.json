@@ -1,0 +1,61 @@
+{
+  "description": "At Controlled, the binding's own threshold applies where it is lower, so the preview's grant is over it too.",
+  "section": "9.6",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/2/policy/sod_threshold",
+      "value": {
+        "currency": "USD",
+        "amount": "90.00"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/2/approvals/0/approver",
+      "value": {
+        "kind": "person",
+        "id": "dana.whitfield",
+        "issuer": "https://id.harborpine.example",
+        "display": "Dana Whitfield"
+      }
+    }
+  ],
+  "reseal": "all",
+  "options": {
+    "now": "2026-10-20T00:00:00Z",
+    "level": "controlled",
+    "sodThreshold": {
+      "currency": "USD",
+      "amount": "120.00"
+    }
+  },
+  "expected": [
+    {
+      "code": "separation_of_duties",
+      "path": "/2/grants/0"
+    },
+    {
+      "code": "separation_of_duties",
+      "path": "/2/grants/1"
+    },
+    {
+      "code": "separation_of_duties",
+      "path": "/2/grants/2"
+    },
+    {
+      "code": "separation_of_duties",
+      "path": "/2/grants/3"
+    },
+    {
+      "code": "separation_of_duties",
+      "path": "/2/grants/4"
+    },
+    {
+      "code": "separation_of_duties",
+      "path": "/2/grants/5"
+    }
+  ]
+}

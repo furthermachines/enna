@@ -1,0 +1,19 @@
+{
+  "description": "An idempotency key uses only the URL-safe base64 alphabet.",
+  "section": "2.3",
+  "validate": "object",
+  "base": "execution-receipt.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/action/idempotency_key",
+      "value": "brand-approvals/branch"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/action/idempotency_key"
+    }
+  ]
+}

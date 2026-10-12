@@ -1,0 +1,19 @@
+{
+  "description": "A pass carries evidence.",
+  "section": "7.2",
+  "validate": "object",
+  "base": "evaluation-result.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/criteria/0/evidence",
+      "value": []
+    }
+  ],
+  "expected": [
+    {
+      "code": "evidence_missing",
+      "path": "/criteria/0/evidence"
+    }
+  ]
+}

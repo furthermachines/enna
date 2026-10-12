@@ -1,0 +1,19 @@
+{
+  "description": "A bracket appears only around an IP literal in the authority, so a context source at x:/[::1], where it is in the path, is refused.",
+  "section": "2.14",
+  "validate": "object",
+  "base": "context-manifest.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/items/0/source/ref",
+      "value": "x:/[::1]"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/items/0/source/ref"
+    }
+  ]
+}

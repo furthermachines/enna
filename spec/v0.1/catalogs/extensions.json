@@ -1,0 +1,17 @@
+{
+  "draft": "0.1",
+  "defined_in": {
+    "section": "2.12",
+    "url": "https://businessagentprotocol.org/spec/v0.1/conventions/"
+  },
+  "core": [
+    {
+      "object": "work_contract",
+      "name": "pap",
+      "defined_in": {
+        "section": "3.7",
+        "url": "https://businessagentprotocol.org/spec/v0.1/work-contract/"
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "description": "Each invariant applies on its own, so an effect taken by an agent other than the grantee is still held to the freshness of the context it cites.",
+  "section": "9.1",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/5/actor/principal",
+      "value": {
+        "kind": "agent",
+        "id": "https://agents.harborpine.example/support",
+        "display": "Support agent"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/1/items/2/freshness/max_age_seconds",
+      "value": 90000
+    }
+  ],
+  "reseal": "receipts",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "authority_insufficient",
+      "path": "/5/actor/principal"
+    },
+    {
+      "code": "context_stale",
+      "path": "/5/context"
+    },
+    {
+      "code": "context_stale",
+      "path": "/6/context"
+    },
+    {
+      "code": "context_stale",
+      "path": "/7/context"
+    },
+    {
+      "code": "context_stale",
+      "path": "/8/context"
+    }
+  ]
+}

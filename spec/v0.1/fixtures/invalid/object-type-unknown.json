@@ -1,0 +1,19 @@
+{
+  "description": "An object's type is one of the five objects.",
+  "section": "2.16",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/type",
+      "value": "work_order"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/type"
+    }
+  ]
+}

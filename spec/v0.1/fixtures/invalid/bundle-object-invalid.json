@@ -1,0 +1,22 @@
+{
+  "description": "A record with an object invalid on its own is refused before any invariant is checked, so the digest mismatch the edit causes is not reported.",
+  "section": "9.1",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/5/outcome/summary",
+      "value": ""
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/5/outcome/summary"
+    }
+  ]
+}

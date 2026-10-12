@@ -1,0 +1,19 @@
+{
+  "description": "A denied action never finished.",
+  "section": "6.3",
+  "validate": "object",
+  "base": "execution-receipt-denied.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/finished_at",
+      "value": "2026-10-13T09:10:01Z"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/finished_at"
+    }
+  ]
+}

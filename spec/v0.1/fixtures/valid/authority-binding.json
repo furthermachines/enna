@@ -1,0 +1,173 @@
+{
+  "protocol_version": "0.1",
+  "type": "authority_binding",
+  "id": "auth_coding_agent",
+  "revision": 1,
+  "created_at": "2026-10-12T10:00:00Z",
+  "scope": {
+    "organization": "harborpine.example",
+    "workspace": "internal",
+    "project": "brand-approvals"
+  },
+  "profile": "software-delivery/0.1",
+  "contract": {
+    "id": "wc_brand_approvals",
+    "revision": 1
+  },
+  "grantor": {
+    "organization": "harborpine.example",
+    "person": {
+      "kind": "person",
+      "id": "dana.whitfield",
+      "issuer": "https://id.harborpine.example",
+      "display": "Dana Whitfield"
+    }
+  },
+  "grantee": {
+    "kind": "agent",
+    "id": "https://agents.harborpine.example/coding",
+    "display": "Coding agent"
+  },
+  "grants": [
+    {
+      "action": "harborpine.example/workspace_comments.read",
+      "resource": {
+        "type": "workspace_comments",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "aster-foods"
+        }
+      },
+      "limits": {
+        "count": 50
+      }
+    },
+    {
+      "action": "repo.branch.create",
+      "resource": {
+        "type": "repository",
+        "id": "harborpine/collab-app",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "internal",
+          "project": "brand-approvals"
+        }
+      },
+      "limits": {
+        "count": 1
+      }
+    },
+    {
+      "action": "repo.commit",
+      "resource": {
+        "type": "repository",
+        "id": "harborpine/collab-app",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "internal",
+          "project": "brand-approvals"
+        }
+      },
+      "limits": {
+        "count": 20
+      }
+    },
+    {
+      "action": "repo.pull_request.open",
+      "resource": {
+        "type": "repository",
+        "id": "harborpine/collab-app",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "internal",
+          "project": "brand-approvals"
+        }
+      },
+      "limits": {
+        "count": 1
+      }
+    },
+    {
+      "action": "ci.run",
+      "resource": {
+        "type": "pipeline",
+        "id": "collab-app-ci",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "internal",
+          "project": "brand-approvals"
+        }
+      },
+      "limits": {
+        "cost": {
+          "currency": "USD",
+          "amount": "150.00"
+        },
+        "count": 10
+      }
+    },
+    {
+      "action": "preview.deploy",
+      "resource": {
+        "type": "preview_environment",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "internal",
+          "project": "brand-approvals"
+        }
+      },
+      "limits": {
+        "cost": {
+          "currency": "USD",
+          "amount": "100.00"
+        },
+        "count": 3
+      }
+    }
+  ],
+  "approvals": [
+    {
+      "id": "apr_priya_brand_approvals",
+      "approver": {
+        "kind": "person",
+        "id": "priya.raman",
+        "issuer": "https://id.harborpine.example",
+        "display": "Priya Raman"
+      },
+      "approver_role": "product_manager",
+      "decision": "approved",
+      "decided_at": "2026-10-12T10:15:00Z",
+      "expires_at": "2026-10-19T10:15:00Z",
+      "covers": {
+        "contract": {
+          "id": "wc_brand_approvals",
+          "revision": 1
+        },
+        "binding_digest": "sha256:63b87a1648932ceaa849aceaf420e446d0bad06918ee6d98e9c642aa0ea1e1d6"
+      },
+      "method": "interactive",
+      "assurance": "asserted"
+    }
+  ],
+  "policy": {
+    "policy_id": "harborpine-agent-work",
+    "policy_version": "1",
+    "decision_ref": "harborpine-decision-2026-10-12-0042"
+  },
+  "valid_from": "2026-10-12T10:15:00Z",
+  "expires_at": "2026-10-26T17:00:00Z",
+  "revocation": {
+    "status_ref": "https://id.harborpine.example/enna/status/auth_coding_agent"
+  },
+  "delegation": {
+    "depth": 0,
+    "max_depth": 1,
+    "subdelegation": "attenuate"
+  },
+  "credential_refs": [
+    {
+      "kind": "oauth_grant",
+      "ref": "vault://harborpine/agents/coding/git"
+    }
+  ]
+}

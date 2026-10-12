@@ -1,0 +1,19 @@
+{
+  "description": "A bracket appears only around an IP literal in the authority, so the grantee at https://agents.harborpine.example/[coding], where it is in the path, is refused.",
+  "section": "2.14",
+  "validate": "object",
+  "base": "authority-binding.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/grantee/id",
+      "value": "https://agents.harborpine.example/[coding]"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/grantee/id"
+    }
+  ]
+}

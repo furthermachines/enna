@@ -1,0 +1,18 @@
+{
+  "draft": "0.1",
+  "defined_in": {
+    "section": "2.3",
+    "url": "https://businessagentprotocol.org/spec/v0.1/conventions/"
+  },
+  "prefixes": {
+    "work_contract": "wc_",
+    "context_manifest": "ctx_",
+    "authority_binding": "auth_",
+    "execution_receipt": "rcpt_",
+    "evaluation_result": "eval_",
+    "envelope": "env_",
+    "approval": "apr_",
+    "artifact": "art_",
+    "context_item": "item_"
+  }
+}

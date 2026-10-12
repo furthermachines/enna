@@ -1,0 +1,37 @@
+{
+  "description": "Identifiers repeat within a contract's criteria, constraints and outputs.",
+  "section": "2.3",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/criteria/1/id",
+      "value": "AC-1"
+    },
+    {
+      "op": "replace",
+      "path": "/constraints/1/id",
+      "value": "C-1"
+    },
+    {
+      "op": "replace",
+      "path": "/outputs/1/id",
+      "value": "OUT-1"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/constraints/1/id"
+    },
+    {
+      "code": "schema_violation",
+      "path": "/criteria/1/id"
+    },
+    {
+      "code": "schema_violation",
+      "path": "/outputs/1/id"
+    }
+  ]
+}

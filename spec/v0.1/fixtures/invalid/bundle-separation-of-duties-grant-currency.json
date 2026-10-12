@@ -1,0 +1,58 @@
+{
+  "description": "At Controlled, a grant's cost limit in another currency than the threshold is a currency mismatch and is not counted as over it.",
+  "section": "9.6",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/2/grants/4/limits/cost/currency",
+      "value": "EUR"
+    },
+    {
+      "op": "replace",
+      "path": "/2/approvals/0/approver",
+      "value": {
+        "kind": "person",
+        "id": "dana.whitfield",
+        "issuer": "https://id.harborpine.example",
+        "display": "Dana Whitfield"
+      }
+    }
+  ],
+  "reseal": "all",
+  "options": {
+    "now": "2026-10-20T00:00:00Z",
+    "level": "controlled",
+    "sodThreshold": {
+      "currency": "USD",
+      "amount": "120.00"
+    }
+  },
+  "expected": [
+    {
+      "code": "separation_of_duties",
+      "path": "/2/grants/0"
+    },
+    {
+      "code": "separation_of_duties",
+      "path": "/2/grants/1"
+    },
+    {
+      "code": "separation_of_duties",
+      "path": "/2/grants/2"
+    },
+    {
+      "code": "separation_of_duties",
+      "path": "/2/grants/3"
+    },
+    {
+      "code": "currency_mismatch",
+      "path": "/2/grants/4/limits/cost"
+    },
+    {
+      "code": "currency_mismatch",
+      "path": "/6/cost"
+    }
+  ]
+}

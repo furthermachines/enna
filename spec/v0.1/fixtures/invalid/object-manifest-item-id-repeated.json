@@ -1,0 +1,19 @@
+{
+  "description": "An identifier repeats within a manifest's items.",
+  "section": "2.3",
+  "validate": "object",
+  "base": "context-manifest.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/items/1/id",
+      "value": "item_aster_comments"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/items/1/id"
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "description": "A PAP confirmation never authorizes a grant that reaches another workspace, and an approval left out by its kind leaves the effect with no approval, not one out of scope.",
+  "section": "9.7",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/-",
+      "value": {
+        "protocol_version": "0.1",
+        "type": "authority_binding",
+        "id": "auth_support_reader",
+        "revision": 1,
+        "created_at": "2026-10-13T11:45:00Z",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "internal",
+          "project": "brand-approvals"
+        },
+        "contract": {
+          "id": "wc_brand_approvals",
+          "revision": 1
+        },
+        "grantor": {
+          "organization": "harborpine.example",
+          "person": {
+            "kind": "person",
+            "id": "dana.whitfield",
+            "issuer": "https://id.harborpine.example",
+            "display": "Dana Whitfield"
+          }
+        },
+        "grantee": {
+          "kind": "agent",
+          "id": "https://agents.harborpine.example/support",
+          "display": "Support agent"
+        },
+        "grants": [
+          {
+            "action": "harborpine.example/workspace_comments.read",
+            "resource": {
+              "type": "workspace_comments",
+              "scope": {
+                "organization": "harborpine.example",
+                "workspace": "aster-foods"
+              }
+            },
+            "limits": {
+              "count": 5
+            }
+          }
+        ],
+        "approvals": [
+          {
+            "id": "apr_dana_confirmation",
+            "approver": {
+              "kind": "person",
+              "id": "dana.whitfield",
+              "issuer": "https://id.harborpine.example",
+              "display": "Dana Whitfield"
+            },
+            "approver_role": "requester",
+            "decision": "approved",
+            "decided_at": "2026-10-13T11:50:00Z",
+            "expires_at": "2026-10-19T11:50:00Z",
+            "covers": {
+              "contract": {
+                "id": "wc_brand_approvals",
+                "revision": 1
+              },
+              "binding_digest": "sha256:63b87a1648932ceaa849aceaf420e446d0bad06918ee6d98e9c642aa0ea1e1d6"
+            },
+            "method": "pap_confirmation",
+            "assurance": "asserted",
+            "external": {
+              "operation_id": "op_brand_approvals",
+              "revision": 1,
+              "approved_by": "user",
+              "confirmed_at": "2026-10-13T11:50:00Z"
+            }
+          }
+        ],
+        "valid_from": "2026-10-12T10:15:00Z",
+        "expires_at": "2026-10-26T17:00:00Z",
+        "revocation": {
+          "status_ref": "https://id.harborpine.example/enna/status/auth_support_reader"
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/-",
+      "value": {
+        "protocol_version": "0.1",
+        "type": "execution_receipt",
+        "id": "rcpt_support_read",
+        "created_at": "2026-10-13T12:00:03Z",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "internal",
+          "project": "brand-approvals"
+        },
+        "profile": "software-delivery/0.1",
+        "contract": {
+          "id": "wc_brand_approvals",
+          "revision": 1
+        },
+        "authority": {
+          "id": "auth_support_reader",
+          "revision": 1
+        },
+        "action": {
+          "name": "harborpine.example/workspace_comments.read",
+          "resource": {
+            "type": "workspace_comments",
+            "scope": {
+              "organization": "harborpine.example",
+              "workspace": "aster-foods"
+            }
+          },
+          "requested_at": "2026-10-13T12:00:00Z",
+          "idempotency_key": "brand-approvals-support-read",
+          "payload_digest": "sha256:6ea73013dd75e68123117b132c1a861e3d796fca6402ff3fff1160499b35ae78"
+        },
+        "actor": {
+          "principal": {
+            "kind": "agent",
+            "id": "https://agents.harborpine.example/support",
+            "display": "Support agent"
+          },
+          "performed_by": "agent",
+          "runtime": {
+            "name": "fixture-runtime",
+            "version": "0.1.0"
+          }
+        },
+        "decision": {
+          "result": "permit",
+          "reasons": [],
+          "evaluated_at": "2026-10-13T12:00:01Z",
+          "policy_ref": "harborpine-agent-work@1"
+        },
+        "outcome": {
+          "status": "succeeded",
+          "summary": "Done."
+        },
+        "started_at": "2026-10-13T12:00:02Z",
+        "finished_at": "2026-10-13T12:00:03Z",
+        "effects": [
+          {
+            "description": "Read the Aster Foods approval comments."
+          }
+        ],
+        "trace": {
+          "correlation_id": "brand-approvals"
+        },
+        "integrity": {
+          "canonicalization": "rfc8785",
+          "previous_digest": "sha256:652127f2acc181b8739046ff9a5432071cdc215ae685eec61530a41a4fa19c4a",
+          "attestation": {
+            "kind": "none"
+          },
+          "digest": "sha256:16ca4f332c0bd3c9eb1857c8ae2dce1e80b125433762dca9a345e53a7668bbe7"
+        }
+      }
+    }
+  ],
+  "reseal": "all",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "approval_missing",
+      "path": "/11/authority"
+    }
+  ]
+}

@@ -1,0 +1,1195 @@
+[
+  {
+    "protocol_version": "0.1",
+    "type": "work_contract",
+    "id": "wc_brand_approvals",
+    "revision": 1,
+    "created_at": "2026-10-12T09:00:00Z",
+    "scope": {
+      "organization": "harborpine.example",
+      "workspace": "internal",
+      "project": "brand-approvals"
+    },
+    "profile": "software-delivery/0.1",
+    "summary": "Run a scoped experiment: block and record explicit client approval before a branded external project is published, keeping client workspaces isolated. Budget USD 0.30, medium risk, due 2026-10-26.",
+    "objective": {
+      "outcome": "Agency clients can require their own approval before anything branded goes out, so they keep trusting shared projects.",
+      "request": "Add an approval gate to external publishing for branded projects, behind a feature flag, with a preview for the owner."
+    },
+    "owner": {
+      "kind": "person",
+      "id": "dana.whitfield",
+      "issuer": "https://id.harborpine.example",
+      "display": "Dana Whitfield"
+    },
+    "requester": {
+      "kind": "person",
+      "id": "dana.whitfield",
+      "issuer": "https://id.harborpine.example",
+      "display": "Dana Whitfield"
+    },
+    "stakeholders": [
+      {
+        "principal": {
+          "kind": "person",
+          "id": "priya.raman",
+          "issuer": "https://id.harborpine.example",
+          "display": "Priya Raman"
+        },
+        "role": "approver",
+        "approver_roles": ["product_manager"]
+      },
+      {
+        "principal": {
+          "kind": "person",
+          "id": "theo.okafor",
+          "issuer": "https://id.harborpine.example",
+          "display": "Theo Okafor"
+        },
+        "role": "consulted"
+      }
+    ],
+    "criteria": [
+      {
+        "id": "AC-1",
+        "statement": "Publishing a branded external project is blocked until a client approver has approved it.",
+        "required": true,
+        "method": "automated_check"
+      },
+      {
+        "id": "AC-2",
+        "statement": "Every approval is recorded with the approver, the time and the version approved.",
+        "required": true,
+        "method": "automated_check"
+      },
+      {
+        "id": "AC-3",
+        "statement": "Nothing from one client workspace is visible in another.",
+        "required": true,
+        "method": "automated_check"
+      },
+      {
+        "id": "AC-4",
+        "statement": "The owner reviews the preview and judges the flow usable.",
+        "required": true,
+        "method": "human_judgment"
+      },
+      {
+        "id": "AC-5",
+        "statement": "Pilot clients use the approval gate on at least half of their branded projects.",
+        "required": false,
+        "method": "measurement_window",
+        "measurement": {
+          "window_seconds": 2592000,
+          "starts": "on_pilot_approval"
+        }
+      }
+    ],
+    "constraints": [
+      {
+        "id": "C-1",
+        "kind": "must_not",
+        "statement": "Read or write anything in the Lumen Beverages workspace."
+      },
+      {
+        "id": "C-2",
+        "kind": "must",
+        "statement": "Keep the gate behind a feature flag that is off for clients outside the pilot."
+      },
+      {
+        "id": "C-3",
+        "kind": "must_not",
+        "statement": "Deploy to production."
+      }
+    ],
+    "deadline_at": "2026-10-26T17:00:00Z",
+    "limits": {
+      "cost": {
+        "currency": "USD",
+        "amount": "0.3"
+      },
+      "risk": {
+        "max_level": "medium",
+        "notes": "Preview only; nothing reaches clients without the flag."
+      }
+    },
+    "outputs": [
+      {
+        "id": "OUT-1",
+        "kind": "pull_request",
+        "description": "A reviewed pull request with the gate."
+      },
+      {
+        "id": "OUT-2",
+        "kind": "preview_url",
+        "description": "A preview the owner can try."
+      }
+    ]
+  },
+  {
+    "protocol_version": "0.1",
+    "type": "context_manifest",
+    "id": "ctx_brand_approvals",
+    "revision": 1,
+    "created_at": "2026-10-12T09:05:00Z",
+    "scope": {
+      "organization": "harborpine.example",
+      "workspace": "internal",
+      "project": "brand-approvals"
+    },
+    "contract": {
+      "id": "wc_brand_approvals",
+      "revision": 1
+    },
+    "purpose": "Ground the experiment in what clients asked for, reading no more than it needs.",
+    "items": [
+      {
+        "id": "item_aster_comments",
+        "kind": "workspace_comments",
+        "source": {
+          "system": "Harbor & Pine workspace comments",
+          "ref": "https://app.harborpine.example/api/workspaces/aster-foods/comments?topic=approvals",
+          "version": "snapshot-2026-10-12"
+        },
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "aster-foods"
+        },
+        "classification": "confidential",
+        "provenance": {
+          "produced_by": {
+            "kind": "agent",
+            "id": "https://agents.harborpine.example/research",
+            "display": "Research agent"
+          },
+          "retrieved_at": "2026-10-12T08:40:00Z",
+          "method": "api_read"
+        },
+        "freshness": {
+          "as_of": "2026-10-12T08:40:00Z",
+          "max_age_seconds": 604800
+        },
+        "disclosure": {
+          "allowed_to": [
+            {
+              "kind": "agent",
+              "id": "https://agents.harborpine.example/planning",
+              "display": "Planning agent"
+            },
+            {
+              "kind": "agent",
+              "id": "https://agents.harborpine.example/coding",
+              "display": "Coding agent"
+            },
+            "product_team"
+          ],
+          "redactions": ["commenter names", "email addresses"]
+        },
+        "minimal": ["comment text about approvals", "comment date"],
+        "digest": "sha256:4bc110296d2320f94ffed6f5520bcb8d3407e7fe72f57c3653f182b1e2bf4ea8"
+      },
+      {
+        "id": "item_feedback_board",
+        "kind": "feedback_items",
+        "source": {
+          "system": "Harbor & Pine feedback board",
+          "ref": "https://app.harborpine.example/api/feedback?tag=approvals",
+          "version": "2026-10-12"
+        },
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "internal"
+        },
+        "classification": "internal",
+        "provenance": {
+          "produced_by": {
+            "kind": "agent",
+            "id": "https://agents.harborpine.example/research",
+            "display": "Research agent"
+          },
+          "retrieved_at": "2026-10-12T08:45:00Z",
+          "method": "api_read"
+        },
+        "freshness": {
+          "as_of": "2026-10-12T08:45:00Z",
+          "max_age_seconds": 604800
+        },
+        "disclosure": {
+          "allowed_to": ["product_team"]
+        },
+        "minimal": ["request titles", "vote counts"]
+      },
+      {
+        "id": "item_aster_approvers",
+        "kind": "identity_records",
+        "source": {
+          "system": "Harbor & Pine identity",
+          "ref": "https://id.harborpine.example/api/workspaces/aster-foods/roles/approver",
+          "version": "etag-7f3a"
+        },
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "aster-foods"
+        },
+        "classification": "restricted",
+        "provenance": {
+          "produced_by": {
+            "kind": "agent",
+            "id": "https://agents.harborpine.example/research",
+            "display": "Research agent"
+          },
+          "retrieved_at": "2026-10-12T08:50:00Z",
+          "method": "api_read"
+        },
+        "freshness": {
+          "as_of": "2026-10-12T08:50:00Z",
+          "max_age_seconds": 604800
+        },
+        "disclosure": {
+          "allowed_to": [
+            {
+              "kind": "agent",
+              "id": "https://agents.harborpine.example/coding",
+              "display": "Coding agent"
+            }
+          ],
+          "redactions": ["names"]
+        },
+        "minimal": ["which client roles may approve"]
+      }
+    ],
+    "known_unknowns": [
+      "Whether clients other than Aster Foods want the same gate.",
+      "How Quillstone's brand check performs in practice."
+    ],
+    "excluded": [
+      {
+        "description": "The Lumen Beverages workspace.",
+        "reason": "Not part of the pilot, and no grant covers it."
+      }
+    ],
+    "retention_seconds": 7776000
+  },
+  {
+    "protocol_version": "0.1",
+    "type": "authority_binding",
+    "id": "auth_coding_agent",
+    "revision": 1,
+    "created_at": "2026-10-12T10:00:00Z",
+    "scope": {
+      "organization": "harborpine.example",
+      "workspace": "internal",
+      "project": "brand-approvals"
+    },
+    "profile": "software-delivery/0.1",
+    "contract": {
+      "id": "wc_brand_approvals",
+      "revision": 1
+    },
+    "grantor": {
+      "organization": "harborpine.example",
+      "person": {
+        "kind": "person",
+        "id": "dana.whitfield",
+        "issuer": "https://id.harborpine.example",
+        "display": "Dana Whitfield"
+      }
+    },
+    "grantee": {
+      "kind": "agent",
+      "id": "https://agents.harborpine.example/coding",
+      "display": "Coding agent"
+    },
+    "grants": [
+      {
+        "action": "harborpine.example/workspace_comments.read",
+        "resource": {
+          "type": "workspace_comments",
+          "scope": {
+            "organization": "harborpine.example",
+            "workspace": "aster-foods"
+          }
+        },
+        "limits": {
+          "count": 50
+        }
+      },
+      {
+        "action": "repo.branch.create",
+        "resource": {
+          "type": "repository",
+          "id": "harborpine/collab-app",
+          "scope": {
+            "organization": "harborpine.example",
+            "workspace": "internal",
+            "project": "brand-approvals"
+          }
+        },
+        "limits": {
+          "count": 1
+        }
+      },
+      {
+        "action": "repo.commit",
+        "resource": {
+          "type": "repository",
+          "id": "harborpine/collab-app",
+          "scope": {
+            "organization": "harborpine.example",
+            "workspace": "internal",
+            "project": "brand-approvals"
+          }
+        },
+        "limits": {
+          "count": 20
+        }
+      },
+      {
+        "action": "repo.pull_request.open",
+        "resource": {
+          "type": "repository",
+          "id": "harborpine/collab-app",
+          "scope": {
+            "organization": "harborpine.example",
+            "workspace": "internal",
+            "project": "brand-approvals"
+          }
+        },
+        "limits": {
+          "count": 1
+        }
+      },
+      {
+        "action": "ci.run",
+        "resource": {
+          "type": "pipeline",
+          "id": "collab-app-ci",
+          "scope": {
+            "organization": "harborpine.example",
+            "workspace": "internal",
+            "project": "brand-approvals"
+          }
+        },
+        "limits": {
+          "cost": {
+            "currency": "USD",
+            "amount": "0.30"
+          },
+          "count": 10
+        }
+      },
+      {
+        "action": "preview.deploy",
+        "resource": {
+          "type": "preview_environment",
+          "scope": {
+            "organization": "harborpine.example",
+            "workspace": "internal",
+            "project": "brand-approvals"
+          }
+        },
+        "limits": {
+          "cost": {
+            "currency": "USD",
+            "amount": "0.300000"
+          },
+          "count": 3
+        }
+      }
+    ],
+    "approvals": [
+      {
+        "id": "apr_priya_brand_approvals",
+        "approver": {
+          "kind": "person",
+          "id": "priya.raman",
+          "issuer": "https://id.harborpine.example",
+          "display": "Priya Raman"
+        },
+        "approver_role": "product_manager",
+        "decision": "approved",
+        "decided_at": "2026-10-12T10:15:00Z",
+        "expires_at": "2026-10-19T10:15:00Z",
+        "covers": {
+          "contract": {
+            "id": "wc_brand_approvals",
+            "revision": 1
+          },
+          "binding_digest": "sha256:a304708c362f388f5713fcf7bd52399b3b9ab1347f7d7e898c80630ab9dee905"
+        },
+        "method": "interactive",
+        "assurance": "asserted"
+      }
+    ],
+    "policy": {
+      "policy_id": "harborpine-agent-work",
+      "policy_version": "1",
+      "decision_ref": "harborpine-decision-2026-10-12-0042"
+    },
+    "valid_from": "2026-10-12T10:15:00Z",
+    "expires_at": "2026-10-26T17:00:00Z",
+    "revocation": {
+      "status_ref": "https://id.harborpine.example/enna/status/auth_coding_agent"
+    },
+    "delegation": {
+      "depth": 0,
+      "max_depth": 1,
+      "subdelegation": "attenuate"
+    },
+    "credential_refs": [
+      {
+        "kind": "oauth_grant",
+        "ref": "vault://harborpine/agents/coding/git"
+      }
+    ]
+  },
+  {
+    "protocol_version": "0.1",
+    "type": "execution_receipt",
+    "id": "rcpt_branch",
+    "created_at": "2026-10-13T09:00:03Z",
+    "scope": {
+      "organization": "harborpine.example",
+      "workspace": "internal",
+      "project": "brand-approvals"
+    },
+    "profile": "software-delivery/0.1",
+    "contract": {
+      "id": "wc_brand_approvals",
+      "revision": 1
+    },
+    "context": {
+      "id": "ctx_brand_approvals",
+      "revision": 1
+    },
+    "authority": {
+      "id": "auth_coding_agent",
+      "revision": 1
+    },
+    "action": {
+      "name": "repo.branch.create",
+      "resource": {
+        "type": "repository",
+        "id": "harborpine/collab-app",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "internal",
+          "project": "brand-approvals"
+        }
+      },
+      "requested_at": "2026-10-13T09:00:00Z",
+      "idempotency_key": "brand-approvals-branch",
+      "payload_digest": "sha256:75ecd2c21ee973a586a27bffacaca3a370620588c633b70b68d17f93bde292df"
+    },
+    "actor": {
+      "principal": {
+        "kind": "agent",
+        "id": "https://agents.harborpine.example/coding",
+        "display": "Coding agent"
+      },
+      "performed_by": "agent",
+      "runtime": {
+        "name": "fixture-runtime",
+        "version": "0.1.0"
+      }
+    },
+    "decision": {
+      "result": "permit",
+      "reasons": [],
+      "evaluated_at": "2026-10-13T09:00:01Z",
+      "policy_ref": "harborpine-agent-work@1"
+    },
+    "outcome": {
+      "status": "succeeded",
+      "summary": "Created branch feat/brand-approval-gate from main."
+    },
+    "started_at": "2026-10-13T09:00:02Z",
+    "finished_at": "2026-10-13T09:00:03Z",
+    "effects": [
+      {
+        "description": "Branch feat/brand-approval-gate created.",
+        "external_ref": "git:harborpine/collab-app#refs/heads/feat/brand-approval-gate"
+      }
+    ],
+    "artifacts": [
+      {
+        "id": "art_branch",
+        "kind": "branch",
+        "ref": "https://git.harborpine.example/collab-app/tree/feat/brand-approval-gate",
+        "media_type": "text/plain",
+        "digest": "sha1:3f786850e387550fdab836ed7e6dc881de23001b"
+      }
+    ],
+    "trace": {
+      "correlation_id": "brand-approvals"
+    },
+    "integrity": {
+      "canonicalization": "rfc8785",
+      "attestation": {
+        "kind": "none"
+      },
+      "digest": "sha256:06d91777872676cbd1519356e82a020889dbcc32b68af0823a4572234e8b7d20"
+    }
+  },
+  {
+    "protocol_version": "0.1",
+    "type": "execution_receipt",
+    "id": "rcpt_lumen_read_denied",
+    "created_at": "2026-10-13T09:10:01Z",
+    "scope": {
+      "organization": "harborpine.example",
+      "workspace": "internal",
+      "project": "brand-approvals"
+    },
+    "profile": "software-delivery/0.1",
+    "contract": {
+      "id": "wc_brand_approvals",
+      "revision": 1
+    },
+    "action": {
+      "name": "harborpine.example/workspace_comments.read",
+      "resource": {
+        "type": "workspace_comments",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "lumen-beverages"
+        }
+      },
+      "requested_at": "2026-10-13T09:10:00Z",
+      "idempotency_key": "brand-approvals-lumen-read",
+      "payload_digest": "sha256:615029c029d808cd37be5a134a9ba292dd8cb014793196e447b26c2fe74901ea"
+    },
+    "actor": {
+      "principal": {
+        "kind": "agent",
+        "id": "https://agents.harborpine.example/coding",
+        "display": "Coding agent"
+      },
+      "performed_by": "agent",
+      "runtime": {
+        "name": "fixture-runtime",
+        "version": "0.1.0"
+      }
+    },
+    "decision": {
+      "result": "deny",
+      "reasons": ["authority_insufficient", "tenant_mismatch"],
+      "evaluated_at": "2026-10-13T09:10:01Z",
+      "policy_ref": "harborpine-agent-work@1"
+    },
+    "outcome": {
+      "status": "denied",
+      "summary": "Refused before any read: no grant names the Lumen Beverages workspace."
+    },
+    "trace": {
+      "correlation_id": "brand-approvals"
+    },
+    "integrity": {
+      "canonicalization": "rfc8785",
+      "previous_digest": "sha256:06d91777872676cbd1519356e82a020889dbcc32b68af0823a4572234e8b7d20",
+      "attestation": {
+        "kind": "none"
+      },
+      "digest": "sha256:3e7f314d0e085ac0001978a47bd84d5c050c11e30bc9b7f2e4f88998215e0ffc"
+    }
+  },
+  {
+    "protocol_version": "0.1",
+    "type": "execution_receipt",
+    "id": "rcpt_commit",
+    "created_at": "2026-10-13T11:00:04Z",
+    "scope": {
+      "organization": "harborpine.example",
+      "workspace": "internal",
+      "project": "brand-approvals"
+    },
+    "profile": "software-delivery/0.1",
+    "contract": {
+      "id": "wc_brand_approvals",
+      "revision": 1
+    },
+    "context": {
+      "id": "ctx_brand_approvals",
+      "revision": 1
+    },
+    "authority": {
+      "id": "auth_coding_agent",
+      "revision": 1
+    },
+    "action": {
+      "name": "repo.commit",
+      "resource": {
+        "type": "repository",
+        "id": "harborpine/collab-app",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "internal",
+          "project": "brand-approvals"
+        }
+      },
+      "requested_at": "2026-10-13T11:00:00Z",
+      "idempotency_key": "brand-approvals-commit-1",
+      "payload_digest": "sha256:c46225c408e1f7ea6f32c52ed5e69b0f7725551b5a058c94ded275fcf4e6ae51"
+    },
+    "actor": {
+      "principal": {
+        "kind": "agent",
+        "id": "https://agents.harborpine.example/coding",
+        "display": "Coding agent"
+      },
+      "performed_by": "agent",
+      "runtime": {
+        "name": "fixture-runtime",
+        "version": "0.1.0"
+      }
+    },
+    "decision": {
+      "result": "permit",
+      "reasons": [],
+      "evaluated_at": "2026-10-13T11:00:01Z",
+      "policy_ref": "harborpine-agent-work@1"
+    },
+    "outcome": {
+      "status": "succeeded",
+      "summary": "Committed the approval gate and its tests."
+    },
+    "started_at": "2026-10-13T11:00:02Z",
+    "finished_at": "2026-10-13T11:00:04Z",
+    "effects": [
+      {
+        "description": "One commit pushed to feat/brand-approval-gate."
+      }
+    ],
+    "artifacts": [
+      {
+        "id": "art_commit",
+        "kind": "commit",
+        "ref": "https://git.harborpine.example/collab-app/commit/9c1185a5c5e9fc54612808977ee8f548b2258d31",
+        "media_type": "text/plain",
+        "digest": "sha1:9c1185a5c5e9fc54612808977ee8f548b2258d31"
+      }
+    ],
+    "trace": {
+      "correlation_id": "brand-approvals"
+    },
+    "integrity": {
+      "canonicalization": "rfc8785",
+      "previous_digest": "sha256:3e7f314d0e085ac0001978a47bd84d5c050c11e30bc9b7f2e4f88998215e0ffc",
+      "attestation": {
+        "kind": "none"
+      },
+      "digest": "sha256:dfd385f14c7096a3d4315c1d766f8d3d5be0004c8e6cc6abbbed206b62bdab56"
+    }
+  },
+  {
+    "protocol_version": "0.1",
+    "type": "execution_receipt",
+    "id": "rcpt_ci",
+    "created_at": "2026-10-13T11:19:40Z",
+    "scope": {
+      "organization": "harborpine.example",
+      "workspace": "internal",
+      "project": "brand-approvals"
+    },
+    "profile": "software-delivery/0.1",
+    "contract": {
+      "id": "wc_brand_approvals",
+      "revision": 1
+    },
+    "context": {
+      "id": "ctx_brand_approvals",
+      "revision": 1
+    },
+    "authority": {
+      "id": "auth_coding_agent",
+      "revision": 1
+    },
+    "action": {
+      "name": "ci.run",
+      "resource": {
+        "type": "pipeline",
+        "id": "collab-app-ci",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "internal",
+          "project": "brand-approvals"
+        }
+      },
+      "requested_at": "2026-10-13T11:05:00Z",
+      "idempotency_key": "brand-approvals-ci-1",
+      "payload_digest": "sha256:f877baea3633b43df2d10f966e172cf53d9e38dc1a1f7396a1d4bf41c0f2371d"
+    },
+    "actor": {
+      "principal": {
+        "kind": "agent",
+        "id": "https://agents.harborpine.example/coding",
+        "display": "Coding agent"
+      },
+      "performed_by": "agent",
+      "runtime": {
+        "name": "fixture-runtime",
+        "version": "0.1.0"
+      }
+    },
+    "decision": {
+      "result": "permit",
+      "reasons": [],
+      "evaluated_at": "2026-10-13T11:05:01Z",
+      "policy_ref": "harborpine-agent-work@1"
+    },
+    "outcome": {
+      "status": "succeeded",
+      "summary": "CI passed: 142 tests, none failed."
+    },
+    "started_at": "2026-10-13T11:05:02Z",
+    "finished_at": "2026-10-13T11:19:40Z",
+    "effects": [
+      {
+        "description": "One CI run recorded."
+      }
+    ],
+    "artifacts": [
+      {
+        "id": "art_ci_report",
+        "kind": "test_report",
+        "ref": "https://ci.harborpine.example/collab-app/runs/812/report.json",
+        "media_type": "application/json",
+        "digest": "sha256:fe215bc33a56a14b5e539d207ccd09eb6ab6da71b56832761111bbb8eab0d070"
+      }
+    ],
+    "cost": {
+      "currency": "USD",
+      "amount": "0.10"
+    },
+    "trace": {
+      "correlation_id": "brand-approvals"
+    },
+    "integrity": {
+      "canonicalization": "rfc8785",
+      "previous_digest": "sha256:dfd385f14c7096a3d4315c1d766f8d3d5be0004c8e6cc6abbbed206b62bdab56",
+      "attestation": {
+        "kind": "none"
+      },
+      "digest": "sha256:7e987cd172f3b9fecd9cc9ee621ff7cf0501deb95a77e5347306db1397157851"
+    }
+  },
+  {
+    "protocol_version": "0.1",
+    "type": "execution_receipt",
+    "id": "rcpt_pull_request",
+    "created_at": "2026-10-13T11:25:05Z",
+    "scope": {
+      "organization": "harborpine.example",
+      "workspace": "internal",
+      "project": "brand-approvals"
+    },
+    "profile": "software-delivery/0.1",
+    "contract": {
+      "id": "wc_brand_approvals",
+      "revision": 1
+    },
+    "context": {
+      "id": "ctx_brand_approvals",
+      "revision": 1
+    },
+    "authority": {
+      "id": "auth_coding_agent",
+      "revision": 1
+    },
+    "action": {
+      "name": "repo.pull_request.open",
+      "resource": {
+        "type": "repository",
+        "id": "harborpine/collab-app",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "internal",
+          "project": "brand-approvals"
+        }
+      },
+      "requested_at": "2026-10-13T11:25:00Z",
+      "idempotency_key": "brand-approvals-pr",
+      "payload_digest": "sha256:5b4f09106407ededf9faac7179f00c1c1ad213493b6344082c8abff5ad814928"
+    },
+    "actor": {
+      "principal": {
+        "kind": "agent",
+        "id": "https://agents.harborpine.example/coding",
+        "display": "Coding agent"
+      },
+      "performed_by": "agent",
+      "runtime": {
+        "name": "fixture-runtime",
+        "version": "0.1.0"
+      }
+    },
+    "decision": {
+      "result": "permit",
+      "reasons": [],
+      "evaluated_at": "2026-10-13T11:25:01Z",
+      "policy_ref": "harborpine-agent-work@1"
+    },
+    "outcome": {
+      "status": "succeeded",
+      "summary": "Opened pull request 318 for review."
+    },
+    "started_at": "2026-10-13T11:25:02Z",
+    "finished_at": "2026-10-13T11:25:05Z",
+    "effects": [
+      {
+        "description": "Pull request 318 opened.",
+        "external_ref": "https://git.harborpine.example/collab-app/pull/318"
+      }
+    ],
+    "artifacts": [
+      {
+        "id": "art_pull_request",
+        "kind": "pull_request",
+        "ref": "https://git.harborpine.example/collab-app/pull/318",
+        "media_type": "text/html",
+        "digest": "sha256:aab33585fde5d751c3d0cb153ec2172cb09e31c4e67ac370519dd1258005f55a"
+      }
+    ],
+    "trace": {
+      "correlation_id": "brand-approvals"
+    },
+    "integrity": {
+      "canonicalization": "rfc8785",
+      "previous_digest": "sha256:7e987cd172f3b9fecd9cc9ee621ff7cf0501deb95a77e5347306db1397157851",
+      "attestation": {
+        "kind": "none"
+      },
+      "digest": "sha256:57e08dcd50ced3da56b7351fdc040567f09ef58ccb296aa10d848e71dbe960f6"
+    }
+  },
+  {
+    "protocol_version": "0.1",
+    "type": "execution_receipt",
+    "id": "rcpt_preview",
+    "created_at": "2026-10-13T11:36:10Z",
+    "scope": {
+      "organization": "harborpine.example",
+      "workspace": "internal",
+      "project": "brand-approvals"
+    },
+    "profile": "software-delivery/0.1",
+    "contract": {
+      "id": "wc_brand_approvals",
+      "revision": 1
+    },
+    "context": {
+      "id": "ctx_brand_approvals",
+      "revision": 1
+    },
+    "authority": {
+      "id": "auth_coding_agent",
+      "revision": 1
+    },
+    "action": {
+      "name": "preview.deploy",
+      "resource": {
+        "type": "preview_environment",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "internal",
+          "project": "brand-approvals"
+        }
+      },
+      "requested_at": "2026-10-13T11:30:00Z",
+      "idempotency_key": "brand-approvals-preview-1",
+      "payload_digest": "sha256:f877baea3633b43df2d10f966e172cf53d9e38dc1a1f7396a1d4bf41c0f2371d"
+    },
+    "actor": {
+      "principal": {
+        "kind": "agent",
+        "id": "https://agents.harborpine.example/coding",
+        "display": "Coding agent"
+      },
+      "performed_by": "agent",
+      "runtime": {
+        "name": "fixture-runtime",
+        "version": "0.1.0"
+      }
+    },
+    "decision": {
+      "result": "permit",
+      "reasons": [],
+      "evaluated_at": "2026-10-13T11:30:01Z",
+      "policy_ref": "harborpine-agent-work@1"
+    },
+    "outcome": {
+      "status": "succeeded",
+      "summary": "Deployed a preview with the gate switched on."
+    },
+    "started_at": "2026-10-13T11:30:02Z",
+    "finished_at": "2026-10-13T11:36:10Z",
+    "effects": [
+      {
+        "description": "Preview environment pr-318 created.",
+        "external_ref": "https://pr-318.preview.harborpine.example"
+      }
+    ],
+    "artifacts": [
+      {
+        "id": "art_preview",
+        "kind": "preview_url",
+        "ref": "https://pr-318.preview.harborpine.example",
+        "media_type": "text/uri-list",
+        "digest": "sha256:f1bb5e5f160391a7d8b2e3bbb1b30e519dad0f0e9e3f3055fd8c7dd068170f8c"
+      }
+    ],
+    "trace": {
+      "correlation_id": "brand-approvals"
+    },
+    "integrity": {
+      "canonicalization": "rfc8785",
+      "previous_digest": "sha256:57e08dcd50ced3da56b7351fdc040567f09ef58ccb296aa10d848e71dbe960f6",
+      "attestation": {
+        "kind": "none"
+      },
+      "digest": "sha256:f6c0df0cb6e190d35ecf94f24442344692b7af555f3f28331f553c75e174c8b6"
+    }
+  },
+  {
+    "protocol_version": "0.1",
+    "type": "execution_receipt",
+    "id": "rcpt_ci_2",
+    "created_at": "2026-10-13T12:10:00Z",
+    "scope": {
+      "organization": "harborpine.example",
+      "workspace": "internal",
+      "project": "brand-approvals"
+    },
+    "profile": "software-delivery/0.1",
+    "contract": {
+      "id": "wc_brand_approvals",
+      "revision": 1
+    },
+    "context": {
+      "id": "ctx_brand_approvals",
+      "revision": 1
+    },
+    "authority": {
+      "id": "auth_coding_agent",
+      "revision": 1
+    },
+    "action": {
+      "name": "ci.run",
+      "resource": {
+        "type": "pipeline",
+        "id": "collab-app-ci",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "internal",
+          "project": "brand-approvals"
+        }
+      },
+      "requested_at": "2026-10-13T12:00:00Z",
+      "idempotency_key": "brand-approvals-ci-2",
+      "payload_digest": "sha256:37fc5ea6625a2c570ca9bdfb38ad82fd74c3d2d7b0fd982e47e5880559fd6cf3"
+    },
+    "actor": {
+      "principal": {
+        "kind": "agent",
+        "id": "https://agents.harborpine.example/coding",
+        "display": "Coding agent"
+      },
+      "performed_by": "agent",
+      "runtime": {
+        "name": "fixture-runtime",
+        "version": "0.1.0"
+      }
+    },
+    "decision": {
+      "result": "permit",
+      "reasons": [],
+      "evaluated_at": "2026-10-13T12:00:01Z",
+      "policy_ref": "harborpine-agent-work@1"
+    },
+    "outcome": {
+      "status": "succeeded",
+      "summary": "CI ran again: 142 tests, none failed."
+    },
+    "started_at": "2026-10-13T12:00:02Z",
+    "finished_at": "2026-10-13T12:10:00Z",
+    "effects": [
+      {
+        "description": "One more CI run recorded."
+      }
+    ],
+    "cost": {
+      "currency": "USD",
+      "amount": "0.20"
+    },
+    "trace": {
+      "correlation_id": "brand-approvals"
+    },
+    "integrity": {
+      "canonicalization": "rfc8785",
+      "previous_digest": "sha256:f6c0df0cb6e190d35ecf94f24442344692b7af555f3f28331f553c75e174c8b6",
+      "attestation": {
+        "kind": "none"
+      },
+      "digest": "sha256:df73f9bedfb4812e8c8964131b802e036bd93e1ced3037b80603351b145a0497"
+    }
+  },
+  {
+    "protocol_version": "0.1",
+    "type": "evaluation_result",
+    "id": "eval_brand_approvals",
+    "revision": 2,
+    "created_at": "2026-10-16T15:05:00Z",
+    "scope": {
+      "organization": "harborpine.example",
+      "workspace": "internal",
+      "project": "brand-approvals"
+    },
+    "profile": "software-delivery/0.1",
+    "contract": {
+      "id": "wc_brand_approvals",
+      "revision": 1
+    },
+    "receipts": [
+      {
+        "id": "rcpt_branch",
+        "digest": "sha256:06d91777872676cbd1519356e82a020889dbcc32b68af0823a4572234e8b7d20"
+      },
+      {
+        "id": "rcpt_lumen_read_denied",
+        "digest": "sha256:3e7f314d0e085ac0001978a47bd84d5c050c11e30bc9b7f2e4f88998215e0ffc"
+      },
+      {
+        "id": "rcpt_commit",
+        "digest": "sha256:dfd385f14c7096a3d4315c1d766f8d3d5be0004c8e6cc6abbbed206b62bdab56"
+      },
+      {
+        "id": "rcpt_ci",
+        "digest": "sha256:7e987cd172f3b9fecd9cc9ee621ff7cf0501deb95a77e5347306db1397157851"
+      },
+      {
+        "id": "rcpt_pull_request",
+        "digest": "sha256:57e08dcd50ced3da56b7351fdc040567f09ef58ccb296aa10d848e71dbe960f6"
+      },
+      {
+        "id": "rcpt_preview",
+        "digest": "sha256:f6c0df0cb6e190d35ecf94f24442344692b7af555f3f28331f553c75e174c8b6"
+      },
+      {
+        "id": "rcpt_ci_2",
+        "digest": "sha256:df73f9bedfb4812e8c8964131b802e036bd93e1ced3037b80603351b145a0497"
+      }
+    ],
+    "evaluator": {
+      "principal": {
+        "kind": "agent",
+        "id": "https://agents.harborpine.example/evaluator",
+        "display": "Evaluator agent"
+      },
+      "name": "harborpine-evaluator",
+      "version": "0.1.0"
+    },
+    "execution": {
+      "status": "complete"
+    },
+    "criteria": [
+      {
+        "criterion_id": "AC-1",
+        "result": "pass",
+        "method": "automated_check",
+        "evidence": [
+          {
+            "kind": "test_report",
+            "ref": "https://ci.harborpine.example/collab-app/runs/812/approval-gate.json",
+            "digest": "sha256:97ab49ed582226109b4f03bf24a7a457ef7afc80e169700fe96fcd6205125965",
+            "summary": "Unapproved publishing is blocked.",
+            "counts": {
+              "passed": 18,
+              "failed": 0
+            }
+          }
+        ]
+      },
+      {
+        "criterion_id": "AC-2",
+        "result": "pass",
+        "method": "automated_check",
+        "evidence": [
+          {
+            "kind": "test_report",
+            "ref": "https://ci.harborpine.example/collab-app/runs/812/approval-records.json",
+            "digest": "sha256:0d85ea6c0293a60fa7a8dd6bdad6ac999f883285179a4b1900e892872dbfc916",
+            "summary": "Each approval is recorded.",
+            "counts": {
+              "passed": 9,
+              "failed": 0
+            }
+          }
+        ]
+      },
+      {
+        "criterion_id": "AC-3",
+        "result": "pass",
+        "method": "automated_check",
+        "evidence": [
+          {
+            "kind": "test_report",
+            "ref": "https://ci.harborpine.example/collab-app/runs/812/tenant-isolation.json",
+            "digest": "sha256:b154122e627f8df5df4ea965aba0ebff8ee3f3e09d906428950108300233b97a",
+            "summary": "No cross-workspace reads.",
+            "counts": {
+              "passed": 24,
+              "failed": 0,
+              "skipped": 1
+            }
+          }
+        ],
+        "limitations": ["One cross-region case is skipped in the preview environment."]
+      },
+      {
+        "criterion_id": "AC-4",
+        "result": "pass",
+        "method": "human_judgment",
+        "evidence": [
+          {
+            "kind": "review",
+            "ref": "https://git.harborpine.example/collab-app/pull/318#review-1",
+            "digest": "sha256:71c43f40b31947dbf52e012b1a31e991368a27bc880aafcd43dce397901b278a",
+            "summary": "Dana tried the preview and found the flow usable."
+          }
+        ]
+      },
+      {
+        "criterion_id": "AC-5",
+        "result": "unknown",
+        "method": "measurement_window",
+        "evidence": [],
+        "limitations": ["The 30-day window starts only when a pilot client approves."]
+      }
+    ],
+    "technical_result": "pass",
+    "acceptance": {
+      "decision": "accepted",
+      "by": {
+        "kind": "person",
+        "id": "dana.whitfield",
+        "issuer": "https://id.harborpine.example",
+        "display": "Dana Whitfield"
+      },
+      "at": "2026-10-16T15:00:00Z",
+      "scope": "technical_preview",
+      "notes": "Accepted as a technical preview. Nothing goes to production."
+    },
+    "business_impact": {
+      "status": "unknown",
+      "notes": "Pilot adoption has not been measured; the window starts on pilot approval."
+    },
+    "limitations": ["A passing test suite is not evidence of customer value."],
+    "revision_author": {
+      "kind": "person",
+      "id": "dana.whitfield",
+      "issuer": "https://id.harborpine.example",
+      "display": "Dana Whitfield"
+    },
+    "change_summary": "Recorded the owner's acceptance of the technical preview."
+  }
+]

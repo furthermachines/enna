@@ -1,0 +1,27 @@
+{
+  "description": "Each invariant applies on its own, so an effect whose binding is not in the record still uses only context the contract's scope reaches.",
+  "section": "9.1",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/3/authority/id",
+      "value": "auth_reader_agent"
+    }
+  ],
+  "reseal": "receipts",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "reference_unresolved",
+      "path": "/3/authority"
+    },
+    {
+      "code": "context_out_of_scope",
+      "path": "/3/context"
+    }
+  ]
+}

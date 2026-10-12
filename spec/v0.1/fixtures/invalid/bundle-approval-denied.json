@@ -1,0 +1,47 @@
+{
+  "description": "The owner denied midway; later effects have no authority.",
+  "section": "9.7",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/2/approvals/-",
+      "value": {
+        "id": "apr_dana_denies",
+        "approver": {
+          "kind": "person",
+          "id": "dana.whitfield",
+          "issuer": "https://id.harborpine.example",
+          "display": "Dana Whitfield"
+        },
+        "approver_role": "head_of_product",
+        "decision": "denied",
+        "decided_at": "2026-10-13T11:10:00Z",
+        "expires_at": "2026-10-19T10:15:00Z",
+        "covers": {
+          "contract": {
+            "id": "wc_brand_approvals",
+            "revision": 1
+          },
+          "binding_digest": "sha256:63b87a1648932ceaa849aceaf420e446d0bad06918ee6d98e9c642aa0ea1e1d6"
+        },
+        "method": "interactive",
+        "assurance": "asserted"
+      }
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "approval_denied",
+      "path": "/7/authority"
+    },
+    {
+      "code": "approval_denied",
+      "path": "/8/authority"
+    }
+  ]
+}

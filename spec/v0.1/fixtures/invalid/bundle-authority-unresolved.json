@@ -1,0 +1,26 @@
+{
+  "description": "A refused action names an authority binding the record does not hold.",
+  "section": "9.2",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/4/authority",
+      "value": {
+        "id": "auth_reader_agent",
+        "revision": 1
+      }
+    }
+  ],
+  "reseal": "receipts",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "reference_unresolved",
+      "path": "/4/authority"
+    }
+  ]
+}

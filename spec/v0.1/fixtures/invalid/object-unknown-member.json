@@ -1,0 +1,19 @@
+{
+  "description": "A misspelled member is refused, not ignored.",
+  "section": "2.13",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/objectiv",
+      "value": "x"
+    }
+  ],
+  "expected": [
+    {
+      "code": "unknown_member",
+      "path": "/objectiv"
+    }
+  ]
+}

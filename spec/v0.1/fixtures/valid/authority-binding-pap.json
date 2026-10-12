@@ -1,0 +1,107 @@
+{
+  "protocol_version": "0.1",
+  "type": "authority_binding",
+  "id": "auth_support_kestrel",
+  "revision": 1,
+  "created_at": "2026-10-18T14:31:00Z",
+  "scope": {
+    "organization": "harborpine.example",
+    "workspace": "kestrel-media"
+  },
+  "contract": {
+    "id": "wc_kestrel_access",
+    "revision": 1
+  },
+  "grantor": {
+    "organization": "harborpine.example",
+    "person": {
+      "kind": "person",
+      "id": "theo.okafor",
+      "issuer": "https://id.harborpine.example",
+      "display": "Theo Okafor"
+    }
+  },
+  "grantee": {
+    "kind": "agent",
+    "id": "https://agents.harborpine.example/support",
+    "display": "Support agent"
+  },
+  "grants": [
+    {
+      "action": "harborpine.example/provisioning.retry",
+      "resource": {
+        "type": "workspace",
+        "id": "kestrel-media",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "kestrel-media"
+        }
+      },
+      "limits": {
+        "count": 1
+      }
+    }
+  ],
+  "approvals": [
+    {
+      "id": "apr_kestrel_user",
+      "approver": {
+        "kind": "person",
+        "id": "u_8f3a2c91",
+        "issuer": "https://pa.example/agent"
+      },
+      "approver_role": "requester",
+      "decision": "approved",
+      "decided_at": "2026-10-18T14:30:00Z",
+      "expires_at": "2026-10-20T17:00:00Z",
+      "covers": {
+        "contract": {
+          "id": "wc_kestrel_access",
+          "revision": 1
+        },
+        "binding_digest": "sha256:ebd962757c5981b5d39498cb67d4ee83d952b86b2730af8daee2605318acc68e"
+      },
+      "method": "pap_confirmation",
+      "assurance": "asserted",
+      "external": {
+        "operation_id": "op_kestrel_restore",
+        "revision": 1,
+        "approved_by": "user",
+        "confirmed_at": "2026-10-18T14:30:00Z"
+      }
+    },
+    {
+      "id": "apr_theo_kestrel",
+      "approver": {
+        "kind": "person",
+        "id": "theo.okafor",
+        "issuer": "https://id.harborpine.example",
+        "display": "Theo Okafor"
+      },
+      "approver_role": "owner",
+      "decision": "approved",
+      "decided_at": "2026-10-18T14:31:00Z",
+      "expires_at": "2026-10-20T17:00:00Z",
+      "covers": {
+        "contract": {
+          "id": "wc_kestrel_access",
+          "revision": 1
+        },
+        "binding_digest": "sha256:ebd962757c5981b5d39498cb67d4ee83d952b86b2730af8daee2605318acc68e"
+      },
+      "method": "interactive",
+      "assurance": "asserted"
+    }
+  ],
+  "valid_from": "2026-10-18T14:30:00Z",
+  "expires_at": "2026-10-20T17:00:00Z",
+  "revocation": {
+    "status_ref": "https://id.harborpine.example/enna/status/auth_support_kestrel"
+  },
+  "credential_refs": [
+    {
+      "kind": "pap_account",
+      "ref": "acct_kestrel_admin"
+    }
+  ]
+}

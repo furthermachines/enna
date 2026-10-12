@@ -1,0 +1,46 @@
+{
+  "description": "poppy.json links back to the host with a trailing dot.",
+  "section": "12.5",
+  "validate": "discovery",
+  "base": "discovery-harborpine.json",
+  "options": {
+    "requestedHost": "harborpine.example",
+    "poppy": {
+      "url": "https://harborpine.example/.well-known/poppy.json",
+      "document": {
+        "protocol_version": "0.1",
+        "organization": {
+          "name": "Harbor & Pine",
+          "domain": "harborpine.example"
+        },
+        "auth": {
+          "issuer": "https://id.harborpine.example"
+        },
+        "agent": {
+          "protocols": [
+            {
+              "type": "poppy",
+              "endpoint": "https://harborpine.example/poppy/conversations"
+            }
+          ]
+        },
+        "extensions": {
+          "operations": {
+            "version": "1",
+            "endpoint": "https://harborpine.example/poppy/operations"
+          },
+          "businessagentprotocol.org/enna": {
+            "version": "0.1",
+            "url": "https://harborpine.example./.well-known/enna.json"
+          }
+        }
+      }
+    }
+  },
+  "expected": [
+    {
+      "code": "reference_unresolved",
+      "path": "/pap/poppy_json"
+    }
+  ]
+}

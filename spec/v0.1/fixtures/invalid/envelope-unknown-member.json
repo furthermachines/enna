@@ -1,0 +1,19 @@
+{
+  "description": "An envelope is closed, like the objects it carries.",
+  "section": "8.1",
+  "validate": "envelope",
+  "base": "envelope.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/priority",
+      "value": "high"
+    }
+  ],
+  "expected": [
+    {
+      "code": "unknown_member",
+      "path": "/priority"
+    }
+  ]
+}

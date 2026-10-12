@@ -1,0 +1,19 @@
+{
+  "description": "A denied action never started.",
+  "section": "6.3",
+  "validate": "object",
+  "base": "execution-receipt-denied.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/started_at",
+      "value": "2026-10-13T09:10:01Z"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/started_at"
+    }
+  ]
+}

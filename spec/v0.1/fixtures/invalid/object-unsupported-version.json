@@ -1,0 +1,24 @@
+{
+  "description": "A protocol_version this consumer does not support is refused before anything else.",
+  "section": "2.14",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/protocol_version",
+      "value": "0.2"
+    },
+    {
+      "op": "add",
+      "path": "/objectiv",
+      "value": "x"
+    }
+  ],
+  "expected": [
+    {
+      "code": "unsupported_version",
+      "path": "/protocol_version"
+    }
+  ]
+}

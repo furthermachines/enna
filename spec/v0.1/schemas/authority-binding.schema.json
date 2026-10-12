@@ -1,0 +1,223 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://businessagentprotocol.org/spec/v0.1/schemas/authority-binding.schema.json",
+  "title": "Authority binding",
+  "description": "Describes and binds the authority an agent holds for one contract revision. JSON cannot grant authority: enforcement happens at the real policy or provider boundary. Every extension here counts as critical. Revisable.",
+  "type": "object",
+  "allOf": [
+    { "$ref": "common.schema.json#/$defs/object_base" },
+    { "$ref": "common.schema.json#/$defs/revisable" }
+  ],
+  "required": [
+    "contract",
+    "grantor",
+    "grantee",
+    "grants",
+    "valid_from",
+    "expires_at",
+    "revocation"
+  ],
+  "$comment": "Every shared member is listed here, as true where this schema does not narrow it, because additionalProperties sees only this list; the shared schemas still apply through allOf.",
+  "properties": {
+    "protocol_version": true,
+    "type": { "const": "authority_binding" },
+    "id": { "$ref": "common.schema.json#/$defs/authority_binding_id" },
+    "revision": true,
+    "revision_author": true,
+    "change_summary": true,
+    "created_at": true,
+    "scope": true,
+    "profile": true,
+    "extensions": true,
+    "contract": { "$ref": "common.schema.json#/$defs/contract_ref" },
+    "grantor": {
+      "type": "object",
+      "required": ["organization", "person"],
+      "properties": {
+        "organization": { "$ref": "common.schema.json#/$defs/domain" },
+        "person": { "$ref": "common.schema.json#/$defs/person" }
+      },
+      "additionalProperties": false
+    },
+    "grantee": { "$ref": "common.schema.json#/$defs/agent" },
+    "grants": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/grant" } },
+    "approvals": { "type": "array", "items": { "$ref": "#/$defs/approval" } },
+    "policy": {
+      "type": "object",
+      "required": ["policy_id", "policy_version"],
+      "properties": {
+        "policy_id": { "$ref": "common.schema.json#/$defs/text" },
+        "policy_version": { "$ref": "common.schema.json#/$defs/text" },
+        "decision_ref": { "$ref": "common.schema.json#/$defs/text" },
+        "sod_threshold": {
+          "description": "The separation-of-duties threshold for this binding: at the Controlled level and above, a grant whose cost limit is above it, or that has none, needs an approver other than the requester.",
+          "$ref": "common.schema.json#/$defs/money"
+        }
+      },
+      "additionalProperties": false
+    },
+    "valid_from": { "$ref": "common.schema.json#/$defs/timestamp" },
+    "expires_at": { "$ref": "common.schema.json#/$defs/timestamp" },
+    "revocation": {
+      "description": "Where the live revocation status is checked. The status is never trusted from this object.",
+      "type": "object",
+      "required": ["status_ref"],
+      "properties": { "status_ref": { "$ref": "common.schema.json#/$defs/uri" } },
+      "additionalProperties": false
+    },
+    "delegation": {
+      "type": "object",
+      "required": ["depth", "max_depth", "subdelegation"],
+      "properties": {
+        "parent": { "$ref": "common.schema.json#/$defs/authority_ref" },
+        "depth": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+        "max_depth": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+        "subdelegation": { "enum": ["forbidden", "attenuate"] }
+      },
+      "additionalProperties": false,
+      "if": { "required": ["parent"] },
+      "then": { "properties": { "depth": { "minimum": 1 } } },
+      "else": { "properties": { "depth": { "const": 0 } } }
+    },
+    "credential_refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind", "ref"],
+        "properties": {
+          "kind": { "enum": ["oauth_grant", "token_exchange", "pap_account"] },
+          "ref": {
+            "description": "A reference to a credential held elsewhere, never the token itself.",
+            "type": "string",
+            "minLength": 1,
+            "not": { "pattern": "^eyJ[A-Za-z0-9_-]*\\.[A-Za-z0-9_-]*\\." }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "grant": {
+      "type": "object",
+      "required": ["action", "resource"],
+      "properties": {
+        "action": { "$ref": "common.schema.json#/$defs/action_name" },
+        "resource": { "$ref": "common.schema.json#/$defs/resource" },
+        "limits": {
+          "type": "object",
+          "minProperties": 1,
+          "properties": {
+            "cost": { "$ref": "common.schema.json#/$defs/money" },
+            "count": { "type": "integer", "minimum": 1, "maximum": 9007199254740991 }
+          },
+          "additionalProperties": false
+        },
+        "conditions": {
+          "type": "object",
+          "minProperties": 1,
+          "properties": {
+            "approver_roles": {
+              "description": "Only approvals from these roles authorize this grant.",
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": { "$ref": "common.schema.json#/$defs/token" }
+            },
+            "min_approvals": {
+              "description": "An effect under this grant needs current approvals in scope from at least this many distinct people. Absent means one.",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "approval": {
+      "type": "object",
+      "required": [
+        "id",
+        "approver",
+        "approver_role",
+        "decision",
+        "decided_at",
+        "covers",
+        "method",
+        "assurance"
+      ],
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/approval_id" },
+        "approver": { "$ref": "common.schema.json#/$defs/person" },
+        "approver_role": { "$ref": "common.schema.json#/$defs/token" },
+        "decision": { "enum": ["approved", "denied"] },
+        "decided_at": { "$ref": "common.schema.json#/$defs/timestamp" },
+        "expires_at": { "$ref": "common.schema.json#/$defs/timestamp" },
+        "covers": {
+          "type": "object",
+          "required": ["contract", "binding_digest"],
+          "properties": {
+            "contract": { "$ref": "common.schema.json#/$defs/contract_ref" },
+            "binding_digest": {
+              "description": "sha256 over the RFC 8785 form of the binding without approvals, revision, revision_author, change_summary and created_at.",
+              "$ref": "common.schema.json#/$defs/digest"
+            }
+          },
+          "additionalProperties": false
+        },
+        "method": { "enum": ["interactive", "standing", "pap_confirmation"] },
+        "assurance": { "enum": ["asserted", "verified"] },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["kind", "ref"],
+            "properties": {
+              "kind": { "$ref": "common.schema.json#/$defs/token" },
+              "ref": { "$ref": "common.schema.json#/$defs/text" },
+              "digest": { "$ref": "common.schema.json#/$defs/artifact_digest" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "external": {
+          "description": "The PAP confirmation this approval records.",
+          "type": "object",
+          "required": ["operation_id", "revision", "approved_by", "confirmed_at"],
+          "properties": {
+            "operation_id": { "type": "string", "minLength": 1, "maxLength": 256 },
+            "revision": { "$ref": "common.schema.json#/$defs/revision" },
+            "approved_by": { "enum": ["user", "standing_permission"] },
+            "confirmed_at": { "$ref": "common.schema.json#/$defs/timestamp" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "required": ["method"],
+            "properties": { "method": { "const": "pap_confirmation" } }
+          },
+          "then": {
+            "required": ["external"],
+            "properties": { "assurance": { "const": "asserted" } }
+          },
+          "else": { "properties": { "external": false } }
+        },
+        {
+          "if": {
+            "required": ["assurance"],
+            "properties": { "assurance": { "const": "verified" } }
+          },
+          "then": { "required": ["evidence"] }
+        }
+      ]
+    }
+  }
+}

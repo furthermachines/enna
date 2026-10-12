@@ -1,0 +1,23 @@
+{
+  "description": "An envelope checks the extensions of each object it carries as that object's, so a binding it carries refuses even one that is not critical.",
+  "section": "2.12",
+  "validate": "envelope",
+  "base": "envelope.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/objects/2/extensions",
+      "value": {
+        "example.com/notes": {
+          "version": "1"
+        }
+      }
+    }
+  ],
+  "expected": [
+    {
+      "code": "unsupported_critical_extension",
+      "path": "/objects/2/extensions/example.com~1notes"
+    }
+  ]
+}

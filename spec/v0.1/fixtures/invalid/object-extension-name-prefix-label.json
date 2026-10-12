@@ -1,0 +1,23 @@
+{
+  "description": "An extension name's prefix is a domain, whose labels have at most 63 characters, so a name with a longer label is an unknown member.",
+  "section": "2.12",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/extensions",
+      "value": {
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.example/notes": {
+          "version": "1"
+        }
+      }
+    }
+  ],
+  "expected": [
+    {
+      "code": "unknown_member",
+      "path": "/extensions/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.example~1notes"
+    }
+  ]
+}

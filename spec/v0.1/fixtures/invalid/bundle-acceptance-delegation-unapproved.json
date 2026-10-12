@@ -1,0 +1,21 @@
+{
+  "description": "An agent accepts under a binding that names the owner as grantor, but nobody approved that delegation.",
+  "section": "9.13",
+  "validate": "bundle",
+  "base": "bundle-delegated-acceptance.json",
+  "patch": [
+    {
+      "op": "remove",
+      "path": "/10/approvals"
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "acceptance_not_owner",
+      "path": "/9/acceptance/by"
+    }
+  ]
+}

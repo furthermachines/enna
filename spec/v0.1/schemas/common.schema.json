@@ -1,0 +1,263 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://businessagentprotocol.org/spec/v0.1/schemas/common.schema.json",
+  "title": "Enna 0.1 shared definitions",
+  "$defs": {
+    "protocol_version": { "const": "0.1" },
+    "text": { "type": "string", "minLength": 1 },
+    "token": {
+      "description": "A snake_case vocabulary word, optionally prefixed by a domain the definer controls.",
+      "type": "string",
+      "maxLength": 128,
+      "pattern": "^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(\\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)+/)?[a-z][a-z0-9_]*$"
+    },
+    "action_name": {
+      "description": "A namespaced action such as repo.commit, or one under a domain such as harborpine.example/provisioning.activate.",
+      "type": "string",
+      "maxLength": 256,
+      "pattern": "^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(\\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)+/)?[a-z][a-z0-9_]*(\\.[a-z][a-z0-9_]*)+$"
+    },
+    "profile": {
+      "type": "string",
+      "pattern": "^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(\\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)+/)?[a-z][a-z0-9-]*/[0-9]+\\.[0-9]+$"
+    },
+    "timestamp": {
+      "description": "RFC 3339 in UTC with an uppercase T and Z.",
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z$",
+      "format": "date-time"
+    },
+    "duration_seconds": {
+      "description": "Whole seconds, no more than a JSON number holds exactly.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "revision": { "type": "integer", "minimum": 1, "maximum": 9007199254740991 },
+    "domain": {
+      "type": "string",
+      "maxLength": 253,
+      "pattern": "^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(\\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)+$"
+    },
+    "uri": { "type": "string", "maxLength": 2048, "format": "uri" },
+    "https_url": {
+      "type": "string",
+      "maxLength": 2048,
+      "pattern": "^https://[!-~]+$",
+      "format": "uri"
+    },
+    "digest": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "artifact_digest": {
+      "type": "string",
+      "pattern": "^(sha1:[0-9a-f]{40}|sha256:[0-9a-f]{64}|sha384:[0-9a-f]{96}|sha512:[0-9a-f]{128})$"
+    },
+    "local_id": { "type": "string", "pattern": "^[A-Za-z0-9_-]{1,64}$" },
+    "criterion_id": { "type": "string", "pattern": "^AC-[1-9][0-9]{0,8}$" },
+    "work_contract_id": { "type": "string", "pattern": "^wc_[A-Za-z0-9_-]{1,253}$" },
+    "context_manifest_id": { "type": "string", "pattern": "^ctx_[A-Za-z0-9_-]{1,252}$" },
+    "authority_binding_id": { "type": "string", "pattern": "^auth_[A-Za-z0-9_-]{1,251}$" },
+    "execution_receipt_id": { "type": "string", "pattern": "^rcpt_[A-Za-z0-9_-]{1,251}$" },
+    "evaluation_result_id": { "type": "string", "pattern": "^eval_[A-Za-z0-9_-]{1,251}$" },
+    "envelope_id": { "type": "string", "pattern": "^env_[A-Za-z0-9_-]{1,252}$" },
+    "approval_id": { "type": "string", "pattern": "^apr_[A-Za-z0-9_-]{1,252}$" },
+    "artifact_id": { "type": "string", "pattern": "^art_[A-Za-z0-9_-]{1,252}$" },
+    "context_item_id": { "type": "string", "pattern": "^item_[A-Za-z0-9_-]{1,251}$" },
+    "money": {
+      "type": "object",
+      "required": ["currency", "amount"],
+      "properties": {
+        "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+        "amount": { "type": "string", "pattern": "^(0|[1-9][0-9]*)(\\.[0-9]{1,6})?$" }
+      },
+      "additionalProperties": false
+    },
+    "scope": {
+      "type": "object",
+      "required": ["organization"],
+      "properties": {
+        "organization": { "$ref": "#/$defs/domain" },
+        "workspace": { "$ref": "#/$defs/local_id" },
+        "project": { "$ref": "#/$defs/local_id" }
+      },
+      "additionalProperties": false
+    },
+    "principal": {
+      "type": "object",
+      "required": ["kind", "id"],
+      "properties": {
+        "kind": { "enum": ["person", "agent", "service", "organization"] },
+        "id": { "type": "string", "minLength": 1, "maxLength": 2048 },
+        "issuer": { "$ref": "#/$defs/https_url" },
+        "display": { "$ref": "#/$defs/text" }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": { "required": ["kind"], "properties": { "kind": { "const": "person" } } },
+          "then": { "required": ["issuer"] }
+        },
+        {
+          "if": { "required": ["kind"], "properties": { "kind": { "const": "agent" } } },
+          "then": { "properties": { "id": { "$ref": "#/$defs/https_url" } } }
+        },
+        {
+          "if": { "required": ["kind"], "properties": { "kind": { "const": "organization" } } },
+          "then": { "properties": { "id": { "$ref": "#/$defs/domain" } } }
+        }
+      ]
+    },
+    "person": { "$ref": "#/$defs/principal", "properties": { "kind": { "const": "person" } } },
+    "agent": { "$ref": "#/$defs/principal", "properties": { "kind": { "const": "agent" } } },
+    "contract_ref": {
+      "type": "object",
+      "required": ["id", "revision"],
+      "properties": {
+        "id": { "$ref": "#/$defs/work_contract_id" },
+        "revision": { "$ref": "#/$defs/revision" }
+      },
+      "additionalProperties": false
+    },
+    "context_ref": {
+      "type": "object",
+      "required": ["id", "revision"],
+      "properties": {
+        "id": { "$ref": "#/$defs/context_manifest_id" },
+        "revision": { "$ref": "#/$defs/revision" }
+      },
+      "additionalProperties": false
+    },
+    "authority_ref": {
+      "type": "object",
+      "required": ["id", "revision"],
+      "properties": {
+        "id": { "$ref": "#/$defs/authority_binding_id" },
+        "revision": { "$ref": "#/$defs/revision" }
+      },
+      "additionalProperties": false
+    },
+    "receipt_ref": {
+      "type": "object",
+      "required": ["id", "digest"],
+      "properties": {
+        "id": { "$ref": "#/$defs/execution_receipt_id" },
+        "digest": { "$ref": "#/$defs/digest" }
+      },
+      "additionalProperties": false
+    },
+    "resource": {
+      "type": "object",
+      "required": ["type", "scope"],
+      "properties": {
+        "type": { "$ref": "#/$defs/token" },
+        "id": { "type": "string", "minLength": 1, "maxLength": 2048 },
+        "scope": { "$ref": "#/$defs/scope" }
+      },
+      "additionalProperties": false
+    },
+    "error_code": {
+      "enum": [
+        "invalid_json",
+        "duplicate_member",
+        "schema_violation",
+        "unknown_member",
+        "unsupported_version",
+        "unsupported_profile",
+        "timestamp_in_future",
+        "reference_unresolved",
+        "revision_mismatch",
+        "tenant_mismatch",
+        "currency_mismatch",
+        "limit_exceeded",
+        "approval_missing",
+        "approval_expired",
+        "approval_revoked",
+        "approval_stale",
+        "approval_denied",
+        "approver_out_of_scope",
+        "separation_of_duties",
+        "quorum_not_met",
+        "authority_expired",
+        "authority_revoked",
+        "authority_insufficient",
+        "subdelegation_forbidden",
+        "attenuation_violated",
+        "context_stale",
+        "context_out_of_scope",
+        "idempotency_conflict",
+        "illegal_transition",
+        "digest_mismatch",
+        "chain_broken",
+        "evidence_missing",
+        "criterion_unknown",
+        "technical_result_mismatch",
+        "acceptance_premature",
+        "acceptance_not_owner",
+        "unsupported_critical_extension",
+        "domain_mismatch",
+        "issuer_mismatch"
+      ]
+    },
+    "extensions": {
+      "description": "Plain names are defined by Enna; anyone else prefixes a domain they control.",
+      "type": "object",
+      "patternProperties": {
+        "^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(\\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)+/)?[a-z][a-z0-9_.-]*$": {
+          "$ref": "#/$defs/extension"
+        }
+      },
+      "additionalProperties": false
+    },
+    "extension": {
+      "type": "object",
+      "required": ["version"],
+      "properties": {
+        "version": { "type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$" },
+        "critical": { "type": "boolean" }
+      }
+    },
+    "pap_extension": {
+      "description": "Links a work contract revision to a Personal Agent Protocol 0.1 operation (operations extension version 1).",
+      "type": "object",
+      "required": ["version", "operation_id", "revision"],
+      "properties": {
+        "version": { "const": "1" },
+        "critical": { "const": false },
+        "operation_id": { "type": "string", "minLength": 1, "maxLength": 256 },
+        "revision": {
+          "description": "The PAP operation revision this contract revision mirrors. A revision the person need not confirm again keeps it.",
+          "$ref": "#/$defs/revision"
+        },
+        "terms": { "type": "object" },
+        "expires_at": { "$ref": "#/$defs/timestamp" },
+        "user_approval_required": { "type": "boolean" },
+        "url": { "$ref": "#/$defs/uri" },
+        "account": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "object_base": {
+      "type": "object",
+      "required": ["protocol_version", "type", "id", "created_at", "scope"],
+      "properties": {
+        "protocol_version": { "$ref": "#/$defs/protocol_version" },
+        "type": { "type": "string" },
+        "id": { "type": "string" },
+        "created_at": { "$ref": "#/$defs/timestamp" },
+        "scope": { "$ref": "#/$defs/scope" },
+        "profile": { "$ref": "#/$defs/profile" },
+        "extensions": { "$ref": "#/$defs/extensions" }
+      }
+    },
+    "revisable": {
+      "type": "object",
+      "required": ["revision"],
+      "properties": {
+        "revision": { "$ref": "#/$defs/revision" },
+        "revision_author": { "$ref": "#/$defs/principal" },
+        "change_summary": { "$ref": "#/$defs/text" }
+      },
+      "if": { "required": ["revision"], "properties": { "revision": { "minimum": 2 } } },
+      "then": { "required": ["revision_author", "change_summary"] }
+    }
+  }
+}

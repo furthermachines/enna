@@ -1,0 +1,192 @@
+{
+  "description": "The helper's commit came after the binding its own was delegated from was revoked.",
+  "section": "9.7",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/-",
+      "value": {
+        "protocol_version": "0.1",
+        "type": "authority_binding",
+        "id": "auth_helper",
+        "revision": 1,
+        "created_at": "2026-10-12T10:30:00Z",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "internal",
+          "project": "brand-approvals"
+        },
+        "contract": {
+          "id": "wc_brand_approvals",
+          "revision": 1
+        },
+        "grantor": {
+          "organization": "harborpine.example",
+          "person": {
+            "kind": "person",
+            "id": "dana.whitfield",
+            "issuer": "https://id.harborpine.example",
+            "display": "Dana Whitfield"
+          }
+        },
+        "grantee": {
+          "kind": "agent",
+          "id": "https://agents.harborpine.example/helper",
+          "display": "Helper agent"
+        },
+        "grants": [
+          {
+            "action": "repo.commit",
+            "resource": {
+              "type": "repository",
+              "id": "harborpine/collab-app",
+              "scope": {
+                "organization": "harborpine.example",
+                "workspace": "internal",
+                "project": "brand-approvals"
+              }
+            },
+            "limits": {
+              "count": 5
+            }
+          }
+        ],
+        "approvals": [
+          {
+            "id": "apr_priya_helper",
+            "approver": {
+              "kind": "person",
+              "id": "priya.raman",
+              "issuer": "https://id.harborpine.example",
+              "display": "Priya Raman"
+            },
+            "approver_role": "product_manager",
+            "decision": "approved",
+            "decided_at": "2026-10-12T10:35:00Z",
+            "expires_at": "2026-10-19T10:15:00Z",
+            "covers": {
+              "contract": {
+                "id": "wc_brand_approvals",
+                "revision": 1
+              },
+              "binding_digest": "sha256:63b87a1648932ceaa849aceaf420e446d0bad06918ee6d98e9c642aa0ea1e1d6"
+            },
+            "method": "interactive",
+            "assurance": "asserted"
+          }
+        ],
+        "valid_from": "2026-10-12T10:15:00Z",
+        "expires_at": "2026-10-26T17:00:00Z",
+        "revocation": {
+          "status_ref": "https://id.harborpine.example/enna/status/auth_helper"
+        },
+        "delegation": {
+          "parent": {
+            "id": "auth_coding_agent",
+            "revision": 1
+          },
+          "depth": 1,
+          "max_depth": 1,
+          "subdelegation": "forbidden"
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/-",
+      "value": {
+        "protocol_version": "0.1",
+        "type": "execution_receipt",
+        "id": "rcpt_helper_commit",
+        "created_at": "2026-10-13T12:05:04Z",
+        "scope": {
+          "organization": "harborpine.example",
+          "workspace": "internal",
+          "project": "brand-approvals"
+        },
+        "profile": "software-delivery/0.1",
+        "contract": {
+          "id": "wc_brand_approvals",
+          "revision": 1
+        },
+        "authority": {
+          "id": "auth_helper",
+          "revision": 1
+        },
+        "action": {
+          "name": "repo.commit",
+          "resource": {
+            "type": "repository",
+            "id": "harborpine/collab-app",
+            "scope": {
+              "organization": "harborpine.example",
+              "workspace": "internal",
+              "project": "brand-approvals"
+            }
+          },
+          "requested_at": "2026-10-13T12:05:00Z",
+          "idempotency_key": "brand-approvals-helper-commit-1",
+          "payload_digest": "sha256:09b1c4dd25447808d91d4f76a415da3df6815a6ae320f44fc1d7ac3c001014bf"
+        },
+        "actor": {
+          "principal": {
+            "kind": "agent",
+            "id": "https://agents.harborpine.example/helper",
+            "display": "Helper agent"
+          },
+          "performed_by": "agent",
+          "runtime": {
+            "name": "fixture-runtime",
+            "version": "0.1.0"
+          }
+        },
+        "decision": {
+          "result": "permit",
+          "reasons": [],
+          "evaluated_at": "2026-10-13T12:05:01Z",
+          "policy_ref": "harborpine-agent-work@1"
+        },
+        "outcome": {
+          "status": "succeeded",
+          "summary": "Done."
+        },
+        "started_at": "2026-10-13T12:05:02Z",
+        "finished_at": "2026-10-13T12:05:04Z",
+        "effects": [
+          {
+            "description": "One commit pushed to feat/brand-approval-gate."
+          }
+        ],
+        "trace": {
+          "correlation_id": "brand-approvals"
+        },
+        "integrity": {
+          "canonicalization": "rfc8785",
+          "previous_digest": "sha256:652127f2acc181b8739046ff9a5432071cdc215ae685eec61530a41a4fa19c4a",
+          "attestation": {
+            "kind": "none"
+          },
+          "digest": "sha256:16ca4f332c0bd3c9eb1857c8ae2dce1e80b125433762dca9a345e53a7668bbe7"
+        }
+      }
+    }
+  ],
+  "reseal": "all",
+  "options": {
+    "now": "2026-10-20T00:00:00Z",
+    "revocations": [
+      {
+        "id": "auth_coding_agent",
+        "revoked_at": "2026-10-13T12:00:00Z"
+      }
+    ]
+  },
+  "expected": [
+    {
+      "code": "authority_revoked",
+      "path": "/11/authority"
+    }
+  ]
+}

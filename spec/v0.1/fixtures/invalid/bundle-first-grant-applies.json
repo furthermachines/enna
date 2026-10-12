@@ -1,0 +1,35 @@
+{
+  "description": "Of two grants that cover the commit, the first applies, and its role condition is one nobody approved under.",
+  "section": "5.2",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/2/grants/0",
+      "value": {
+        "action": "repo.commit",
+        "resource": {
+          "type": "repository",
+          "scope": {
+            "organization": "harborpine.example",
+            "workspace": "internal"
+          }
+        },
+        "conditions": {
+          "approver_roles": ["engineering_lead"]
+        }
+      }
+    }
+  ],
+  "reseal": "all",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "approver_out_of_scope",
+      "path": "/5/authority"
+    }
+  ]
+}

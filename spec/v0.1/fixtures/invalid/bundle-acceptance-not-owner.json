@@ -1,0 +1,27 @@
+{
+  "description": "Accepted by the approver, not by the owner.",
+  "section": "9.13",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/9/acceptance/by",
+      "value": {
+        "kind": "person",
+        "id": "priya.raman",
+        "issuer": "https://id.harborpine.example",
+        "display": "Priya Raman"
+      }
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "acceptance_not_owner",
+      "path": "/9/acceptance/by"
+    }
+  ]
+}

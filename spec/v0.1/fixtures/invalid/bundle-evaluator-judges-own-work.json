@@ -1,0 +1,31 @@
+{
+  "description": "At Controlled, the coding agent evaluates its own work, and its required automated checks without a stated limitation are refused.",
+  "section": "9.16",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/9/evaluator/principal",
+      "value": {
+        "kind": "agent",
+        "id": "https://agents.harborpine.example/coding",
+        "display": "Coding agent"
+      }
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z",
+    "level": "controlled"
+  },
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/9/criteria/0/limitations"
+    },
+    {
+      "code": "schema_violation",
+      "path": "/9/criteria/1/limitations"
+    }
+  ]
+}

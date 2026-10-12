@@ -1,0 +1,22 @@
+{
+  "description": "An organization is named by its domain.",
+  "section": "2.11",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/requester",
+      "value": {
+        "kind": "organization",
+        "id": "Harbor & Pine"
+      }
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/requester/id"
+    }
+  ]
+}

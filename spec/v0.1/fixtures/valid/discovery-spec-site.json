@@ -1,0 +1,11 @@
+{
+  "protocol_version": "0.1",
+  "description": "Publishes the Enna specification, draft 0.1. Runs no agents and claims no conformance.",
+  "organization": {
+    "name": "Enna: the Business Agent Protocol",
+    "domain": "businessagentprotocol.org"
+  },
+  "contacts": {
+    "security": "https://github.com/furthermachines/enna/security/advisories/new"
+  }
+}

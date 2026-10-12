@@ -1,0 +1,23 @@
+{
+  "description": "A feature flag was set, an action no grant names.",
+  "section": "9.7",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/5/action/name",
+      "value": "feature_flag.set"
+    }
+  ],
+  "reseal": "receipts",
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "authority_insufficient",
+      "path": "/5/action"
+    }
+  ]
+}

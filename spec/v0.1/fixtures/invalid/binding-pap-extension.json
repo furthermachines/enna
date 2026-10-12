@@ -1,0 +1,25 @@
+{
+  "description": "The core pap extension is defined for work contracts only, and a binding counts every extension it does not support as critical.",
+  "section": "2.12",
+  "validate": "object",
+  "base": "authority-binding.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/extensions",
+      "value": {
+        "pap": {
+          "version": "1",
+          "operation_id": "op_brand_approvals",
+          "revision": 1
+        }
+      }
+    }
+  ],
+  "expected": [
+    {
+      "code": "unsupported_critical_extension",
+      "path": "/extensions/pap"
+    }
+  ]
+}

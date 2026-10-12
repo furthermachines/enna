@@ -1,0 +1,19 @@
+{
+  "description": "Amounts are decimal strings without an exponent.",
+  "section": "2.8",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/limits/cost/amount",
+      "value": "4e2"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/limits/cost/amount"
+    }
+  ]
+}

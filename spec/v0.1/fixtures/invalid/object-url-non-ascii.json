@@ -1,0 +1,19 @@
+{
+  "description": "A URL is ASCII, so the owner's issuer at /owner/issuer with /é added is refused.",
+  "section": "2.14",
+  "validate": "object",
+  "base": "work-contract.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/owner/issuer",
+      "value": "https://id.harborpine.example/é"
+    }
+  ],
+  "expected": [
+    {
+      "code": "schema_violation",
+      "path": "/owner/issuer"
+    }
+  ]
+}

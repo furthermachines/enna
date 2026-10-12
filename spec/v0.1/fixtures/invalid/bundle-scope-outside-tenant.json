@@ -1,0 +1,22 @@
+{
+  "description": "The manifest belongs to a workspace outside the tenant boundary.",
+  "section": "9.4",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/1/scope/workspace",
+      "value": "lumen-beverages"
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "tenant_mismatch",
+      "path": "/1/scope"
+    }
+  ]
+}

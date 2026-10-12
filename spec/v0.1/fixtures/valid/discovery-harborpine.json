@@ -1,0 +1,60 @@
+{
+  "protocol_version": "0.1",
+  "organization": {
+    "name": "Harbor & Pine",
+    "domain": "harborpine.example",
+    "legal_name": "Harbor & Pine Software Ltd. (fictional)",
+    "jurisdiction": "GB"
+  },
+  "auth": {
+    "issuer": "https://id.harborpine.example"
+  },
+  "agents": [
+    {
+      "client_id": "https://agents.harborpine.example/coding",
+      "role": "coding",
+      "accepts": ["software-delivery/0.1"],
+      "transports": {
+        "a2a": {
+          "agent_card": "https://agents.harborpine.example/coding/agent-card.json"
+        }
+      }
+    },
+    {
+      "client_id": "https://agents.harborpine.example/support",
+      "role": "support",
+      "accepts": ["harborpine.example/provisioning"],
+      "transports": {
+        "pap": {
+          "endpoint": "https://harborpine.example/poppy/conversations"
+        }
+      }
+    }
+  ],
+  "conformance": {
+    "classes": ["producer", "consumer", "enforcement_point", "evaluator"],
+    "level": "essential",
+    "profiles": ["software-delivery/0.1"],
+    "self_declared": true,
+    "statement_url": "https://harborpine.example/enna/conformance"
+  },
+  "approvals": {
+    "modes": ["interactive", "pap_confirmation"],
+    "verifiable": false
+  },
+  "delegation": {
+    "max_depth": 1
+  },
+  "receipts": {
+    "retention_seconds": 31536000
+  },
+  "contacts": {
+    "security": "mailto:security@harborpine.example"
+  },
+  "policies": {
+    "privacy": "https://harborpine.example/privacy"
+  },
+  "pap": {
+    "poppy_json": "https://harborpine.example/.well-known/poppy.json"
+  }
+}

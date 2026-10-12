@@ -1,0 +1,22 @@
+{
+  "description": "The evaluation cites a receipt the record does not hold.",
+  "section": "9.2",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/9/receipts/1/id",
+      "value": "rcpt_lumen_read"
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "reference_unresolved",
+      "path": "/9/receipts/1"
+    }
+  ]
+}

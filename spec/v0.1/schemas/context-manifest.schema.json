@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://businessagentprotocol.org/spec/v0.1/schemas/context-manifest.schema.json",
+  "title": "Scoped context manifest",
+  "description": "The context a contract revision may use, by reference, with purpose, provenance, freshness and disclosure. Provenance is not proof of truth. Revisable.",
+  "type": "object",
+  "allOf": [
+    { "$ref": "common.schema.json#/$defs/object_base" },
+    { "$ref": "common.schema.json#/$defs/revisable" }
+  ],
+  "required": ["contract", "purpose", "items"],
+  "$comment": "Every shared member is listed here, as true where this schema does not narrow it, because additionalProperties sees only this list; the shared schemas still apply through allOf.",
+  "properties": {
+    "protocol_version": true,
+    "type": { "const": "context_manifest" },
+    "id": { "$ref": "common.schema.json#/$defs/context_manifest_id" },
+    "revision": true,
+    "revision_author": true,
+    "change_summary": true,
+    "created_at": true,
+    "scope": true,
+    "profile": true,
+    "extensions": true,
+    "contract": { "$ref": "common.schema.json#/$defs/contract_ref" },
+    "purpose": { "$ref": "common.schema.json#/$defs/text" },
+    "items": { "type": "array", "items": { "$ref": "#/$defs/item" } },
+    "known_unknowns": {
+      "type": "array",
+      "items": { "$ref": "common.schema.json#/$defs/text" }
+    },
+    "excluded": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["description", "reason"],
+        "properties": {
+          "description": { "$ref": "common.schema.json#/$defs/text" },
+          "reason": { "$ref": "common.schema.json#/$defs/text" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "residency": { "$ref": "common.schema.json#/$defs/text" },
+    "retention_seconds": { "$ref": "common.schema.json#/$defs/duration_seconds" }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "item": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "source",
+        "scope",
+        "classification",
+        "provenance",
+        "freshness",
+        "disclosure",
+        "minimal"
+      ],
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/context_item_id" },
+        "kind": { "$ref": "common.schema.json#/$defs/token" },
+        "source": {
+          "type": "object",
+          "required": ["system", "ref", "version"],
+          "properties": {
+            "system": { "$ref": "common.schema.json#/$defs/text" },
+            "ref": {
+              "description": "A reference to the context, never a copy of it.",
+              "$ref": "common.schema.json#/$defs/uri",
+              "not": { "pattern": "^[dD][aA][tT][aA]:" }
+            },
+            "version": { "$ref": "common.schema.json#/$defs/text" }
+          },
+          "additionalProperties": false
+        },
+        "scope": { "$ref": "common.schema.json#/$defs/scope" },
+        "classification": { "enum": ["public", "internal", "confidential", "restricted"] },
+        "provenance": {
+          "type": "object",
+          "required": ["produced_by", "retrieved_at", "method"],
+          "properties": {
+            "produced_by": { "$ref": "common.schema.json#/$defs/principal" },
+            "retrieved_at": { "$ref": "common.schema.json#/$defs/timestamp" },
+            "method": { "$ref": "common.schema.json#/$defs/token" }
+          },
+          "additionalProperties": false
+        },
+        "freshness": {
+          "type": "object",
+          "properties": {
+            "as_of": { "$ref": "common.schema.json#/$defs/timestamp" },
+            "max_age_seconds": { "$ref": "common.schema.json#/$defs/duration_seconds" }
+          },
+          "additionalProperties": false
+        },
+        "disclosure": {
+          "type": "object",
+          "required": ["allowed_to"],
+          "properties": {
+            "allowed_to": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "if": { "type": "string" },
+                "then": { "$ref": "common.schema.json#/$defs/token" },
+                "else": { "$ref": "common.schema.json#/$defs/principal" }
+              }
+            },
+            "redactions": {
+              "type": "array",
+              "items": { "$ref": "common.schema.json#/$defs/text" }
+            }
+          },
+          "additionalProperties": false
+        },
+        "minimal": {
+          "description": "The fields or facts of the source that the work uses.",
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "common.schema.json#/$defs/text" }
+        },
+        "digest": { "$ref": "common.schema.json#/$defs/artifact_digest" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

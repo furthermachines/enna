@@ -1,0 +1,22 @@
+{
+  "description": "The requested host starts with U+212A KELVIN SIGN, which only a Unicode case fold makes k, so it is not the document's kestrel.example: hosts compare without regard to ASCII case only.",
+  "section": "12.2",
+  "validate": "discovery",
+  "base": "discovery-harborpine.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/organization/domain",
+      "value": "kestrel.example"
+    }
+  ],
+  "options": {
+    "requestedHost": "Kestrel.example"
+  },
+  "expected": [
+    {
+      "code": "domain_mismatch",
+      "path": "/organization/domain"
+    }
+  ]
+}

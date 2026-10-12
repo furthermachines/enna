@@ -1,0 +1,21 @@
+{
+  "description": "The evaluator accepts after the binding that delegates it was revoked.",
+  "section": "9.13",
+  "validate": "bundle",
+  "base": "bundle-delegated-acceptance.json",
+  "options": {
+    "now": "2026-10-20T00:00:00Z",
+    "revocations": [
+      {
+        "id": "auth_acceptance",
+        "revoked_at": "2026-10-16T14:30:00Z"
+      }
+    ]
+  },
+  "expected": [
+    {
+      "code": "acceptance_not_owner",
+      "path": "/9/acceptance/by"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "description": "Object rules are not checked while the schema fails.",
+  "section": "8.2",
+  "validate": "object",
+  "base": "evaluation-result.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/criteria/0/weight",
+      "value": 2
+    },
+    {
+      "op": "replace",
+      "path": "/criteria/1/evidence",
+      "value": []
+    }
+  ],
+  "expected": [
+    {
+      "code": "unknown_member",
+      "path": "/criteria/0/weight"
+    }
+  ]
+}

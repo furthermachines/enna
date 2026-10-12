@@ -1,0 +1,42 @@
+{
+  "description": "The manifest serves another contract revision than the receipts that cite it.",
+  "section": "9.3",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/1/contract/revision",
+      "value": 2
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z"
+  },
+  "expected": [
+    {
+      "code": "revision_mismatch",
+      "path": "/1/contract"
+    },
+    {
+      "code": "revision_mismatch",
+      "path": "/3/context"
+    },
+    {
+      "code": "revision_mismatch",
+      "path": "/5/context"
+    },
+    {
+      "code": "revision_mismatch",
+      "path": "/6/context"
+    },
+    {
+      "code": "revision_mismatch",
+      "path": "/7/context"
+    },
+    {
+      "code": "revision_mismatch",
+      "path": "/8/context"
+    }
+  ]
+}

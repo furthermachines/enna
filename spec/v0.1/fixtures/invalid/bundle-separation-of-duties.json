@@ -1,0 +1,48 @@
+{
+  "description": "At Controlled, the requester approved their own contract above the threshold.",
+  "section": "9.6",
+  "validate": "bundle",
+  "base": "bundle-brand-approvals.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/2/approvals/0/approver",
+      "value": {
+        "kind": "person",
+        "id": "dana.whitfield",
+        "issuer": "https://id.harborpine.example",
+        "display": "Dana Whitfield"
+      }
+    }
+  ],
+  "options": {
+    "now": "2026-10-20T00:00:00Z",
+    "level": "controlled",
+    "sodThreshold": {
+      "currency": "USD",
+      "amount": "120.00"
+    }
+  },
+  "expected": [
+    {
+      "code": "separation_of_duties",
+      "path": "/2/grants/0"
+    },
+    {
+      "code": "separation_of_duties",
+      "path": "/2/grants/1"
+    },
+    {
+      "code": "separation_of_duties",
+      "path": "/2/grants/2"
+    },
+    {
+      "code": "separation_of_duties",
+      "path": "/2/grants/3"
+    },
+    {
+      "code": "separation_of_duties",
+      "path": "/2/grants/4"
+    }
+  ]
+}
